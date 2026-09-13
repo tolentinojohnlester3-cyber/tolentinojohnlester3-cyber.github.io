@@ -75,21 +75,48 @@
     .page-head { padding: 28px 0 36px; max-width: 640px; }
     .page-head h1 { font-size: clamp(2.2rem, 5vw, 3.6rem); letter-spacing: -0.04em; }
     .page-head p { margin-top: 16px; color: var(--gray); font-size: 1.05rem; }
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      align-items: stretch;
+      margin-bottom: 80px;
+    }
     .post {
-      display: grid; grid-template-columns: 1fr; gap: 8px; background: var(--bg-2); border: 1px solid var(--line);
-      border-radius: var(--radius); padding: 0; overflow: hidden; box-shadow: 0 10px 28px rgba(17, 29, 64, 0.06); max-width: 760px; margin-bottom: 80px;
+      display: flex;
+      flex-direction: column;
+      background: var(--bg-2);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 0;
+      overflow: hidden;
+      box-shadow: 0 10px 28px rgba(17, 29, 64, 0.06);
+      height: 100%;
     }
     .post img { width: 100%; height: auto; aspect-ratio: 800 / 420; object-fit: cover; background: var(--bg-3); }
-    .post-body { padding: 22px 28px 28px; }
+    .post-body { display: flex; flex-direction: column; flex: 1 1 auto; padding: 20px 22px 22px; }
     .post:hover { border-color: var(--orange); }
-    .post small { color: var(--orange); font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }
-    .post h2 { font-size: 1.7rem; margin: 6px 0 10px; }
-    .post p { color: var(--gray); }
-    .post .meta { margin-top: 12px; font-size: 0.88rem; font-weight: 600; color: var(--gray); }
-    .post-cta { margin-top: 16px; color: var(--blue); font-weight: 800; }
+    .post small { color: var(--orange); font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; font-size: 0.72rem; }
+    .post h2 { font-size: 1.12rem; margin: 8px 0 10px; line-height: 1.25; }
+    .post p { color: var(--gray); font-size: 0.94rem; line-height: 1.55; }
+    .post .meta { margin-top: auto; padding-top: 12px; font-size: 0.82rem; font-weight: 600; color: var(--gray); }
+    .post-cta { margin-top: 12px; color: var(--blue); font-weight: 800; font-size: 0.92rem; }
+    .post-all {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 280px;
+      padding: 28px 24px;
+      background: linear-gradient(160deg, var(--bg-2) 0%, var(--bg-3) 100%);
+    }
+    .post-all h2 { font-size: 1.2rem; }
+    @media (max-width: 1100px) {
+      .blog-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
     .footer { border-top: 1px solid var(--line); padding: 28px 0 40px; color: var(--gray); display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
     .footer a { color: var(--blue); font-weight: 700; }
     @media (max-width: 900px) {
+      .blog-grid { grid-template-columns: 1fr; }
       .menu-btn { display: block; }
       .nav-links { display: none; position: absolute; top: 72px; left: 0; right: 0; background: var(--white); border-bottom: 1px solid var(--line); flex-direction: column; padding: 20px 24px 28px; align-items: flex-start; z-index: 80; }
       .nav-links.open { display: flex; }
@@ -127,27 +154,38 @@
       <p>Practical SEO writing from John Lester Tolentino. Guides on search fundamentals, modern SEO layers, and how ranking actually works.</p>
     </header>
 
-    <a class="post" href="/blog/layers-of-seo/">
-      <img src="/blog/layers-of-seo/featured-card.jpg" width="800" height="420" alt="Layers of SEO: from crawled to converted" loading="lazy" decoding="async">
-      <div class="post-body">
-      <small>SEO strategy · 10 min read</small>
-      <h2>Layers of SEO: From crawled to converted</h2>
-      <p>SEO, AEO, GEO, AIO, and SXO explained — the five layers that take a site from crawl and index to AI citations and conversions.</p>
-      <p class="meta">September 13, 2026 · John Lester Tolentino</p>
-      <span class="post-cta">Read the guide →</span>
-      </div>
-    </a>
+    <div class="blog-grid">
+      <a class="post" href="/blog/layers-of-seo/">
+        <img src="/blog/layers-of-seo/featured-card.jpg" width="800" height="420" alt="Layers of SEO: from crawled to converted" loading="lazy" decoding="async">
+        <div class="post-body">
+          <small>SEO strategy · 10 min read</small>
+          <h2>Layers of SEO: From crawled to converted</h2>
+          <p>SEO, AEO, GEO, AIO, and SXO explained — the five layers that take a site from crawl and index to AI citations and conversions.</p>
+          <p class="meta">September 13, 2026 · John Lester Tolentino</p>
+          <span class="post-cta">Read the guide →</span>
+        </div>
+      </a>
 
-    <a class="post" href="/blog/what-is-seo/">
-      <img src="/blog/what-is-seo/featured-card.jpg" width="800" height="420" alt="What is SEO? Search engine optimization explained" loading="lazy" decoding="async">
-      <div class="post-body">
-      <small>SEO basics · 8 min read</small>
-      <h2>What is SEO? Search engine optimization explained</h2>
-      <p>SEO is the work of helping people find your pages in Google without paying for ads. This guide covers crawling, indexing, ranking, on-page, technical, and off-page SEO.</p>
-      <p class="meta">September 12, 2026 · John Lester Tolentino</p>
-      <span class="post-cta">Read the guide →</span>
-      </div>
-    </a>
+      <a class="post" href="/blog/what-is-seo/">
+        <img src="/blog/what-is-seo/featured-card.jpg" width="800" height="420" alt="What is SEO? Search engine optimization explained" loading="lazy" decoding="async">
+        <div class="post-body">
+          <small>SEO basics · 8 min read</small>
+          <h2>What is SEO? Search engine optimization explained</h2>
+          <p>SEO is the work of helping people find your pages in Google without paying for ads. This guide covers crawling, indexing, ranking, on-page, technical, and off-page SEO.</p>
+          <p class="meta">September 12, 2026 · John Lester Tolentino</p>
+          <span class="post-cta">Read the guide →</span>
+        </div>
+      </a>
+
+      <a class="post" href="/#contact">
+        <div class="post-all">
+          <small>Work with JLT</small>
+          <h2>Need SEO for your site?</h2>
+          <p>International SEO, WordPress builds, content, and technical audits across 67+ websites handled.</p>
+          <span class="post-cta">Get in touch →</span>
+        </div>
+      </a>
+    </div>
   </main>
 
   <footer class="wrap footer">

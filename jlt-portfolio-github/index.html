@@ -437,8 +437,83 @@
     }
     .faq-item h3 { font-size: 1.08rem; margin-bottom: 8px; }
     .faq-item p { color: var(--gray); }
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      align-items: stretch;
+    }
+    .blog-card {
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      padding: 0;
+      height: 100%;
+    }
+    .blog-card img {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 800 / 420;
+      object-fit: cover;
+      display: block;
+      background: var(--bg-3);
+    }
+    .blog-card-body {
+      display: flex;
+      flex-direction: column;
+      flex: 1 1 auto;
+      padding: 20px 22px 22px;
+    }
+    .blog-card small {
+      color: var(--orange);
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 0.72rem;
+    }
+    .blog-card h3 {
+      margin: 10px 0 8px;
+      font-size: 1.12rem;
+      line-height: 1.25;
+    }
+    .blog-card p {
+      color: var(--gray);
+      margin: 0;
+      flex: 1 1 auto;
+      font-size: 0.94rem;
+      line-height: 1.55;
+    }
+    .blog-card-cta {
+      display: inline-block;
+      margin-top: 14px;
+      color: var(--blue);
+      font-weight: 800;
+      font-size: 0.92rem;
+    }
+    .blog-card-all {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      text-align: left;
+      height: 100%;
+      min-height: 280px;
+      padding: 28px 24px;
+      background: linear-gradient(160deg, var(--bg-2) 0%, var(--bg-3) 100%);
+    }
+    .blog-card-all h3 {
+      margin: 10px 0 8px;
+      font-size: 1.2rem;
+    }
+    .blog-card-all p {
+      color: var(--gray);
+      margin: 0;
+    }
+    @media (max-width: 1100px) {
+      .blog-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
     @media (max-width: 900px) {
-      .hero, .about-grid, .job, .projects, .contact-box { grid-template-columns: 1fr; }
+      .hero, .about-grid, .job, .projects, .contact-box, .blog-grid { grid-template-columns: 1fr; }
       .menu-btn { display: block; }
       .nav-links {
         display: none;
@@ -813,24 +888,34 @@
           <h2>Blog</h2>
           <p>SEO guides written for people and for search.</p>
         </div>
-        <a class="card" href="/blog/layers-of-seo/" style="display:block; max-width:760px; overflow:hidden; padding:0; margin-bottom:18px;">
-          <img src="/blog/layers-of-seo/featured-card.jpg" width="800" height="420" alt="Layers of SEO: from crawled to converted" loading="lazy" decoding="async" style="width:100%; height:auto; aspect-ratio:800/420; object-fit:cover; display:block;">
-          <div style="padding:22px 24px 24px;">
-          <small style="color:var(--orange); font-weight:800; letter-spacing:0.08em; text-transform:uppercase;">SEO strategy · 10 min read</small>
-          <h3 style="margin:10px 0 8px;">Layers of SEO: From crawled to converted</h3>
-          <p style="color:var(--gray); margin:0;">SEO, AEO, GEO, AIO, and SXO — the five layers from ranking in Google to winning AI answers and conversions.</p>
-          <span style="display:inline-block; margin-top:14px; color:var(--blue); font-weight:800;">Read the guide →</span>
-          </div>
-        </a>
-        <a class="card" href="/blog/what-is-seo/" style="display:block; max-width:760px; overflow:hidden; padding:0;">
-          <img src="/blog/what-is-seo/featured-card.jpg" width="800" height="420" alt="What is SEO? Search engine optimization explained" loading="lazy" decoding="async" style="width:100%; height:auto; aspect-ratio:800/420; object-fit:cover; display:block;">
-          <div style="padding:22px 24px 24px;">
-          <small style="color:var(--orange); font-weight:800; letter-spacing:0.08em; text-transform:uppercase;">SEO basics · 8 min read</small>
-          <h3 style="margin:10px 0 8px;">What is SEO? Search engine optimization explained</h3>
-          <p style="color:var(--gray); margin:0;">How search engines crawl, index, and rank pages, plus on-page, technical, and off-page SEO in plain language.</p>
-          <span style="display:inline-block; margin-top:14px; color:var(--blue); font-weight:800;">Read the guide →</span>
-          </div>
-        </a>
+        <div class="blog-grid">
+          <a class="card blog-card" href="/blog/layers-of-seo/">
+            <img src="/blog/layers-of-seo/featured-card.jpg" width="800" height="420" alt="Layers of SEO: from crawled to converted" loading="lazy" decoding="async">
+            <div class="blog-card-body">
+              <small>SEO strategy · 10 min read</small>
+              <h3>Layers of SEO: From crawled to converted</h3>
+              <p>SEO, AEO, GEO, AIO, and SXO — the five layers from ranking in Google to winning AI answers and conversions.</p>
+              <span class="blog-card-cta">Read the guide →</span>
+            </div>
+          </a>
+          <a class="card blog-card" href="/blog/what-is-seo/">
+            <img src="/blog/what-is-seo/featured-card.jpg" width="800" height="420" alt="What is SEO? Search engine optimization explained" loading="lazy" decoding="async">
+            <div class="blog-card-body">
+              <small>SEO basics · 8 min read</small>
+              <h3>What is SEO? Search engine optimization explained</h3>
+              <p>How search engines crawl, index, and rank pages, plus on-page, technical, and off-page SEO in plain language.</p>
+              <span class="blog-card-cta">Read the guide →</span>
+            </div>
+          </a>
+          <a class="card blog-card" href="/blog/">
+            <div class="blog-card-all">
+              <small>All guides</small>
+              <h3>View the full SEO blog</h3>
+              <p>More articles on search fundamentals, modern SEO layers, and practical ranking work.</p>
+              <span class="blog-card-cta">Browse all posts →</span>
+            </div>
+          </a>
+        </div>
       </div>
     </section>
 
@@ -880,23 +965,36 @@
     "@context": "https://schema.org",
     "@graph": [
       {
+        "@type": "WebSite",
+        "@id": "https://tolentinojohnlester3-cyber.github.io/#website",
+        "url": "https://tolentinojohnlester3-cyber.github.io/",
+        "name": "John Lester Tolentino | JLT",
+        "description": "Official portfolio of John Lester Tolentino, Senior SEO Specialist in Sta. Rosa, Laguna, Philippines.",
+        "publisher": { "@id": "https://tolentinojohnlester3-cyber.github.io/#person" },
+        "inLanguage": "en"
+      },
+      {
         "@type": "ProfilePage",
-        "@id": "#webpage",
+        "@id": "https://tolentinojohnlester3-cyber.github.io/#webpage",
+        "url": "https://tolentinojohnlester3-cyber.github.io/",
         "name": "John Lester Tolentino | Senior SEO Specialist",
         "headline": "Senior SEO Specialist in Sta. Rosa, Laguna",
         "description": "Portfolio of John Lester Tolentino, Senior SEO Specialist. International SEO, WordPress, content, and 67 websites handled.",
         "inLanguage": "en",
-        "about": { "@id": "#person" },
-        "mainEntity": { "@id": "#person" }
+        "isPartOf": { "@id": "https://tolentinojohnlester3-cyber.github.io/#website" },
+        "about": { "@id": "https://tolentinojohnlester3-cyber.github.io/#person" },
+        "mainEntity": { "@id": "https://tolentinojohnlester3-cyber.github.io/#person" }
       },
       {
         "@type": "Person",
-        "@id": "#person",
+        "@id": "https://tolentinojohnlester3-cyber.github.io/#person",
         "name": "John Lester Tolentino",
         "alternateName": ["John Lester Lacson Tolentino", "Lester Tolentino", "JLT"],
         "givenName": "John Lester",
         "familyName": "Tolentino",
         "jobTitle": "Senior SEO Specialist",
+        "url": "https://tolentinojohnlester3-cyber.github.io/",
+        "image": "https://tolentinojohnlester3-cyber.github.io/jlt-profile.png",
         "description": "Senior SEO Specialist, International SEO, Content Writer, and Computer Engineer based in Sta. Rosa, Laguna, Philippines.",
         "email": "mailto:tolentinojohnlester3@gmail.com",
         "telephone": "+639619684118",
@@ -918,7 +1016,7 @@
       },
       {
         "@type": "FAQPage",
-        "@id": "#faq",
+        "@id": "https://tolentinojohnlester3-cyber.github.io/#faq",
         "mainEntity": [
           {
             "@type": "Question",
@@ -985,7 +1083,7 @@
       if (!document.querySelector('link[rel="canonical"]')) {
         const canonical = document.createElement("link");
         canonical.rel = "canonical";
-        canonical.href = location.origin + "/";
+        canonical.href = "https://tolentinojohnlester3-cyber.github.io/";
         document.head.appendChild(canonical);
       }
       const progress = document.querySelector(".progress");

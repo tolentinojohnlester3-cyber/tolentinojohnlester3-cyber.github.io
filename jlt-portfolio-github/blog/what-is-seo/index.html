@@ -164,6 +164,18 @@
     }
     .author-box img { width: 88px; height: 88px; border-radius: 18px; object-fit: cover; }
     .author-box p { color: var(--gray); margin: 8px 0 0; }
+    .more-posts { max-width: var(--prose); margin: 0 0 80px; padding-top: 40px; border-top: 1px solid var(--line); }
+    .more-posts h2 { font-size: 1.35rem; margin-bottom: 18px; }
+    .more-grid { display: grid; gap: 16px; }
+    .more-card { display: grid; grid-template-columns: 148px 1fr; gap: 16px; align-items: start; background: var(--bg-2); border: 1px solid var(--line); border-radius: 16px; padding: 14px; box-shadow: 0 10px 28px rgba(17, 29, 64, 0.06); transition: border-color 0.2s; }
+    .more-card:hover { border-color: var(--orange); }
+    .more-card img { width: 148px; height: 78px; object-fit: cover; border-radius: 10px; background: var(--bg-3); }
+    .more-card small { color: var(--orange); font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; font-size: 0.72rem; }
+    .more-card h3 { font-size: 1.05rem; margin: 6px 0 8px; line-height: 1.25; }
+    .more-card p { margin: 0; color: var(--gray); font-size: 0.9rem; line-height: 1.5; }
+    .more-cta { display: inline-block; margin-top: 10px; color: var(--blue); font-weight: 800; font-size: 0.88rem; }
+    .more-all { margin-top: 18px; font-weight: 700; }
+    .more-all a { color: var(--blue); text-decoration: underline; text-underline-offset: 3px; }
     .footer { border-top: 1px solid var(--line); padding: 28px 0 40px; color: var(--gray); display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
     .footer a { color: var(--blue); font-weight: 700; }
     @media (max-width: 900px) {
@@ -175,6 +187,8 @@
       }
       .nav-links.open { display: flex; }
       .grid-3, .author-box { grid-template-columns: 1fr; }
+      .more-card { grid-template-columns: 1fr; }
+      .more-card img { width: 100%; height: auto; aspect-ratio: 800 / 420; }
     }
   </style>
 </head>
@@ -381,6 +395,22 @@
         </div>
       </aside>
     </article>
+
+    <section class="more-posts" aria-label="More from the blog">
+      <h2>Latest on the blog</h2>
+      <div class="more-grid">
+        <a class="more-card" href="/blog/layers-of-seo/">
+          <img src="/blog/layers-of-seo/featured-card.jpg" width="148" height="78" alt="Layers of SEO: from crawled to converted" loading="lazy" decoding="async">
+          <div>
+            <small>SEO strategy · 10 min read · New</small>
+            <h3>Layers of SEO: From crawled to converted</h3>
+            <p>SEO, AEO, GEO, AIO, and SXO — the five layers from ranking in Google to winning AI answers and conversions.</p>
+            <span class="more-cta">Read the guide →</span>
+          </div>
+        </a>
+      </div>
+      <p class="more-all"><a href="/blog/">View all posts →</a></p>
+    </section>
   </main>
 
   <footer class="wrap footer">
