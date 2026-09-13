@@ -1,0 +1,60 @@
+UPLOAD CHECKLIST — tolentinojohnlester3-cyber.github.io
+=========================================================
+
+Your LOCAL folder is correct. The LIVE site is still OLD because
+these files are NOT on GitHub yet (checked Sept 13, 2026):
+
+  LIVE 404:  https://tolentinojohnlester3-cyber.github.io/blog/layers-of-seo/
+  LIVE OLD:  blog/index.html still says "First up: a full explanation..."
+
+CORRECT REPO ROOT ON GITHUB (not inside a subfolder!)
+----------------------------------------------------
+  index.html
+  blog/
+    index.html                    <-- must list Layers of SEO + What is SEO
+    layers-of-seo/
+      index.html                  <-- NEW POST (required)
+      featured-card.jpg
+      featured.jpg
+      featured.webp
+    what-is-seo/
+      index.html
+      featured-card.jpg
+  sitemap.xml
+  robots.txt
+  .nojekyll
+
+WRONG (common mistake)
+----------------------
+  jlt-portfolio-github/blog/...   <-- DO NOT upload the folder name itself
+  docs/blog/...                   <-- only if Pages source is set to /docs
+
+HOW TO UPLOAD ON GITHUB.COM
+---------------------------
+1. Open: https://github.com/tolentinojohnlester3-cyber/tolentinojohnlester3-cyber.github.io
+2. Click "Add file" → "Upload files"
+3. Open THIS folder on your PC:
+   7POKIES_All_URL_Pages\jlt-portfolio-github
+4. Select ALL files and folders INSIDE (not the parent folder name)
+5. Drag into GitHub upload area
+6. Commit message: "Add Layers of SEO post and update blog"
+7. Click "Commit changes"
+8. Wait 2–5 minutes for GitHub Pages to rebuild
+
+VERIFY ON GITHUB BEFORE BROWSER
+-------------------------------
+In the repo, click through and confirm these exist:
+  blog/layers-of-seo/index.html
+  blog/index.html  (open on GitHub — search for "layers-of-seo" in file)
+
+VERIFY LIVE SITE AFTER UPLOAD
+-----------------------------
+  https://tolentinojohnlester3-cyber.github.io/blog/layers-of-seo/  → should load
+  https://tolentinojohnlester3-cyber.github.io/blog/              → 2 posts + contact card
+
+GITHUB PAGES SETTINGS
+---------------------
+  Settings → Pages → Source: Deploy from branch
+  Branch: main (or master)  /  Folder: / (root)
+
+If source is /docs, either move files into docs/ or change source to root.

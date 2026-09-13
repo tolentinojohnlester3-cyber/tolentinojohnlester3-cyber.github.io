@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <title>Layers of SEO: From Crawled to Converted | John Lester Tolentino (JLT)</title>
+  <meta name="description" content="Learn the five layers of SEO — SEO, AEO, GEO, AIO, and SXO — and how each stage moves a site from crawl and index to AI citations and conversions. By John Lester Tolentino (JLT).">
+  <meta name="keywords" content="John Lester Tolentino, JLT, layers of SEO, AEO, GEO, AIO, SXO, answer engine optimization, generative engine optimization, search experience optimization, AI SEO">
+  <meta name="author" content="John Lester Tolentino (JLT)">
+  <meta name="owner" content="John Lester Tolentino">
+  <meta name="copyright" content="John Lester Tolentino">
+  <meta name="publisher" content="John Lester Tolentino (JLT)">
+  <meta name="subject" content="Layers of SEO by John Lester Tolentino JLT">
+  <meta name="google-site-verification" content="-VhVE7603Le5BmPDdqgtv_9G-7fJ3_f2uhttElLQUr0" />
+  <meta name="google-site-verification" content="AWeOntiIBeb32_Tu_OXoZrGGwsAq0F-z4rwSbERKgBo" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large">
+  <meta name="bingbot" content="index, follow">
+  <link rel="canonical" href="https://tolentinojohnlester3-cyber.github.io/blog/layers-of-seo/">
+  <link rel="sitemap" type="application/xml" href="/sitemap.xml">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="John Lester Tolentino | JLT">
+  <meta property="og:title" content="Layers of SEO: From Crawled to Converted | John Lester Tolentino (JLT)">
+  <meta property="og:description" content="SEO, AEO, GEO, AIO, and SXO explained: the full stack from getting crawled and ranked to winning AI answers and conversions.">
+  <meta property="og:url" content="https://tolentinojohnlester3-cyber.github.io/blog/layers-of-seo/">
+  <link rel="preload" as="image" href="/blog/layers-of-seo/featured.webp" type="image/webp">
+  <meta property="og:image" content="https://tolentinojohnlester3-cyber.github.io/blog/layers-of-seo/featured.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Layers of SEO: from crawled to converted — guide by John Lester Tolentino (JLT)">
+  <meta property="article:published_time" content="2026-09-13">
+  <meta property="article:modified_time" content="2026-09-13">
+  <meta property="article:author" content="John Lester Tolentino">
+  <meta property="article:section" content="SEO">
+  <meta property="article:tag" content="Layers of SEO">
+  <meta property="article:tag" content="AEO">
+  <meta property="article:tag" content="GEO">
+  <meta property="article:tag" content="AIO">
+  <meta property="article:tag" content="SXO">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Layers of SEO: From Crawled to Converted | JLT">
+  <meta name="twitter:description" content="The five layers every modern SEO strategy needs: SEO, AEO, GEO, AIO, and SXO.">
+  <meta name="twitter:image" content="https://tolentinojohnlester3-cyber.github.io/blog/layers-of-seo/featured.jpg">
+  <meta name="twitter:image:alt" content="Layers of SEO: from crawled to converted — guide by John Lester Tolentino (JLT)">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f5f7fb; --bg-2: #ffffff; --bg-3: #eef3fb; --orange: #ff6b1a; --orange-2: #ff8f4a;
+      --blue: #1d4ed8; --blue-2: #3b82f6; --purple: #7c3aed; --black: #111111; --white: #ffffff;
+      --ink: #111111; --gray: #5b6472; --line: rgba(17, 17, 17, 0.1); --shadow: 0 18px 50px rgba(17, 29, 64, 0.1);
+      --radius: 18px; --max: 1180px; --prose: 760px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; scroll-padding-top: 84px; }
+    .prose h2, .prose h3 { scroll-margin-top: 84px; }
+    body { font-family: "Manrope", "Segoe UI", sans-serif; background: var(--bg); color: var(--ink); line-height: 1.7; overflow-x: hidden; }
+    body::before {
+      content: ""; position: fixed; inset: 0; pointer-events: none; z-index: -1;
+      background:
+        radial-gradient(900px 420px at 8% -8%, rgba(255, 107, 26, 0.18), transparent 58%),
+        radial-gradient(720px 420px at 100% 0%, rgba(29, 78, 216, 0.14), transparent 52%),
+        linear-gradient(180deg, #ffffff 0%, #f5f7fb 40%, #eef3fb 100%);
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    button { font-family: inherit; cursor: pointer; }
+    .wrap { width: min(var(--max), calc(100% - 40px)); margin: 0 auto; position: relative; z-index: 1; }
+    .progress { position: fixed; top: 0; left: 0; height: 3px; width: 0; background: linear-gradient(90deg, var(--orange), var(--blue)); z-index: 80; }
+    .nav { position: sticky; top: 0; z-index: 70; backdrop-filter: blur(16px); background: rgba(255, 255, 255, 0.86); border-bottom: 1px solid var(--line); }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; min-height: 72px; gap: 16px; }
+    .logo { display: inline-flex; align-items: center; line-height: 0; }
+    .logo img { height: 44px; width: auto; border-radius: 8px; }
+    .nav-links { display: flex; gap: 18px; list-style: none; align-items: center; }
+    .nav-links a { color: var(--gray); font-size: 0.92rem; font-weight: 600; transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--blue); }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: var(--orange); color: #fff; font-weight: 800; font-size: 0.92rem; border: 0; border-radius: 999px; padding: 11px 20px; box-shadow: 0 8px 18px rgba(255, 107, 26, 0.32); }
+    .btn:hover { background: var(--orange-2); color: #fff; }
+    .btn-ghost { background: var(--blue); box-shadow: 0 8px 18px rgba(29, 78, 216, 0.32); }
+    .btn-ghost:hover { background: #163db8; color: #fff; }
+    .nav-links a.btn, .nav-links a.btn:hover, .nav-links a.btn.active { color: #fff; font-size: 0.88rem; padding: 10px 18px; white-space: nowrap; }
+    .menu-btn { display: none; background: none; border: 0; color: var(--black); font-size: 1.6rem; }
+    h1, h2, h3 { font-family: "Syne", sans-serif; line-height: 1.15; color: var(--black); }
+    .kicker { color: var(--orange); font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; font-size: 0.78rem; margin-bottom: 14px; }
+    .crumbs { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; color: var(--gray); font-size: 0.88rem; font-weight: 600; padding: 28px 0 0; }
+    .crumbs a { color: var(--blue); }
+    .article-hero { padding: 28px 0 12px; max-width: var(--prose); }
+    .article-hero h1 { font-size: clamp(2.1rem, 5vw, 3.6rem); letter-spacing: -0.04em; }
+    .featured { margin: 22px 0 4px; max-width: var(--prose); }
+    .featured img { width: 100%; height: auto; aspect-ratio: 1200 / 630; object-fit: cover; border-radius: 18px; border: 1px solid var(--line); background: var(--bg-3); }
+    .lead { margin-top: 18px; color: var(--gray); font-size: 1.12rem; }
+    .meta { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 22px; color: var(--gray); font-size: 0.9rem; font-weight: 600; }
+    .meta img { width: 36px; height: 36px; border-radius: 50%; object-fit: cover; }
+    .meta-author { display: flex; align-items: center; gap: 10px; }
+    .toc { background: var(--bg-2); border: 1px solid var(--line); border-radius: var(--radius); padding: 22px 24px; margin: 28px 0 8px; max-width: var(--prose); box-shadow: 0 10px 28px rgba(17, 29, 64, 0.06); }
+    .toc h2 { font-size: 1.05rem; margin-bottom: 12px; }
+    .toc ol { padding-left: 20px; color: var(--gray); }
+    .toc a { color: var(--blue); font-weight: 700; }
+    .toc li { margin: 7px 0; }
+    .prose { max-width: var(--prose); padding: 12px 0 80px; }
+    .prose h2 { font-size: 1.7rem; margin: 42px 0 14px; }
+    .prose h3 { font-size: 1.22rem; margin: 28px 0 10px; }
+    .prose p { color: #2c3340; margin: 0 0 16px; }
+    .prose ul, .prose ol { padding-left: 22px; color: #2c3340; margin: 0 0 18px; }
+    .prose li { margin: 7px 0; }
+    .prose a { color: var(--blue); font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
+    .callout { background: var(--bg-2); border-left: 4px solid var(--orange); border-radius: 0 14px 14px 0; padding: 16px 18px; margin: 20px 0 24px; color: #2c3340; }
+    .layer-stack { display: grid; gap: 14px; margin: 24px 0 32px; }
+    .layer-card { background: var(--bg-2); border: 1px solid var(--line); border-radius: 16px; padding: 20px 22px; border-left: 5px solid var(--blue); }
+    .layer-card.aeo { border-left-color: #2563eb; }
+    .layer-card.geo { border-left-color: var(--purple); }
+    .layer-card.aio { border-left-color: #9333ea; }
+    .layer-card.sxo { border-left-color: var(--orange); }
+    .layer-card h3 { margin: 0 0 6px; font-size: 1.15rem; }
+    .layer-card .goal { color: var(--orange); font-weight: 800; font-size: 0.82rem; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 8px; }
+    .layer-card p { margin: 0 0 10px; color: var(--gray); font-size: 0.94rem; }
+    .layer-card ul { margin: 0; padding-left: 18px; color: #2c3340; font-size: 0.92rem; }
+    .layer-card li { margin: 4px 0; }
+    .compare { width: 100%; border-collapse: collapse; margin: 20px 0 28px; font-size: 0.92rem; }
+    .compare th, .compare td { border: 1px solid var(--line); padding: 12px 14px; text-align: left; vertical-align: top; }
+    .compare th { background: var(--bg-3); font-family: "Syne", sans-serif; }
+    .compare td { color: #2c3340; background: var(--bg-2); }
+    .faq { display: grid; gap: 12px; margin-top: 8px; }
+    .faq-item { background: var(--bg-2); border: 1px solid var(--line); border-radius: var(--radius); padding: 20px 24px; }
+    .faq-item h3 { font-size: 1.08rem; margin-bottom: 8px; }
+    .faq-item p { color: var(--gray); margin: 0; }
+    .author-box { display: grid; grid-template-columns: 88px 1fr; gap: 18px; align-items: center; background: var(--bg-2); border: 1px solid var(--line); border-radius: 20px; padding: 22px; margin-top: 36px; }
+    .author-box img { width: 88px; height: 88px; border-radius: 18px; object-fit: cover; }
+    .author-box p { color: var(--gray); margin: 8px 0 0; }
+    .more-posts { max-width: var(--prose); margin: 0 0 80px; padding-top: 40px; border-top: 1px solid var(--line); }
+    .more-posts h2 { font-size: 1.35rem; margin-bottom: 18px; }
+    .more-grid { display: grid; gap: 16px; }
+    .more-card { display: grid; grid-template-columns: 148px 1fr; gap: 16px; align-items: start; background: var(--bg-2); border: 1px solid var(--line); border-radius: 16px; padding: 14px; box-shadow: 0 10px 28px rgba(17, 29, 64, 0.06); transition: border-color 0.2s; }
+    .more-card:hover { border-color: var(--orange); }
+    .more-card img { width: 148px; height: 78px; object-fit: cover; border-radius: 10px; background: var(--bg-3); }
+    .more-card small { color: var(--orange); font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; font-size: 0.72rem; }
+    .more-card h3 { font-size: 1.05rem; margin: 6px 0 8px; line-height: 1.25; }
+    .more-card p { margin: 0; color: var(--gray); font-size: 0.9rem; line-height: 1.5; }
+    .more-cta { display: inline-block; margin-top: 10px; color: var(--blue); font-weight: 800; font-size: 0.88rem; }
+    .more-all { margin-top: 18px; font-weight: 700; }
+    .more-all a { color: var(--blue); text-decoration: underline; text-underline-offset: 3px; }
+    .footer { border-top: 1px solid var(--line); padding: 28px 0 40px; color: var(--gray); display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+    .footer a { color: var(--blue); font-weight: 700; }
+    @media (max-width: 900px) {
+      .menu-btn { display: block; }
+      .nav-links { display: none; position: absolute; top: 72px; left: 0; right: 0; background: var(--white); border-bottom: 1px solid var(--line); flex-direction: column; padding: 20px 24px 28px; align-items: flex-start; z-index: 80; }
+      .nav-links.open { display: flex; }
+      .author-box { grid-template-columns: 1fr; }
+      .more-card { grid-template-columns: 1fr; }
+      .more-card img { width: 100%; height: auto; aspect-ratio: 800 / 420; }
+      .compare { display: block; overflow-x: auto; }
+    }
+  </style>
+</head>
+<body>
+  <div class="progress"></div>
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <a class="logo" href="/" aria-label="John Lester Tolentino home">
+        <img src="/jlt-logo.png" alt="JLT logo">
+      </a>
+      <button class="menu-btn" type="button" aria-label="Open menu">☰</button>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/#about">About</a></li>
+        <li><a href="/#projects">Projects</a></li>
+        <li><a class="active" href="/blog/">Blog</a></li>
+        <li><a class="btn btn-ghost" href="/John_Lester_Tolentino_SEO_Resume.pdf" download="John_Lester_Tolentino_SEO_Resume.pdf">Resume</a></li>
+        <li><a class="btn" href="/#contact">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="/">Home</a>
+      <span>/</span>
+      <a href="/blog/">Blog</a>
+      <span>/</span>
+      <span>Layers of SEO</span>
+    </nav>
+
+    <header class="article-hero">
+      <p class="kicker">SEO strategy · 10 min read</p>
+      <h1>Layers of SEO: From crawled to converted</h1>
+      <p class="lead">Search is no longer one channel. Modern visibility runs through five layers: classic SEO, answer engines, generative AI, machine-readable content, and on-site experience. Here is how each layer works and what to measure.</p>
+      <div class="meta">
+        <div class="meta-author">
+          <img src="/jlt-profile.png" alt="John Lester Tolentino" width="36" height="36">
+          <span>By <a href="/">John Lester Tolentino</a>, Senior SEO Specialist</span>
+        </div>
+        <time datetime="2026-09-13">September 13, 2026</time>
+        <span>Sta. Rosa, Laguna</span>
+      </div>
+    </header>
+
+    <figure class="featured">
+      <picture>
+        <source srcset="/blog/layers-of-seo/featured.webp" type="image/webp">
+        <img src="/blog/layers-of-seo/featured.jpg" width="1200" height="630" alt="Layers of SEO: SEO, AEO, GEO, AIO, and SXO — from crawled to converted" fetchpriority="high" decoding="async">
+      </picture>
+    </figure>
+
+    <nav class="toc" aria-label="Table of contents">
+      <h2>In this article</h2>
+      <ol>
+        <li><a href="#why-layers">Why SEO is now layered</a></li>
+        <li><a href="#layer-seo">Layer 1: SEO</a></li>
+        <li><a href="#layer-aeo">Layer 2: AEO</a></li>
+        <li><a href="#layer-geo">Layer 3: GEO</a></li>
+        <li><a href="#layer-aio">Layer 4: AIO</a></li>
+        <li><a href="#layer-sxo">Layer 5: SXO</a></li>
+        <li><a href="#stack-together">How the layers stack</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ol>
+    </nav>
+
+    <article class="prose" itemscope itemtype="https://schema.org/BlogPosting">
+      <meta itemprop="headline" content="Layers of SEO: From Crawled to Converted">
+      <meta itemprop="datePublished" content="2026-09-13">
+      <meta itemprop="dateModified" content="2026-09-13">
+
+      <h2 id="why-layers">Why SEO is now layered</h2>
+      <p>For years, SEO meant one job: get crawled, get indexed, get ranked. That foundation still matters. But search results now include AI Overviews, featured snippets, voice answers, and citations inside ChatGPT, Gemini, Perplexity, and Copilot. Traffic can arrive without a click. Conversions still happen on your site, not inside Google.</p>
+      <p>That is why strategists talk about <strong>layers of SEO</strong>. Each layer has a different goal, a different surface, and different success metrics. Skip a layer and you leave visibility or revenue on the table.</p>
+      <div class="callout">
+        The five layers: <strong>SEO</strong> (rank in search), <strong>AEO</strong> (become the direct answer), <strong>GEO</strong> (get cited by AI), <strong>AIO</strong> (make content AI-readable), and <strong>SXO</strong> (turn visits into customers).
+      </div>
+      <p>If you are new to the basics, start with my guide on <a href="/blog/what-is-seo/">what SEO is</a>. This post builds on that foundation and maps the full stack for 2026.</p>
+
+      <h2 id="layer-seo">Layer 1: SEO — get crawled, indexed, and ranked</h2>
+      <div class="layer-card">
+        <p class="goal">Goal: Crawled → Indexed → Ranked</p>
+        <h3>Search engine optimization (SEO)</h3>
+        <p>SEO is the base layer. Without it, nothing else scales. Google must discover your URLs, store them, and trust them enough to show them for relevant queries.</p>
+        <ul>
+          <li><strong>Focus:</strong> Technical SEO, content quality, topical authority, internal linking, Core Web Vitals, schema, E-E-A-T, backlinks.</li>
+          <li><strong>Success metrics:</strong> Rankings, organic traffic, indexed pages.</li>
+        </ul>
+      </div>
+      <p>Technical work includes XML sitemaps, clean robots.txt, canonical tags, HTTPS, and fast mobile pages. I see this daily in Search Console: pages that crawl fine but never index because of missing sitemaps, wrong canonicals, or duplicate URLs across domains.</p>
+      <p>Content and authority sit on top of that base. One strong page per topic beats ten thin posts. Internal links help crawlers and users move through the site. Backlinks from relevant sites still signal trust.</p>
+
+      <h2 id="layer-aeo">Layer 2: AEO — become the direct answer</h2>
+      <div class="layer-card aeo">
+        <p class="goal">Goal: Become the direct answer</p>
+        <h3>Answer engine optimization (AEO)</h3>
+        <p>AEO targets surfaces where the engine shows the answer on the results page: featured snippets, People Also Ask, voice search, FAQ rich results, and Google AI Overviews.</p>
+        <ul>
+          <li><strong>Optimize for:</strong> Question-first content, short direct answers, lists, tables, FAQ schema, clear entities.</li>
+          <li><strong>Success metrics:</strong> AI Overview appearances, featured snippets, zero-click visibility.</li>
+        </ul>
+      </div>
+      <p>Write the question as an H2 or H3. Answer it in 40–60 words immediately below. Then expand with examples, steps, and data. FAQ blocks with JSON-LD help Google classify Q&amp;A pairs. Lists and comparison tables win snippet slots because they are easy to extract.</p>
+      <p>AEO does not replace full articles. It structures them so machines can pull a clean answer while humans still get depth.</p>
+
+      <h2 id="layer-geo">Layer 3: GEO — get cited by generative AI</h2>
+      <div class="layer-card geo">
+        <p class="goal">Goal: Get cited by AI</p>
+        <h3>Generative engine optimization (GEO)</h3>
+        <p>GEO is about being referenced inside AI-generated answers on ChatGPT, Gemini, Perplexity, Claude, Copilot, and similar tools. Users may never visit your site, but your brand still gains awareness when the model cites you.</p>
+        <ul>
+          <li><strong>How to optimize:</strong> Original research, statistics, expert quotes, brand mentions, entity consistency, fresh updates, structured content.</li>
+          <li><strong>Success metrics:</strong> AI citations, AI mentions, brand references in model outputs.</li>
+        </ul>
+      </div>
+      <p>Models favor pages with unique data, named authors, and clear topical focus. Publish stats competitors cannot copy. Keep brand name, job title, and location consistent across your site, LinkedIn, and directories so entities resolve to you.</p>
+      <p>Allow reputable AI crawlers in robots.txt if you want inclusion in training and retrieval systems. Block them only when you have a deliberate policy reason.</p>
+
+      <h2 id="layer-aio">Layer 4: AIO — make content AI-friendly</h2>
+      <div class="layer-card aio">
+        <p class="goal">Goal: Make content AI-friendly</p>
+        <h3>AI optimization (AIO)</h3>
+        <p>AIO prepares your site so any AI system can parse, classify, and reuse your information accurately. It overlaps with technical SEO and schema but goes further into entity clarity and multimodal signals.</p>
+        <ul>
+          <li><strong>Optimize:</strong> Semantic entities, Knowledge Graph signals, machine-readable markup, structured data, consistent NAP and brand info, multimedia, freshness.</li>
+          <li><strong>What AI reads:</strong> Text, images, PDFs, videos, tables, structured data.</li>
+          <li><strong>Success metrics:</strong> AI understanding, entity recognition, stronger AI visibility over time.</li>
+        </ul>
+      </div>
+      <p>Use JSON-LD for Person, Organization, Article, FAQ, HowTo, and BreadcrumbList where relevant. Add descriptive alt text, transcripts for video, and headings that state topics plainly. An <code>llms.txt</code> file at the site root can summarize key pages for LLM crawlers.</p>
+      <p>Freshness matters: update dates, revise stats, and expand sections that already earn impressions. Stale pages lose trust in both classic search and AI retrieval.</p>
+
+      <h2 id="layer-sxo">Layer 5: SXO — turn visitors into customers</h2>
+      <div class="layer-card sxo">
+        <p class="goal">Goal: Turn visitors into customers</p>
+        <h3>Search experience optimization (SXO)</h3>
+        <p>Ranking and citations mean little if the page is slow, confusing, or missing a clear next step. SXO connects SEO traffic to business outcomes.</p>
+        <ul>
+          <li><strong>Improve:</strong> UX, page speed, navigation, trust signals, readability, CTAs, conversion rate, mobile experience.</li>
+          <li><strong>Success metrics:</strong> Engagement, leads, sales, revenue.</li>
+        </ul>
+      </div>
+      <p>Match the landing page to search intent. Informational queries need clear guides; transactional queries need proof, pricing, and contact paths. Reduce friction: readable type, obvious buttons, fast LCP, and trust markers such as author bios, reviews, and secure forms.</p>
+      <p>SXO is where SEO pays off. A page can rank #1 and still fail if users bounce because the experience does not match what the title promised.</p>
+
+      <h2 id="stack-together">How the layers stack together</h2>
+      <p>You do not pick one layer and ignore the rest. They build on each other:</p>
+      <ol>
+        <li><strong>SEO</strong> gets the page found and ranked.</li>
+        <li><strong>AEO</strong> extracts the answer for snippets and AI Overviews.</li>
+        <li><strong>GEO</strong> earns citations inside standalone AI tools.</li>
+        <li><strong>AIO</strong> keeps the source machine-readable and entity-clear.</li>
+        <li><strong>SXO</strong> converts the traffic that arrives.</li>
+      </ol>
+
+      <table class="compare" aria-label="Comparison of SEO layers">
+        <thead>
+          <tr>
+            <th>Layer</th>
+            <th>Primary goal</th>
+            <th>Main surfaces</th>
+            <th>Key metrics</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>SEO</td>
+            <td>Rank in organic search</td>
+            <td>Google, Bing results</td>
+            <td>Rankings, traffic, index coverage</td>
+          </tr>
+          <tr>
+            <td>AEO</td>
+            <td>Win the direct answer</td>
+            <td>Snippets, PAA, AI Overviews, voice</td>
+            <td>Snippet wins, zero-click visibility</td>
+          </tr>
+          <tr>
+            <td>GEO</td>
+            <td>Get cited by AI models</td>
+            <td>ChatGPT, Gemini, Perplexity, Copilot</td>
+            <td>Brand mentions, AI citations</td>
+          </tr>
+          <tr>
+            <td>AIO</td>
+            <td>Be parsed accurately by AI</td>
+            <td>All crawlers and LLM indexes</td>
+            <td>Entity clarity, structured coverage</td>
+          </tr>
+          <tr>
+            <td>SXO</td>
+            <td>Convert search visits</td>
+            <td>Your website</td>
+            <td>Engagement, leads, revenue</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Practical checklist to start today</h3>
+      <ul>
+        <li>Submit an XML sitemap in Google Search Console and fix canonical tags on every live URL.</li>
+        <li>Add FAQ schema and question-style H2s on your highest-impression pages.</li>
+        <li>Publish one original stat or expert insight competitors cannot mirror.</li>
+        <li>Audit Person and Organization schema plus consistent author bios.</li>
+        <li>Improve mobile speed and add a clear CTA on top landing pages.</li>
+      </ul>
+      <div class="callout">
+        Layers are not five separate projects. One well-built article can serve SEO, AEO, AIO, and SXO at once: crawlable HTML, a direct answer up top, schema markup, author trust, and a conversion path at the bottom.
+      </div>
+
+      <h2 id="faq">Layers of SEO FAQ</h2>
+      <div class="faq">
+        <article class="faq-item">
+          <h3>What are the layers of SEO?</h3>
+          <p>The five layers are SEO (rank in search), AEO (answer engines and snippets), GEO (generative AI citations), AIO (AI-readable content and entities), and SXO (search experience and conversions). Together they cover visibility from crawl to customer.</p>
+        </article>
+        <article class="faq-item">
+          <h3>Is AEO the same as SEO?</h3>
+          <p>No. SEO focuses on ranking pages in organic results. AEO focuses on becoming the extracted answer in featured snippets, voice results, and AI Overviews. You need SEO first; AEO shapes how the content is presented.</p>
+        </article>
+        <article class="faq-item">
+          <h3>What is GEO in marketing?</h3>
+          <p>GEO stands for generative engine optimization. It is the practice of earning mentions and citations inside AI chat tools such as ChatGPT, Gemini, and Perplexity, not only in traditional search results.</p>
+        </article>
+        <article class="faq-item">
+          <h3>Do I still need SEO if AI answers everything?</h3>
+          <p>Yes. Crawling, indexing, and authority still control whether your content enters search and AI systems at all. Most AI answers pull from sources that were already discoverable and trusted on the open web.</p>
+        </article>
+        <article class="faq-item">
+          <h3>Which layer should I prioritize first?</h3>
+          <p>Start with SEO and SXO. Fix technical discovery, publish intent-matched pages, and make sure those pages convert. Then add AEO structure, AIO schema, and GEO-style original research as you scale.</p>
+        </article>
+      </div>
+
+      <aside class="author-box">
+        <img src="/jlt-profile.png" alt="Portrait of John Lester Tolentino" width="88" height="88">
+        <div>
+          <h3>About the author</h3>
+          <p>John Lester Tolentino is a Senior SEO Specialist in Sta. Rosa, Laguna. He handles international SEO, WordPress, content, and website builds across 67 sites. <a href="/#contact">Get in touch</a> or read <a href="/blog/what-is-seo/">What is SEO?</a> for the foundation behind this guide.</p>
+        </div>
+      </aside>
+    </article>
+
+    <section class="more-posts" aria-label="More from the blog">
+      <h2>More from the blog</h2>
+      <div class="more-grid">
+        <a class="more-card" href="/blog/what-is-seo/">
+          <img src="/blog/what-is-seo/featured-card.jpg" width="148" height="78" alt="What is SEO? Search engine optimization explained" loading="lazy" decoding="async">
+          <div>
+            <small>SEO basics · 8 min read</small>
+            <h3>What is SEO? Search engine optimization explained</h3>
+            <p>How search engines crawl, index, and rank pages, plus on-page, technical, and off-page SEO in plain language.</p>
+            <span class="more-cta">Read the guide →</span>
+          </div>
+        </a>
+      </div>
+      <p class="more-all"><a href="/blog/">View all posts →</a></p>
+    </section>
+  </main>
+
+  <footer class="wrap footer">
+    <span>© 2026 John Lester Tolentino</span>
+    <a href="https://www.linkedin.com/in/john-lester-tolentino-8b376726b/" target="_blank" rel="noopener">LinkedIn profile</a>
+  </footer>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BlogPosting",
+        "@id": "https://tolentinojohnlester3-cyber.github.io/blog/layers-of-seo/#article",
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://tolentinojohnlester3-cyber.github.io/blog/layers-of-seo/"
+        },
+        "headline": "Layers of SEO: From Crawled to Converted",
+        "alternativeHeadline": "SEO, AEO, GEO, AIO, and SXO explained",
+        "description": "Learn the five layers of SEO and how each stage moves a site from crawl and index to AI citations and conversions.",
+        "image": {
+          "@type": "ImageObject",
+          "url": "https://tolentinojohnlester3-cyber.github.io/blog/layers-of-seo/featured.jpg",
+          "contentUrl": "https://tolentinojohnlester3-cyber.github.io/blog/layers-of-seo/featured.jpg",
+          "width": 1200,
+          "height": 630,
+          "caption": "Layers of SEO: from crawled to converted by John Lester Tolentino (JLT)"
+        },
+        "datePublished": "2026-09-13",
+        "dateModified": "2026-09-13",
+        "author": { "@id": "https://tolentinojohnlester3-cyber.github.io/#person" },
+        "publisher": { "@id": "https://tolentinojohnlester3-cyber.github.io/#person" },
+        "inLanguage": "en",
+        "articleSection": "SEO",
+        "keywords": ["layers of SEO", "AEO", "GEO", "AIO", "SXO", "answer engine optimization", "generative engine optimization"],
+        "wordCount": 1850,
+        "timeRequired": "PT10M",
+        "speakable": {
+          "@type": "SpeakableSpecification",
+          "cssSelector": [".article-hero h1", ".lead", "#why-layers"]
+        },
+        "isPartOf": {
+          "@type": "Blog",
+          "@id": "https://tolentinojohnlester3-cyber.github.io/blog/#blog",
+          "name": "John Lester Tolentino SEO Blog"
+        }
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://tolentinojohnlester3-cyber.github.io/blog/layers-of-seo/",
+        "url": "https://tolentinojohnlester3-cyber.github.io/blog/layers-of-seo/",
+        "name": "Layers of SEO: From Crawled to Converted",
+        "description": "The five layers every modern SEO strategy needs: SEO, AEO, GEO, AIO, and SXO.",
+        "isPartOf": { "@id": "https://tolentinojohnlester3-cyber.github.io/#website" },
+        "primaryImageOfPage": {
+          "@type": "ImageObject",
+          "url": "https://tolentinojohnlester3-cyber.github.io/blog/layers-of-seo/featured.jpg",
+          "width": 1200,
+          "height": 630
+        },
+        "breadcrumb": { "@id": "https://tolentinojohnlester3-cyber.github.io/blog/layers-of-seo/#breadcrumb" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://tolentinojohnlester3-cyber.github.io/blog/layers-of-seo/#breadcrumb",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://tolentinojohnlester3-cyber.github.io/" },
+          { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://tolentinojohnlester3-cyber.github.io/blog/" },
+          { "@type": "ListItem", "position": 3, "name": "Layers of SEO", "item": "https://tolentinojohnlester3-cyber.github.io/blog/layers-of-seo/" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://tolentinojohnlester3-cyber.github.io/blog/layers-of-seo/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What are the layers of SEO?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The five layers are SEO (rank in search), AEO (answer engines and snippets), GEO (generative AI citations), AIO (AI-readable content and entities), and SXO (search experience and conversions)."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is AEO the same as SEO?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. SEO focuses on ranking pages in organic results. AEO focuses on becoming the extracted answer in featured snippets, voice results, and AI Overviews."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is GEO in marketing?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "GEO stands for generative engine optimization: earning mentions and citations inside AI chat tools such as ChatGPT, Gemini, and Perplexity."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do I still need SEO if AI answers everything?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Crawling, indexing, and authority still control whether your content enters search and AI systems at all."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Which layer should I prioritize first?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Start with SEO and SXO: fix technical discovery, publish intent-matched pages, and make sure those pages convert. Then add AEO, AIO, and GEO as you scale."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "Person",
+        "@id": "https://tolentinojohnlester3-cyber.github.io/#person",
+        "name": "John Lester Tolentino",
+        "alternateName": ["John Lester Lacson Tolentino", "Lester Tolentino", "JLT"],
+        "jobTitle": "Senior SEO Specialist",
+        "url": "https://tolentinojohnlester3-cyber.github.io/",
+        "image": "https://tolentinojohnlester3-cyber.github.io/jlt-profile.png",
+        "email": "mailto:tolentinojohnlester3@gmail.com",
+        "telephone": "+639619684118",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Santa Rosa",
+          "addressRegion": "Laguna",
+          "addressCountry": "PH"
+        },
+        "sameAs": [
+          "https://www.linkedin.com/in/john-lester-tolentino-8b376726b/",
+          "https://www.facebook.com/lester.tolentino.397"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://tolentinojohnlester3-cyber.github.io/#website",
+        "url": "https://tolentinojohnlester3-cyber.github.io/",
+        "name": "John Lester Tolentino | JLT",
+        "publisher": { "@id": "https://tolentinojohnlester3-cyber.github.io/#person" }
+      }
+    ]
+  }
+  </script>
+  <script>
+    (function () {
+      const progress = document.querySelector(".progress");
+      const menuBtn = document.querySelector(".menu-btn");
+      const links = document.querySelector(".nav-links");
+      window.addEventListener("scroll", function () {
+        const h = document.documentElement;
+        const scrolled = h.scrollTop / (h.scrollHeight - h.clientHeight || 1);
+        if (progress) progress.style.width = (scrolled * 100).toFixed(2) + "%";
+      });
+      if (menuBtn && links) {
+        menuBtn.addEventListener("click", function () { links.classList.toggle("open"); });
+        links.querySelectorAll("a").forEach(function (a) {
+          a.addEventListener("click", function () { links.classList.remove("open"); });
+        });
+      }
+    })();
+  </script>
+</body>
+</html>

@@ -19,15 +19,15 @@
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large">
   <meta name="bingbot" content="index, follow">
-  <link rel="canonical" href="https://dreamy-hamster-e713d5.netlify.app/blog/what-is-seo/">
+  <link rel="canonical" href="https://tolentinojohnlester3-cyber.github.io/blog/what-is-seo/">
   <link rel="sitemap" type="application/xml" href="/sitemap.xml">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="John Lester Tolentino | JLT">
   <meta property="og:title" content="What Is SEO? Search Engine Optimization Explained | John Lester Tolentino (JLT)">
   <meta property="og:description" content="A practical guide to search engine optimization by John Lester Tolentino (JLT): how Google ranks pages, the main types of SEO, and how to start.">
-  <meta property="og:url" content="https://dreamy-hamster-e713d5.netlify.app/blog/what-is-seo/">
+  <meta property="og:url" content="https://tolentinojohnlester3-cyber.github.io/blog/what-is-seo/">
   <link rel="preload" as="image" href="/blog/what-is-seo/featured.webp" type="image/webp">
-  <meta property="og:image" content="https://dreamy-hamster-e713d5.netlify.app/blog/what-is-seo/featured.jpg">
+  <meta property="og:image" content="https://tolentinojohnlester3-cyber.github.io/blog/what-is-seo/featured.jpg">
   <meta property="og:image:type" content="image/jpeg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -43,7 +43,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="What Is SEO? | John Lester Tolentino (JLT)">
   <meta name="twitter:description" content="How search engines work, why SEO matters, and the work that helps pages rank.">
-  <meta name="twitter:image" content="https://dreamy-hamster-e713d5.netlify.app/blog/what-is-seo/featured.jpg">
+  <meta name="twitter:image" content="https://tolentinojohnlester3-cyber.github.io/blog/what-is-seo/featured.jpg">
   <meta name="twitter:image:alt" content="What is SEO? Search engine optimization explained by John Lester Tolentino (JLT)">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -164,6 +164,18 @@
     }
     .author-box img { width: 88px; height: 88px; border-radius: 18px; object-fit: cover; }
     .author-box p { color: var(--gray); margin: 8px 0 0; }
+    .more-posts { max-width: var(--prose); margin: 0 0 80px; padding-top: 40px; border-top: 1px solid var(--line); }
+    .more-posts h2 { font-size: 1.35rem; margin-bottom: 18px; }
+    .more-grid { display: grid; gap: 16px; }
+    .more-card { display: grid; grid-template-columns: 148px 1fr; gap: 16px; align-items: start; background: var(--bg-2); border: 1px solid var(--line); border-radius: 16px; padding: 14px; box-shadow: 0 10px 28px rgba(17, 29, 64, 0.06); transition: border-color 0.2s; }
+    .more-card:hover { border-color: var(--orange); }
+    .more-card img { width: 148px; height: 78px; object-fit: cover; border-radius: 10px; background: var(--bg-3); }
+    .more-card small { color: var(--orange); font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; font-size: 0.72rem; }
+    .more-card h3 { font-size: 1.05rem; margin: 6px 0 8px; line-height: 1.25; }
+    .more-card p { margin: 0; color: var(--gray); font-size: 0.9rem; line-height: 1.5; }
+    .more-cta { display: inline-block; margin-top: 10px; color: var(--blue); font-weight: 800; font-size: 0.88rem; }
+    .more-all { margin-top: 18px; font-weight: 700; }
+    .more-all a { color: var(--blue); text-decoration: underline; text-underline-offset: 3px; }
     .footer { border-top: 1px solid var(--line); padding: 28px 0 40px; color: var(--gray); display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
     .footer a { color: var(--blue); font-weight: 700; }
     @media (max-width: 900px) {
@@ -175,6 +187,8 @@
       }
       .nav-links.open { display: flex; }
       .grid-3, .author-box { grid-template-columns: 1fr; }
+      .more-card { grid-template-columns: 1fr; }
+      .more-card img { width: 100%; height: auto; aspect-ratio: 800 / 420; }
     }
   </style>
 </head>
@@ -381,6 +395,22 @@
         </div>
       </aside>
     </article>
+
+    <section class="more-posts" aria-label="More from the blog">
+      <h2>Latest on the blog</h2>
+      <div class="more-grid">
+        <a class="more-card" href="/blog/layers-of-seo/">
+          <img src="/blog/layers-of-seo/featured-card.jpg" width="148" height="78" alt="Layers of SEO: from crawled to converted" loading="lazy" decoding="async">
+          <div>
+            <small>SEO strategy · 10 min read · New</small>
+            <h3>Layers of SEO: From crawled to converted</h3>
+            <p>SEO, AEO, GEO, AIO, and SXO — the five layers from ranking in Google to winning AI answers and conversions.</p>
+            <span class="more-cta">Read the guide →</span>
+          </div>
+        </a>
+      </div>
+      <p class="more-all"><a href="/blog/">View all posts →</a></p>
+    </section>
   </main>
 
   <footer class="wrap footer">
@@ -394,26 +424,26 @@
     "@graph": [
       {
         "@type": "BlogPosting",
-        "@id": "https://dreamy-hamster-e713d5.netlify.app/blog/what-is-seo/#article",
+        "@id": "https://tolentinojohnlester3-cyber.github.io/blog/what-is-seo/#article",
         "mainEntityOfPage": {
           "@type": "WebPage",
-          "@id": "https://dreamy-hamster-e713d5.netlify.app/blog/what-is-seo/"
+          "@id": "https://tolentinojohnlester3-cyber.github.io/blog/what-is-seo/"
         },
         "headline": "What Is SEO? Search Engine Optimization Explained",
         "alternativeHeadline": "What SEO means and how search engines rank pages",
         "description": "Learn what SEO is, how search engines crawl, index, and rank pages, and the on-page, technical, and off-page work that grows organic traffic.",
         "image": {
           "@type": "ImageObject",
-          "url": "https://dreamy-hamster-e713d5.netlify.app/blog/what-is-seo/featured.jpg",
-          "contentUrl": "https://dreamy-hamster-e713d5.netlify.app/blog/what-is-seo/featured.jpg",
+          "url": "https://tolentinojohnlester3-cyber.github.io/blog/what-is-seo/featured.jpg",
+          "contentUrl": "https://tolentinojohnlester3-cyber.github.io/blog/what-is-seo/featured.jpg",
           "width": 1200,
           "height": 630,
           "caption": "What is SEO? Search engine optimization explained by John Lester Tolentino (JLT)"
         },
         "datePublished": "2026-09-12",
         "dateModified": "2026-09-12",
-        "author": { "@id": "https://dreamy-hamster-e713d5.netlify.app/#person" },
-        "publisher": { "@id": "https://dreamy-hamster-e713d5.netlify.app/#person" },
+        "author": { "@id": "https://tolentinojohnlester3-cyber.github.io/#person" },
+        "publisher": { "@id": "https://tolentinojohnlester3-cyber.github.io/#person" },
         "inLanguage": "en",
         "articleSection": "SEO",
         "keywords": ["SEO", "search engine optimization", "on-page SEO", "technical SEO", "off-page SEO", "how search engines work"],
@@ -430,24 +460,24 @@
         },
         "isPartOf": {
           "@type": "Blog",
-          "@id": "https://dreamy-hamster-e713d5.netlify.app/blog/#blog",
+          "@id": "https://tolentinojohnlester3-cyber.github.io/blog/#blog",
           "name": "John Lester Tolentino SEO Blog"
         }
       },
       {
         "@type": "WebPage",
-        "@id": "https://dreamy-hamster-e713d5.netlify.app/blog/what-is-seo/",
-        "url": "https://dreamy-hamster-e713d5.netlify.app/blog/what-is-seo/",
+        "@id": "https://tolentinojohnlester3-cyber.github.io/blog/what-is-seo/",
+        "url": "https://tolentinojohnlester3-cyber.github.io/blog/what-is-seo/",
         "name": "What Is SEO? Search Engine Optimization Explained",
         "description": "A practical guide to search engine optimization by John Lester Tolentino.",
-        "isPartOf": { "@id": "https://dreamy-hamster-e713d5.netlify.app/#website" },
+        "isPartOf": { "@id": "https://tolentinojohnlester3-cyber.github.io/#website" },
         "primaryImageOfPage": {
           "@type": "ImageObject",
-          "url": "https://dreamy-hamster-e713d5.netlify.app/blog/what-is-seo/featured.jpg",
+          "url": "https://tolentinojohnlester3-cyber.github.io/blog/what-is-seo/featured.jpg",
           "width": 1200,
           "height": 630
         },
-        "breadcrumb": { "@id": "https://dreamy-hamster-e713d5.netlify.app/blog/what-is-seo/#breadcrumb" },
+        "breadcrumb": { "@id": "https://tolentinojohnlester3-cyber.github.io/blog/what-is-seo/#breadcrumb" },
         "speakable": {
           "@type": "SpeakableSpecification",
           "cssSelector": [".lead"]
@@ -455,31 +485,31 @@
       },
       {
         "@type": "BreadcrumbList",
-        "@id": "https://dreamy-hamster-e713d5.netlify.app/blog/what-is-seo/#breadcrumb",
+        "@id": "https://tolentinojohnlester3-cyber.github.io/blog/what-is-seo/#breadcrumb",
         "itemListElement": [
           {
             "@type": "ListItem",
             "position": 1,
             "name": "Home",
-            "item": "https://dreamy-hamster-e713d5.netlify.app/"
+            "item": "https://tolentinojohnlester3-cyber.github.io/"
           },
           {
             "@type": "ListItem",
             "position": 2,
             "name": "Blog",
-            "item": "https://dreamy-hamster-e713d5.netlify.app/blog/"
+            "item": "https://tolentinojohnlester3-cyber.github.io/blog/"
           },
           {
             "@type": "ListItem",
             "position": 3,
             "name": "What is SEO",
-            "item": "https://dreamy-hamster-e713d5.netlify.app/blog/what-is-seo/"
+            "item": "https://tolentinojohnlester3-cyber.github.io/blog/what-is-seo/"
           }
         ]
       },
       {
         "@type": "FAQPage",
-        "@id": "https://dreamy-hamster-e713d5.netlify.app/blog/what-is-seo/#faq",
+        "@id": "https://tolentinojohnlester3-cyber.github.io/blog/what-is-seo/#faq",
         "mainEntity": [
           {
             "@type": "Question",
@@ -525,7 +555,7 @@
       },
       {
         "@type": "HowTo",
-        "@id": "https://dreamy-hamster-e713d5.netlify.app/blog/what-is-seo/#howto",
+        "@id": "https://tolentinojohnlester3-cyber.github.io/blog/what-is-seo/#howto",
         "name": "How to start SEO",
         "description": "A practical sequence for starting search engine optimization on a new or existing website.",
         "totalTime": "P30D",
@@ -576,12 +606,12 @@
       },
       {
         "@type": "Person",
-        "@id": "https://dreamy-hamster-e713d5.netlify.app/#person",
+        "@id": "https://tolentinojohnlester3-cyber.github.io/#person",
         "name": "John Lester Tolentino",
         "alternateName": ["John Lester Lacson Tolentino", "Lester Tolentino", "JLT"],
         "jobTitle": "Senior SEO Specialist",
-        "url": "https://dreamy-hamster-e713d5.netlify.app/",
-        "image": "https://dreamy-hamster-e713d5.netlify.app/jlt-profile.png",
+        "url": "https://tolentinojohnlester3-cyber.github.io/",
+        "image": "https://tolentinojohnlester3-cyber.github.io/jlt-profile.png",
         "email": "mailto:tolentinojohnlester3@gmail.com",
         "telephone": "+639619684118",
         "address": {
@@ -597,10 +627,10 @@
       },
       {
         "@type": "WebSite",
-        "@id": "https://dreamy-hamster-e713d5.netlify.app/#website",
-        "url": "https://dreamy-hamster-e713d5.netlify.app/",
+        "@id": "https://tolentinojohnlester3-cyber.github.io/#website",
+        "url": "https://tolentinojohnlester3-cyber.github.io/",
         "name": "John Lester Tolentino | JLT",
-        "publisher": { "@id": "https://dreamy-hamster-e713d5.netlify.app/#person" }
+        "publisher": { "@id": "https://tolentinojohnlester3-cyber.github.io/#person" }
       }
     ]
   }
