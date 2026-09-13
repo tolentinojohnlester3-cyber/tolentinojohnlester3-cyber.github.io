@@ -6,10 +6,11 @@ John Lester Tolentino builds websites and grows organic search traffic with tech
 
 ## Blog
 
-- What is SEO? Search engine optimization explained: https://dreamy-hamster-e713d5.netlify.app/blog/what-is-seo/
-- Blog index: https://dreamy-hamster-e713d5.netlify.app/blog/
+- Layers of SEO: From crawled to converted (SEO, AEO, GEO, AIO, SXO): https://tolentinojohnlester3-cyber.github.io/blog/layers-of-seo/
+- What is SEO? Search engine optimization explained: https://tolentinojohnlester3-cyber.github.io/blog/what-is-seo/
+- Blog index: https://tolentinojohnlester3-cyber.github.io/blog/
 
-SEO is search engine optimization: improving a site so Google and other search engines can crawl, index, and rank it in unpaid results. Work includes on-page content, technical health, and off-page authority.
+Modern search visibility runs through five layers: SEO (crawl, index, rank), AEO (direct answers and snippets), GEO (AI citations), AIO (machine-readable entities), and SXO (conversions on site).
 
 ## Contact
 

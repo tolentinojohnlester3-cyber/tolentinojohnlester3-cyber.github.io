@@ -35,4 +35,4 @@ Allow: /
 User-agent: Applebot-Extended
 Allow: /
 
-Sitemap: https://dreamy-hamster-e713d5.netlify.app/sitemap.xml
+Sitemap: https://tolentinojohnlester3-cyber.github.io/sitemap.xml
