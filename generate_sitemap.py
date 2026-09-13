@@ -7,7 +7,14 @@ import re
 
 ROOT = Path(__file__).resolve().parent
 BASE = "https://tolentinojohnlester3-cyber.github.io"
-SKIP_FILES = {"404.html", "preview.html", "blog.html", "what-is-seo.html", "layers-of-seo.html"}
+SKIP_FILES = {
+    "404.html",
+    "preview.html",
+    "blog.html",
+    "what-is-seo.html",
+    "layers-of-seo.html",
+    "google-august-2026-spam-update.html",
+}
 SKIP_PREFIXES = ("googled",)
 
 

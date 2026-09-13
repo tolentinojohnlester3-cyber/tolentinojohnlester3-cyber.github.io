@@ -8,6 +8,7 @@ John Lester Tolentino builds websites and grows organic search traffic with tech
 
 ## Blog
 
+- Google August 2026 spam update: what SEOs need to know: https://tolentinojohnlester3-cyber.github.io/blog/google-august-2026-spam-update/
 - Layers of SEO: From crawled to converted (SEO, AEO, GEO, AIO, SXO): https://tolentinojohnlester3-cyber.github.io/blog/layers-of-seo/
 - What is SEO? Search engine optimization explained: https://tolentinojohnlester3-cyber.github.io/blog/what-is-seo/
 - Blog index: https://tolentinojohnlester3-cyber.github.io/blog/

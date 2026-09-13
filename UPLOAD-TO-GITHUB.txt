@@ -11,9 +11,14 @@ CORRECT REPO ROOT ON GITHUB (not inside a subfolder!)
 ----------------------------------------------------
   index.html
   blog/
-    index.html                    <-- must list Layers of SEO + What is SEO
+    index.html                    <-- must list all 3 posts
+    google-august-2026-spam-update/
+      index.html                  <-- NEW POST (August 2026 algo update)
+      featured-card.jpg
+      featured.jpg
+      featured.webp
     layers-of-seo/
-      index.html                  <-- NEW POST (required)
+      index.html
       featured-card.jpg
       featured.jpg
       featured.webp
@@ -37,20 +42,22 @@ HOW TO UPLOAD ON GITHUB.COM
    7POKIES_All_URL_Pages\jlt-portfolio-github
 4. Select ALL files and folders INSIDE (not the parent folder name)
 5. Drag into GitHub upload area
-6. Commit message: "Add Layers of SEO post and update blog"
+6. Commit message: "Add August 2026 spam update post and refresh blog"
 7. Click "Commit changes"
 8. Wait 2–5 minutes for GitHub Pages to rebuild
 
 VERIFY ON GITHUB BEFORE BROWSER
 -------------------------------
 In the repo, click through and confirm these exist:
+  blog/google-august-2026-spam-update/index.html
   blog/layers-of-seo/index.html
-  blog/index.html  (open on GitHub — search for "layers-of-seo" in file)
+  blog/index.html  (open on GitHub — search for "google-august-2026-spam-update" in file)
 
 VERIFY LIVE SITE AFTER UPLOAD
 -----------------------------
+  https://tolentinojohnlester3-cyber.github.io/blog/google-august-2026-spam-update/  → should load
   https://tolentinojohnlester3-cyber.github.io/blog/layers-of-seo/  → should load
-  https://tolentinojohnlester3-cyber.github.io/blog/              → 2 posts + contact card
+  https://tolentinojohnlester3-cyber.github.io/blog/              → 3 posts in grid
 
 GITHUB PAGES SETTINGS
 ---------------------
