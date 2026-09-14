@@ -8,6 +8,8 @@ John Lester Tolentino builds websites and grows organic search traffic with tech
 
 ## Blog
 
+- How to make your website load fast (Core Web Vitals, caching, CDN): https://tolentinojohnlester3-cyber.github.io/blog/fast-website-load-speed/
+- How to install WordPress in cPanel (Softaculous step-by-step): https://tolentinojohnlester3-cyber.github.io/blog/install-wordpress-cpanel/
 - Google August 2026 spam update: what SEOs need to know: https://tolentinojohnlester3-cyber.github.io/blog/google-august-2026-spam-update/
 - Layers of SEO: From crawled to converted (SEO, AEO, GEO, AIO, SXO): https://tolentinojohnlester3-cyber.github.io/blog/layers-of-seo/
 - What is SEO? Search engine optimization explained: https://tolentinojohnlester3-cyber.github.io/blog/what-is-seo/

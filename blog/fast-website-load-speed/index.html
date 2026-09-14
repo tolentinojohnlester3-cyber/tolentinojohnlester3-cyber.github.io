@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <title>How to Make Your Website Load Fast: Speed Optimization Guide | John Lester Tolentino (JLT)</title>
+  <meta name="description" content="Make your website load fast with Core Web Vitals, image optimization, caching, CDN, and mobile speed fixes. Practical guide with visuals for WordPress and any site.">
+  <meta name="keywords" content="website speed optimization, fast loading website, Core Web Vitals, page speed SEO, John Lester Tolentino, JLT, improve site speed">
+  <meta name="author" content="John Lester Tolentino (JLT)">
+  <meta name="owner" content="John Lester Tolentino">
+  <meta name="copyright" content="John Lester Tolentino">
+  <meta name="publisher" content="John Lester Tolentino (JLT)">
+  <meta name="subject" content="Website speed optimization guide by John Lester Tolentino JLT">
+  <meta name="google-site-verification" content="-VhVE7603Le5BmPDdqgtv_9G-7fJ3_f2uhttElLQUr0" />
+  <meta name="google-site-verification" content="AWeOntiIBeb32_Tu_OXoZrGGwsAq0F-z4rwSbERKgBo" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large">
+  <meta name="bingbot" content="index, follow">
+  <link rel="canonical" href="https://tolentinojohnlester3-cyber.github.io/blog/fast-website-load-speed/">
+  <link rel="sitemap" type="application/xml" href="/sitemap.xml">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="John Lester Tolentino | JLT">
+  <meta property="og:title" content="How to Make Your Website Load Fast | JLT">
+  <meta property="og:description" content="Core Web Vitals, images, caching, CDN, and testing tools — a practical speed guide with visuals.">
+  <meta property="og:url" content="https://tolentinojohnlester3-cyber.github.io/blog/fast-website-load-speed/">
+  <link rel="preload" as="image" href="/blog/fast-website-load-speed/featured.webp" type="image/webp">
+  <meta property="og:image" content="https://tolentinojohnlester3-cyber.github.io/blog/fast-website-load-speed/featured.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Website speed optimization guide by John Lester Tolentino (JLT)">
+  <meta property="article:published_time" content="2026-09-14">
+  <meta property="article:modified_time" content="2026-09-14">
+  <meta property="article:author" content="John Lester Tolentino">
+  <meta property="article:section" content="SEO">
+  <meta property="article:tag" content="Page speed">
+  <meta property="article:tag" content="Core Web Vitals">
+  <meta property="article:tag" content="Performance">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Make Your Website Load Fast | JLT">
+  <meta name="twitter:description" content="Practical website speed optimization with Core Web Vitals, caching, and image fixes.">
+  <meta name="twitter:image" content="https://tolentinojohnlester3-cyber.github.io/blog/fast-website-load-speed/featured.jpg">
+  <meta name="twitter:image:alt" content="Website speed optimization guide by John Lester Tolentino (JLT)">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f5f7fb; --bg-2: #ffffff; --bg-3: #eef3fb; --orange: #ff6b1a; --orange-2: #ff8f4a;
+      --blue: #1d4ed8; --black: #111111; --white: #ffffff; --ink: #111111; --gray: #5b6472;
+      --line: rgba(17, 17, 17, 0.1); --radius: 18px; --max: 1180px; --prose: 760px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; scroll-padding-top: 84px; }
+    .prose h2, .prose h3 { scroll-margin-top: 84px; }
+    body { font-family: "Manrope", "Segoe UI", sans-serif; background: var(--bg); color: var(--ink); line-height: 1.7; overflow-x: hidden; }
+    body::before {
+      content: ""; position: fixed; inset: 0; pointer-events: none; z-index: -1;
+      background:
+        radial-gradient(900px 420px at 8% -8%, rgba(255, 107, 26, 0.18), transparent 58%),
+        radial-gradient(720px 420px at 100% 0%, rgba(29, 78, 216, 0.14), transparent 52%),
+        linear-gradient(180deg, #ffffff 0%, #f5f7fb 40%, #eef3fb 100%);
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    button { font-family: inherit; cursor: pointer; }
+    .wrap { width: min(var(--max), calc(100% - 40px)); margin: 0 auto; position: relative; z-index: 1; }
+    .progress { position: fixed; top: 0; left: 0; height: 3px; width: 0; background: linear-gradient(90deg, var(--orange), var(--blue)); z-index: 80; }
+    .nav { position: sticky; top: 0; z-index: 70; backdrop-filter: blur(16px); background: rgba(255, 255, 255, 0.86); border-bottom: 1px solid var(--line); }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; min-height: 72px; gap: 16px; }
+    .logo { display: inline-flex; align-items: center; line-height: 0; }
+    .logo img { height: 44px; width: auto; border-radius: 8px; }
+    .nav-links { display: flex; gap: 18px; list-style: none; align-items: center; }
+    .nav-links a { color: var(--gray); font-size: 0.92rem; font-weight: 600; transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--blue); }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: var(--orange); color: #fff; font-weight: 800; font-size: 0.92rem; border: 0; border-radius: 999px; padding: 11px 20px; box-shadow: 0 8px 18px rgba(255, 107, 26, 0.32); }
+    .btn:hover { background: var(--orange-2); color: #fff; }
+    .btn-ghost { background: var(--blue); box-shadow: 0 8px 18px rgba(29, 78, 216, 0.32); }
+    .btn-ghost:hover { background: #163db8; color: #fff; }
+    .nav-links a.btn, .nav-links a.btn:hover, .nav-links a.btn.active { color: #fff; font-size: 0.88rem; padding: 10px 18px; white-space: nowrap; }
+    .menu-btn { display: none; background: none; border: 0; color: var(--black); font-size: 1.6rem; }
+    h1, h2, h3 { font-family: "Syne", sans-serif; line-height: 1.15; color: var(--black); }
+    .kicker { color: var(--orange); font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; font-size: 0.78rem; margin-bottom: 14px; }
+    .crumbs { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; color: var(--gray); font-size: 0.88rem; font-weight: 600; padding: 28px 0 0; }
+    .crumbs a { color: var(--blue); }
+    .article-hero { padding: 28px 0 12px; max-width: var(--prose); }
+    .article-hero h1 { font-size: clamp(2.1rem, 5vw, 3.6rem); letter-spacing: -0.04em; }
+    .featured { margin: 22px 0 4px; max-width: var(--prose); }
+    .featured img { width: 100%; height: auto; aspect-ratio: 1200 / 630; object-fit: cover; border-radius: 18px; border: 1px solid var(--line); background: var(--bg-3); }
+    .lead { margin-top: 18px; color: var(--gray); font-size: 1.12rem; }
+    .meta { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 22px; color: var(--gray); font-size: 0.9rem; font-weight: 600; }
+    .meta img { width: 36px; height: 36px; border-radius: 50%; object-fit: cover; }
+    .meta-author { display: flex; align-items: center; gap: 10px; }
+    .toc { background: var(--bg-2); border: 1px solid var(--line); border-radius: var(--radius); padding: 22px 24px; margin: 28px 0 8px; max-width: var(--prose); box-shadow: 0 10px 28px rgba(17, 29, 64, 0.06); }
+    .toc h2 { font-size: 1.05rem; margin-bottom: 12px; }
+    .toc ol { padding-left: 20px; color: var(--gray); }
+    .toc a { color: var(--blue); font-weight: 700; }
+    .toc li { margin: 7px 0; }
+    .prose { max-width: var(--prose); padding: 12px 0 0; }
+    .prose h2 { font-size: 1.7rem; margin: 42px 0 14px; }
+    .prose h3 { font-size: 1.22rem; margin: 28px 0 10px; }
+    .prose p { color: #2c3340; margin: 0 0 16px; }
+    .prose ul, .prose ol { padding-left: 22px; color: #2c3340; margin: 0 0 18px; }
+    .prose li { margin: 7px 0; }
+    .prose a { color: var(--blue); font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
+    .callout { background: var(--bg-2); border-left: 4px solid var(--orange); border-radius: 0 14px 14px 0; padding: 16px 18px; margin: 20px 0 24px; color: #2c3340; }
+    .step-figure { margin: 24px 0 28px; background: var(--bg-2); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; box-shadow: 0 10px 28px rgba(17, 29, 64, 0.06); }
+    .step-figure img { width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; background: var(--bg-3); }
+    .step-caption { padding: 14px 18px; font-size: 0.9rem; color: var(--gray); border-top: 1px solid var(--line); }
+    .step-caption strong { color: var(--black); }
+    .compare { width: 100%; border-collapse: collapse; margin: 20px 0 28px; font-size: 0.92rem; }
+    .compare th, .compare td { border: 1px solid var(--line); padding: 12px 14px; text-align: left; vertical-align: top; }
+    .compare th { background: var(--bg-3); font-family: "Syne", sans-serif; }
+    .compare td { color: #2c3340; background: var(--bg-2); }
+    .checklist { list-style: none; padding-left: 0; margin: 0 0 24px; }
+    .checklist li { position: relative; padding-left: 28px; margin: 10px 0; color: #2c3340; }
+    .checklist li::before { content: "✓"; position: absolute; left: 0; color: var(--blue); font-weight: 800; }
+    .faq { display: grid; gap: 12px; margin-top: 8px; }
+    .faq-item { background: var(--bg-2); border: 1px solid var(--line); border-radius: var(--radius); padding: 20px 24px; }
+    .faq-item h3 { font-size: 1.08rem; margin-bottom: 8px; }
+    .faq-item p { color: var(--gray); margin: 0; }
+    .author-box { display: grid; grid-template-columns: 88px 1fr; gap: 18px; align-items: center; background: var(--bg-2); border: 1px solid var(--line); border-radius: 20px; padding: 22px; margin-top: 36px; }
+    .author-box img { width: 88px; height: 88px; border-radius: 18px; object-fit: cover; }
+    .author-box p { color: var(--gray); margin: 8px 0 0; }
+    .more-posts { max-width: var(--prose); margin: 0 0 80px; padding-top: 40px; border-top: 1px solid var(--line); }
+    .more-posts h2 { font-size: 1.35rem; margin-bottom: 18px; }
+    .more-grid { display: grid; gap: 16px; }
+    .more-card { display: grid; grid-template-columns: 148px 1fr; gap: 16px; align-items: start; background: var(--bg-2); border: 1px solid var(--line); border-radius: 16px; padding: 14px; box-shadow: 0 10px 28px rgba(17, 29, 64, 0.06); transition: border-color 0.2s; }
+    .more-card:hover { border-color: var(--orange); }
+    .more-card img { width: 148px; height: 78px; object-fit: cover; border-radius: 10px; background: var(--bg-3); }
+    .more-card small { color: var(--orange); font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; font-size: 0.72rem; }
+    .more-card h3 { font-size: 1.05rem; margin: 6px 0 8px; line-height: 1.25; }
+    .more-card p { margin: 0; color: var(--gray); font-size: 0.9rem; line-height: 1.5; }
+    .more-cta { display: inline-block; margin-top: 10px; color: var(--blue); font-weight: 800; font-size: 0.88rem; }
+    .more-all { margin-top: 18px; font-weight: 700; }
+    .more-all a { color: var(--blue); text-decoration: underline; text-underline-offset: 3px; }
+    .footer { border-top: 1px solid var(--line); padding: 28px 0 40px; color: var(--gray); display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+    .footer a { color: var(--blue); font-weight: 700; }
+    @media (max-width: 900px) {
+      .menu-btn { display: block; }
+      .nav-links { display: none; position: absolute; top: 72px; left: 0; right: 0; background: var(--white); border-bottom: 1px solid var(--line); flex-direction: column; padding: 20px 24px 28px; align-items: flex-start; z-index: 80; }
+      .nav-links.open { display: flex; }
+      .author-box, .more-card { grid-template-columns: 1fr; }
+      .more-card img { width: 100%; height: auto; aspect-ratio: 800 / 420; }
+      .compare { display: block; overflow-x: auto; }
+    }
+  </style>
+</head>
+<body>
+  <div class="progress"></div>
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <a class="logo" href="/" aria-label="John Lester Tolentino home">
+        <img src="/jlt-logo.png" alt="JLT logo">
+      </a>
+      <button class="menu-btn" type="button" aria-label="Open menu">☰</button>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/#about">About</a></li>
+        <li><a href="/#projects">Projects</a></li>
+        <li><a class="active" href="/blog/">Blog</a></li>
+        <li><a class="btn btn-ghost" href="/John_Lester_Tolentino_SEO_Resume.pdf" download="John_Lester_Tolentino_SEO_Resume.pdf">Resume</a></li>
+        <li><a class="btn" href="/#contact">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="/">Home</a>
+      <span>/</span>
+      <a href="/blog/">Blog</a>
+      <span>/</span>
+      <span>Fast website load speed</span>
+    </nav>
+
+    <header class="article-hero">
+      <p class="kicker">Performance · 11 min read</p>
+      <h1>How to make your website load fast: a practical speed guide</h1>
+      <p class="lead">Slow sites lose visitors, rankings, and revenue. This guide shows how to optimize load speed — from Core Web Vitals and image compression to caching, CDN, and mobile performance — with visuals at every step.</p>
+      <div class="meta">
+        <div class="meta-author">
+          <img src="/jlt-profile.png" alt="John Lester Tolentino" width="36" height="36">
+          <span>By <a href="/">John Lester Tolentino</a>, Senior SEO Specialist</span>
+        </div>
+        <time datetime="2026-09-14">September 14, 2026</time>
+      </div>
+    </header>
+
+    <figure class="featured">
+      <picture>
+        <source srcset="/blog/fast-website-load-speed/featured.webp" type="image/webp">
+        <img src="/blog/fast-website-load-speed/featured.jpg" width="1200" height="630" alt="How to make your website load fast — speed optimization guide" fetchpriority="high" decoding="async">
+      </picture>
+    </figure>
+
+    <nav class="toc" aria-label="Table of contents">
+      <h2>In this guide</h2>
+      <ol>
+        <li><a href="#why-speed">Why speed matters</a></li>
+        <li><a href="#core-web-vitals">Core Web Vitals explained</a></li>
+        <li><a href="#test-first">Test your site first</a></li>
+        <li><a href="#images">Optimize images</a></li>
+        <li><a href="#caching-cdn">Caching and CDN</a></li>
+        <li><a href="#code-hosting">Code, fonts, and hosting</a></li>
+        <li><a href="#mobile">Mobile speed</a></li>
+        <li><a href="#wordpress">WordPress speed checklist</a></li>
+        <li><a href="#action-plan">Quick action plan</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ol>
+    </nav>
+
+    <article class="prose" itemscope itemtype="https://schema.org/BlogPosting">
+      <meta itemprop="headline" content="How to Make Your Website Load Fast: A Practical Speed Guide">
+      <meta itemprop="datePublished" content="2026-09-14">
+      <meta itemprop="dateModified" content="2026-09-14">
+
+      <h2 id="why-speed">Why speed matters</h2>
+      <p>People expect pages to appear in under three seconds. After that, bounce rates climb and conversions drop. Google uses page experience signals — including load speed — as part of how it evaluates and ranks sites.</p>
+      <p>Speed is not a one-time fix. Every new plugin, hero image, tracking script, or page template can slow you down again. Treat performance like SEO: measure, improve, re-test.</p>
+
+      <div class="callout">
+        <strong>Rule of thumb:</strong> Fix the biggest files and requests first. Images, render-blocking scripts, and slow server response usually cause more delay than minor CSS tweaks.
+      </div>
+
+      <h2 id="core-web-vitals">Core Web Vitals explained</h2>
+      <p>Google’s <strong>Core Web Vitals</strong> measure real-world user experience in three areas. Aim for “Good” on all three in Google Search Console and PageSpeed Insights.</p>
+
+      <figure class="step-figure">
+        <img src="/blog/fast-website-load-speed/guide-core-web-vitals.jpg" width="1200" height="675" alt="Core Web Vitals: LCP, INP, and CLS explained" loading="lazy" decoding="async">
+        <figcaption class="step-caption"><strong>Core Web Vitals.</strong> LCP = load speed, INP = interactivity, CLS = layout stability. Watermarked JLT · tolentinojohnlester3-cyber.github.io.</figcaption>
+      </figure>
+
+      <table class="compare" aria-label="Core Web Vitals targets">
+        <thead>
+          <tr><th>Metric</th><th>What it measures</th><th>Good target</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>LCP</strong> (Largest Contentful Paint)</td><td>How fast the main content appears</td><td>≤ 2.5 seconds</td></tr>
+          <tr><td><strong>INP</strong> (Interaction to Next Paint)</td><td>How fast the page responds to clicks and taps</td><td>≤ 200 ms</td></tr>
+          <tr><td><strong>CLS</strong> (Cumulative Layout Shift)</td><td>How much the page jumps while loading</td><td>≤ 0.1</td></tr>
+        </tbody>
+      </table>
+
+      <p>Poor LCP often comes from large hero images, slow hosting, or unoptimized fonts. Poor INP is common when too much JavaScript runs on the main thread. Poor CLS happens when ads, images, or embeds load without reserved space.</p>
+
+      <h2 id="test-first">Test your site first</h2>
+      <p>Before changing anything, benchmark your current speed. You need a baseline to know what worked.</p>
+      <ul>
+        <li><a href="https://pagespeed.web.dev/" target="_blank" rel="noopener">PageSpeed Insights</a> — Google’s tool; shows Core Web Vitals and field data when available</li>
+        <li><a href="https://gtmetrix.com/" target="_blank" rel="noopener">GTmetrix</a> — waterfall view of every request</li>
+        <li><a href="https://search.google.com/search-console" target="_blank" rel="noopener">Google Search Console</a> → Experience → Core Web Vitals — real user data from Chrome</li>
+        <li>Chrome DevTools → Network tab — test on throttled 4G to simulate mobile</li>
+      </ul>
+
+      <figure class="step-figure">
+        <img src="/blog/fast-website-load-speed/guide-test-tools.jpg" width="1200" height="675" alt="PageSpeed Insights and speed testing tools dashboard" loading="lazy" decoding="async">
+        <figcaption class="step-caption"><strong>Test first.</strong> Run mobile and desktop reports, then work through the top opportunities listed.</figcaption>
+      </figure>
+
+      <p>Test your homepage, a blog post, and a category or product page. Speed problems often differ by template.</p>
+
+      <h2 id="images">Optimize images</h2>
+      <p>Images are the number-one cause of slow pages on content sites. A single uncompressed 4000px photo can weigh more than the rest of the page combined.</p>
+
+      <figure class="step-figure">
+        <img src="/blog/fast-website-load-speed/guide-image-optimization.jpg" width="1200" height="675" alt="Before and after image optimization — compress JPG to WebP" loading="lazy" decoding="async">
+        <figcaption class="step-caption"><strong>Image workflow.</strong> Resize to display size, compress, serve WebP/AVIF, lazy-load below the fold.</figcaption>
+      </figure>
+
+      <ul class="checklist">
+        <li><strong>Resize before upload</strong> — don’t serve 3000px wide images in a 800px container</li>
+        <li><strong>Use WebP or AVIF</strong> — with JPG/PNG fallback via <code>&lt;picture&gt;</code> if needed</li>
+        <li><strong>Compress</strong> — tools like Squoosh, ShortPixel, or Imagify (WordPress)</li>
+        <li><strong>Set width and height</strong> — prevents layout shift (helps CLS)</li>
+        <li><strong>Lazy-load below the fold</strong> — <code>loading="lazy"</code> on non-critical images</li>
+        <li><strong>Preload the hero/LCP image</strong> — <code>&lt;link rel="preload" as="image"&gt;</code> for the largest visible element</li>
+      </ul>
+
+      <h2 id="caching-cdn">Caching and CDN</h2>
+      <p><strong>Caching</strong> stores copies of pages and static files so repeat visitors don’t re-download everything. A <strong>CDN</strong> (Content Delivery Network) serves those files from servers closer to the user.</p>
+
+      <figure class="step-figure">
+        <img src="/blog/fast-website-load-speed/guide-caching-cdn.jpg" width="1200" height="675" alt="Browser cache and CDN diagram for faster website delivery" loading="lazy" decoding="async">
+        <figcaption class="step-caption"><strong>Caching + CDN.</strong> Browser cache for repeat visits; CDN edge servers for global fast delivery.</figcaption>
+      </figure>
+
+      <h3>Browser caching</h3>
+      <p>Set long cache lifetimes for static assets (CSS, JS, fonts, images) via server headers or your host panel. WordPress caching plugins (LiteSpeed Cache, WP Rocket, W3 Total Cache) handle this automatically.</p>
+
+      <h3>Page caching</h3>
+      <p>Generate static HTML for each URL so PHP/database work runs once, not on every visit. Essential for WordPress and most CMS sites.</p>
+
+      <h3>CDN options</h3>
+      <ul>
+        <li><strong>Cloudflare</strong> — free tier includes CDN, caching, and HTTPS</li>
+        <li><strong>Bunny CDN</strong> — affordable, fast for media-heavy sites</li>
+        <li><strong>Host CDN</strong> — many hosts bundle LiteSpeed or StackPath CDN</li>
+      </ul>
+
+      <h2 id="code-hosting">Code, fonts, and hosting</h2>
+      <h3>Reduce JavaScript and CSS</h3>
+      <ul>
+        <li>Remove unused plugins and scripts (analytics, chat widgets, sliders)</li>
+        <li>Defer non-critical JS — let HTML and CSS render first</li>
+        <li>Minify and combine files where safe (avoid breaking dependencies)</li>
+        <li>Load third-party embeds only when needed (YouTube facades, click-to-load maps)</li>
+      </ul>
+
+      <h3>Fonts</h3>
+      <ul>
+        <li>Limit font families and weights — each weight is a separate download</li>
+        <li>Use <code>font-display: swap</code> so text shows while fonts load</li>
+        <li>Self-host Google Fonts or use system font stacks for maximum speed</li>
+      </ul>
+
+      <h3>Hosting and server</h3>
+      <p>No plugin fixes bad hosting forever. Choose PHP 8.2+, enable OPcache, use SSD/NVMe storage, and pick a server region close to your audience. For international sites, pair good hosting with a CDN.</p>
+
+      <h3>HTTPS and HTTP/2</h3>
+      <p>Always serve over HTTPS. Modern servers support HTTP/2 or HTTP/3, which load multiple files in parallel — critical for sites with many small assets.</p>
+
+      <h2 id="mobile">Mobile speed</h2>
+      <p>Google indexes mobile-first. A fast desktop score means little if mobile users wait five seconds on 4G.</p>
+
+      <figure class="step-figure">
+        <img src="/blog/fast-website-load-speed/guide-mobile-speed.jpg" width="1200" height="675" alt="Mobile website fast loading on smartphone" loading="lazy" decoding="async">
+        <figcaption class="step-caption"><strong>Mobile first.</strong> Test on real devices and throttled connections — most traffic is mobile.</figcaption>
+      </figure>
+
+      <ul>
+        <li>Design mobile layouts with fewer heavy elements above the fold</li>
+        <li>Avoid pop-ups that block the viewport on load</li>
+        <li>Use responsive images with <code>srcset</code> so phones download smaller files</li>
+        <li>Keep tap targets large — slow INP often traces back to heavy JS on mobile</li>
+      </ul>
+
+      <h2 id="wordpress">WordPress speed checklist</h2>
+      <p>Most sites I optimize run WordPress. After you <a href="/blog/install-wordpress-cpanel/">install WordPress in cPanel</a>, apply these speed fixes:</p>
+      <ol>
+        <li>Install a caching plugin (LiteSpeed Cache if on LiteSpeed host, or WP Rocket)</li>
+        <li>Use a lightweight theme — avoid bloated multipurpose themes with dozens of bundled scripts</li>
+        <li>Limit plugins — audit quarterly; deactivate what you don’t need</li>
+        <li>Enable object caching (Redis/Memcached) on supported hosts</li>
+        <li>Optimize the database — remove post revisions and transients periodically</li>
+        <li>Set permalinks to Post name and enable HTTPS (see post-install steps in the WordPress guide)</li>
+      </ol>
+
+      <h2 id="action-plan">Quick action plan</h2>
+      <p>Work through this order for the fastest wins:</p>
+      <table class="compare" aria-label="Website speed action plan by priority">
+        <thead>
+          <tr><th>Priority</th><th>Action</th><th>Typical impact</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>1</td><td>Run PageSpeed Insights (mobile)</td><td>Baseline + fix list</td></tr>
+          <tr><td>2</td><td>Compress and resize images</td><td>High — often 30–60% faster LCP</td></tr>
+          <tr><td>3</td><td>Enable page + browser caching</td><td>High — especially repeat visits</td></tr>
+          <tr><td>4</td><td>Add CDN (e.g. Cloudflare)</td><td>Medium–high — global sites</td></tr>
+          <tr><td>5</td><td>Remove or defer unused JS</td><td>Medium — helps INP</td></tr>
+          <tr><td>6</td><td>Upgrade hosting or PHP version</td><td>Medium — fixes slow TTFB</td></tr>
+        </tbody>
+      </table>
+
+      <p>Speed supports every layer of search visibility — from crawl efficiency to conversions. For how speed fits the wider stack, read <a href="/blog/layers-of-seo/">layers of SEO</a> and <a href="/blog/what-is-seo/">what is SEO</a>.</p>
+
+      <h2 id="faq">FAQ</h2>
+      <div class="faq">
+        <div class="faq-item">
+          <h3>What is a good page load time?</h3>
+          <p>Aim for under 3 seconds on mobile for the main content to appear. Core Web Vitals “Good” thresholds (LCP ≤ 2.5s) are the technical benchmark Google uses.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Does website speed affect SEO?</h3>
+          <p>Yes. Speed is part of page experience. Slow sites can rank lower, crawl less efficiently, and convert fewer visitors — even when content quality is strong.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Which caching plugin is best for WordPress?</h3>
+          <p>LiteSpeed Cache is excellent on LiteSpeed servers (free). WP Rocket is a popular premium option. The best plugin is one you configure correctly and test after every change.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Do I need a CDN if my host is fast?</h3>
+          <p>If your audience is global, yes — a CDN cuts latency by serving files from nearby edge locations. For a single-country audience on good hosting, caching alone may be enough.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Why is my site fast in the office but slow for users?</h3>
+          <p>You may be on fast Wi‑Fi near the server. Test with PageSpeed mobile, GTmetrix from another region, or Chrome DevTools throttling to simulate real conditions.</p>
+        </div>
+      </div>
+
+      <aside class="author-box">
+        <img src="/jlt-profile.png" alt="Portrait of John Lester Tolentino" width="88" height="88">
+        <div>
+          <h3>About the author</h3>
+          <p>John Lester Tolentino is a Senior SEO Specialist in Sta. Rosa, Laguna. He optimizes WordPress and custom sites across 67+ projects for speed, crawlability, and rankings. <a href="/#contact">Get in touch</a> or browse the <a href="/blog/">SEO blog</a>.</p>
+        </div>
+      </aside>
+    </article>
+
+    <section class="more-posts" aria-label="More from the blog">
+      <h2>More from the blog</h2>
+      <div class="more-grid">
+        <a class="more-card" href="/blog/install-wordpress-cpanel/">
+          <img src="/blog/install-wordpress-cpanel/featured-card.jpg" width="148" height="78" alt="Install WordPress in cPanel" loading="lazy" decoding="async">
+          <div>
+            <small>WordPress · 12 min read</small>
+            <h3>Install WordPress in cPanel</h3>
+            <p>Softaculous step-by-step guide with watermarked screenshots.</p>
+            <span class="more-cta">Read the guide →</span>
+          </div>
+        </a>
+        <a class="more-card" href="/blog/layers-of-seo/">
+          <img src="/blog/layers-of-seo/featured-card.jpg" width="148" height="78" alt="Layers of SEO" loading="lazy" decoding="async">
+          <div>
+            <small>SEO strategy · 10 min read</small>
+            <h3>Layers of SEO: From crawled to converted</h3>
+            <p>SEO, AEO, GEO, AIO, and SXO — the five layers of modern search visibility.</p>
+            <span class="more-cta">Read the guide →</span>
+          </div>
+        </a>
+      </div>
+      <p class="more-all"><a href="/blog/">View all posts →</a></p>
+    </section>
+  </main>
+
+  <footer class="wrap footer">
+    <span>© 2026 John Lester Tolentino</span>
+    <a href="https://www.linkedin.com/in/john-lester-tolentino-8b376726b/" target="_blank" rel="noopener">LinkedIn profile</a>
+  </footer>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BlogPosting",
+        "@id": "https://tolentinojohnlester3-cyber.github.io/blog/fast-website-load-speed/#article",
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://tolentinojohnlester3-cyber.github.io/blog/fast-website-load-speed/"
+        },
+        "headline": "How to Make Your Website Load Fast: A Practical Speed Guide",
+        "alternativeHeadline": "Website speed optimization guide",
+        "description": "Make your website load fast with Core Web Vitals, image optimization, caching, CDN, and mobile speed fixes.",
+        "image": {
+          "@type": "ImageObject",
+          "url": "https://tolentinojohnlester3-cyber.github.io/blog/fast-website-load-speed/featured.jpg",
+          "contentUrl": "https://tolentinojohnlester3-cyber.github.io/blog/fast-website-load-speed/featured.jpg",
+          "width": 1200,
+          "height": 630
+        },
+        "datePublished": "2026-09-14",
+        "dateModified": "2026-09-14",
+        "author": { "@id": "https://tolentinojohnlester3-cyber.github.io/#person" },
+        "publisher": { "@id": "https://tolentinojohnlester3-cyber.github.io/#person" },
+        "inLanguage": "en",
+        "articleSection": "SEO",
+        "keywords": ["website speed", "page speed optimization", "Core Web Vitals", "fast loading website"],
+        "wordCount": 1950,
+        "timeRequired": "PT11M",
+        "isPartOf": {
+          "@type": "Blog",
+          "@id": "https://tolentinojohnlester3-cyber.github.io/blog/#blog",
+          "name": "John Lester Tolentino SEO Blog"
+        }
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://tolentinojohnlester3-cyber.github.io/blog/fast-website-load-speed/",
+        "url": "https://tolentinojohnlester3-cyber.github.io/blog/fast-website-load-speed/",
+        "name": "How to Make Your Website Load Fast",
+        "isPartOf": { "@id": "https://tolentinojohnlester3-cyber.github.io/#website" },
+        "breadcrumb": { "@id": "https://tolentinojohnlester3-cyber.github.io/blog/fast-website-load-speed/#breadcrumb" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://tolentinojohnlester3-cyber.github.io/blog/fast-website-load-speed/#breadcrumb",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://tolentinojohnlester3-cyber.github.io/" },
+          { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://tolentinojohnlester3-cyber.github.io/blog/" },
+          { "@type": "ListItem", "position": 3, "name": "Fast website load speed", "item": "https://tolentinojohnlester3-cyber.github.io/blog/fast-website-load-speed/" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://tolentinojohnlester3-cyber.github.io/blog/fast-website-load-speed/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is a good page load time?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Aim for under 3 seconds on mobile for main content to appear. LCP at or below 2.5 seconds is Google's Good threshold."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does website speed affect SEO?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Speed is part of page experience and can affect rankings, crawl efficiency, and conversions."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do I need a CDN?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "For global audiences, a CDN reduces latency. For single-region traffic on good hosting, caching alone may suffice."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "Person",
+        "@id": "https://tolentinojohnlester3-cyber.github.io/#person",
+        "name": "John Lester Tolentino",
+        "jobTitle": "Senior SEO Specialist",
+        "url": "https://tolentinojohnlester3-cyber.github.io/"
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://tolentinojohnlester3-cyber.github.io/#website",
+        "url": "https://tolentinojohnlester3-cyber.github.io/",
+        "name": "John Lester Tolentino | JLT"
+      }
+    ]
+  }
+  </script>
+  <script>
+    (function () {
+      const progress = document.querySelector(".progress");
+      const menuBtn = document.querySelector(".menu-btn");
+      const links = document.querySelector(".nav-links");
+      window.addEventListener("scroll", function () {
+        const h = document.documentElement;
+        const scrolled = h.scrollTop / (h.scrollHeight - h.clientHeight || 1);
+        if (progress) progress.style.width = (scrolled * 100).toFixed(2) + "%";
+      });
+      if (menuBtn && links) {
+        menuBtn.addEventListener("click", function () { links.classList.toggle("open"); });
+        links.querySelectorAll("a").forEach(function (a) {
+          a.addEventListener("click", function () { links.classList.remove("open"); });
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
