@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <title>How to Fix Sitemap &quot;Couldn't Fetch&quot; in Google Search Console | John Lester Tolentino (JLT)</title>
+  <meta name="description" content="Fix Google Search Console sitemap Couldn't fetch errors. Step-by-step guide: verify the live sitemap, match your GSC property, fix robots.txt, resubmit, and troubleshoot 404/500 errors.">
+  <meta name="keywords" content="sitemap couldn't fetch, Google Search Console sitemap error, fix sitemap GSC, sitemap not read, John Lester Tolentino, JLT, technical SEO">
+  <meta name="author" content="John Lester Tolentino (JLT)">
+  <meta name="owner" content="John Lester Tolentino">
+  <meta name="copyright" content="John Lester Tolentino">
+  <meta name="publisher" content="John Lester Tolentino (JLT)">
+  <meta name="subject" content="How to fix sitemap couldn't fetch in Google Search Console by John Lester Tolentino JLT">
+  <meta name="google-site-verification" content="-VhVE7603Le5BmPDdqgtv_9G-7fJ3_f2uhttElLQUr0" />
+  <meta name="google-site-verification" content="AWeOntiIBeb32_Tu_OXoZrGGwsAq0F-z4rwSbERKgBo" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large">
+  <meta name="bingbot" content="index, follow">
+  <link rel="canonical" href="https://tolentinojohnlester3-cyber.github.io/blog/fix-sitemap-couldnt-fetch-gsc/">
+  <link rel="sitemap" type="application/xml" href="/sitemap.xml">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="John Lester Tolentino | JLT">
+  <meta property="og:title" content="Fix Sitemap Couldn't Fetch in Google Search Console | JLT">
+  <meta property="og:description" content="Verify your live sitemap, match the GSC property, fix robots.txt, and resubmit — a practical troubleshooting guide.">
+  <meta property="og:url" content="https://tolentinojohnlester3-cyber.github.io/blog/fix-sitemap-couldnt-fetch-gsc/">
+  <meta property="og:image" content="https://tolentinojohnlester3-cyber.github.io/blog/fix-sitemap-couldnt-fetch-gsc/featured.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="How to fix sitemap couldn't fetch in Google Search Console — guide by John Lester Tolentino (JLT)">
+  <meta property="article:published_time" content="2026-09-14">
+  <meta property="article:modified_time" content="2026-09-14">
+  <meta property="article:author" content="John Lester Tolentino">
+  <meta property="article:section" content="SEO">
+  <meta property="article:tag" content="Google Search Console">
+  <meta property="article:tag" content="XML sitemap">
+  <meta property="article:tag" content="Technical SEO">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Fix Sitemap Couldn't Fetch in GSC | JLT">
+  <meta name="twitter:description" content="Step-by-step fix for Google Search Console sitemap fetch errors.">
+  <meta name="twitter:image" content="https://tolentinojohnlester3-cyber.github.io/blog/fix-sitemap-couldnt-fetch-gsc/featured.jpg">
+  <meta name="twitter:image:alt" content="How to fix sitemap couldn't fetch in Google Search Console — guide by John Lester Tolentino (JLT)">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f5f7fb; --bg-2: #ffffff; --bg-3: #eef3fb; --orange: #ff6b1a; --orange-2: #ff8f4a;
+      --blue: #1d4ed8; --black: #111111; --white: #ffffff; --ink: #111111; --gray: #5b6472;
+      --line: rgba(17, 17, 17, 0.1); --radius: 18px; --max: 1180px; --prose: 760px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; scroll-padding-top: 84px; }
+    .prose h2, .prose h3 { scroll-margin-top: 84px; }
+    body { font-family: "Manrope", "Segoe UI", sans-serif; background: var(--bg); color: var(--ink); line-height: 1.7; overflow-x: hidden; }
+    body::before {
+      content: ""; position: fixed; inset: 0; pointer-events: none; z-index: -1;
+      background:
+        radial-gradient(900px 420px at 8% -8%, rgba(255, 107, 26, 0.18), transparent 58%),
+        radial-gradient(720px 420px at 100% 0%, rgba(29, 78, 216, 0.14), transparent 52%),
+        linear-gradient(180deg, #ffffff 0%, #f5f7fb 40%, #eef3fb 100%);
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    button { font-family: inherit; cursor: pointer; }
+    .wrap { width: min(var(--max), calc(100% - 40px)); margin: 0 auto; position: relative; z-index: 1; }
+    .progress { position: fixed; top: 0; left: 0; height: 3px; width: 0; background: linear-gradient(90deg, var(--orange), var(--blue)); z-index: 80; }
+    .nav { position: sticky; top: 0; z-index: 70; backdrop-filter: blur(16px); background: rgba(255, 255, 255, 0.86); border-bottom: 1px solid var(--line); }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; min-height: 72px; gap: 16px; }
+    .logo { display: inline-flex; align-items: center; line-height: 0; }
+    .logo img { height: 44px; width: auto; border-radius: 8px; }
+    .nav-links { display: flex; gap: 18px; list-style: none; align-items: center; }
+    .nav-links a { color: var(--gray); font-size: 0.92rem; font-weight: 600; transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--blue); }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: var(--orange); color: #fff; font-weight: 800; font-size: 0.92rem; border: 0; border-radius: 999px; padding: 11px 20px; box-shadow: 0 8px 18px rgba(255, 107, 26, 0.32); }
+    .btn:hover { background: var(--orange-2); color: #fff; }
+    .btn-ghost { background: var(--blue); box-shadow: 0 8px 18px rgba(29, 78, 216, 0.32); }
+    .btn-ghost:hover { background: #163db8; color: #fff; }
+    .nav-links a.btn, .nav-links a.btn:hover, .nav-links a.btn.active { color: #fff; font-size: 0.88rem; padding: 10px 18px; white-space: nowrap; }
+    .menu-btn { display: none; background: none; border: 0; color: var(--black); font-size: 1.6rem; }
+    h1, h2, h3 { font-family: "Syne", sans-serif; line-height: 1.15; color: var(--black); }
+    .kicker { color: var(--orange); font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; font-size: 0.78rem; margin-bottom: 14px; }
+    .crumbs { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; color: var(--gray); font-size: 0.88rem; font-weight: 600; padding: 28px 0 0; }
+    .crumbs a { color: var(--blue); }
+    .article-hero { padding: 28px 0 12px; max-width: var(--prose); }
+    .article-hero h1 { font-size: clamp(2.1rem, 5vw, 3.6rem); letter-spacing: -0.04em; }
+    .featured { margin: 22px 0 4px; max-width: var(--prose); }
+    .featured img { width: 100%; height: auto; aspect-ratio: 1200 / 630; object-fit: cover; border-radius: 18px; border: 1px solid var(--line); background: var(--bg-3); }
+    .lead { margin-top: 18px; color: var(--gray); font-size: 1.12rem; }
+    .meta { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 22px; color: var(--gray); font-size: 0.9rem; font-weight: 600; }
+    .meta img { width: 36px; height: 36px; border-radius: 50%; object-fit: cover; }
+    .meta-author { display: flex; align-items: center; gap: 10px; }
+    .toc { background: var(--bg-2); border: 1px solid var(--line); border-radius: var(--radius); padding: 22px 24px; margin: 28px 0 8px; max-width: var(--prose); box-shadow: 0 10px 28px rgba(17, 29, 64, 0.06); }
+    .toc h2 { font-size: 1.05rem; margin-bottom: 12px; }
+    .toc ol { padding-left: 20px; color: var(--gray); }
+    .toc a { color: var(--blue); font-weight: 700; }
+    .toc li { margin: 7px 0; }
+    .prose { max-width: var(--prose); padding: 12px 0 0; }
+    .prose h2 { font-size: 1.7rem; margin: 42px 0 14px; }
+    .prose h3 { font-size: 1.22rem; margin: 28px 0 10px; }
+    .prose p { color: #2c3340; margin: 0 0 16px; }
+    .prose ul, .prose ol { padding-left: 22px; color: #2c3340; margin: 0 0 18px; }
+    .prose li { margin: 7px 0; }
+    .prose a { color: var(--blue); font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
+    .prose code { font-size: 0.9em; background: var(--bg-3); padding: 2px 6px; border-radius: 6px; }
+    .callout { background: var(--bg-2); border-left: 4px solid var(--orange); border-radius: 0 14px 14px 0; padding: 16px 18px; margin: 20px 0 24px; color: #2c3340; }
+    .step-figure { margin: 24px 0 28px; background: var(--bg-2); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; box-shadow: 0 10px 28px rgba(17, 29, 64, 0.06); }
+    .step-figure img { width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; background: var(--bg-3); }
+    .step-caption { padding: 14px 18px; font-size: 0.9rem; color: var(--gray); border-top: 1px solid var(--line); }
+    .step-caption strong { color: var(--black); }
+    .compare { width: 100%; border-collapse: collapse; margin: 20px 0 28px; font-size: 0.92rem; }
+    .compare th, .compare td { border: 1px solid var(--line); padding: 12px 14px; text-align: left; vertical-align: top; }
+    .compare th { background: var(--bg-3); font-family: "Syne", sans-serif; }
+    .compare td { color: #2c3340; background: var(--bg-2); }
+    .checklist { list-style: none; padding-left: 0; margin: 0 0 24px; }
+    .checklist li { position: relative; padding-left: 28px; margin: 10px 0; color: #2c3340; }
+    .checklist li::before { content: "✓"; position: absolute; left: 0; color: var(--blue); font-weight: 800; }
+    .faq { display: grid; gap: 12px; margin-top: 8px; }
+    .faq-item { background: var(--bg-2); border: 1px solid var(--line); border-radius: var(--radius); padding: 20px 24px; }
+    .faq-item h3 { font-size: 1.08rem; margin-bottom: 8px; }
+    .faq-item p { color: var(--gray); margin: 0; }
+    .author-box { display: grid; grid-template-columns: 88px 1fr; gap: 18px; align-items: center; background: var(--bg-2); border: 1px solid var(--line); border-radius: 20px; padding: 22px; margin-top: 36px; }
+    .author-box img { width: 88px; height: 88px; border-radius: 18px; object-fit: cover; }
+    .author-box p { color: var(--gray); margin: 8px 0 0; }
+    .more-posts { max-width: var(--prose); margin: 0 0 80px; padding-top: 40px; border-top: 1px solid var(--line); }
+    .more-posts h2 { font-size: 1.35rem; margin-bottom: 18px; }
+    .more-grid { display: grid; gap: 16px; }
+    .more-card { display: grid; grid-template-columns: 148px 1fr; gap: 16px; align-items: start; background: var(--bg-2); border: 1px solid var(--line); border-radius: 16px; padding: 14px; box-shadow: 0 10px 28px rgba(17, 29, 64, 0.06); transition: border-color 0.2s; }
+    .more-card:hover { border-color: var(--orange); }
+    .more-card img { width: 148px; height: 78px; object-fit: cover; border-radius: 10px; background: var(--bg-3); }
+    .more-card small { color: var(--orange); font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; font-size: 0.72rem; }
+    .more-card h3 { font-size: 1.05rem; margin: 6px 0 8px; line-height: 1.25; }
+    .more-card p { margin: 0; color: var(--gray); font-size: 0.9rem; line-height: 1.5; }
+    .more-cta { display: inline-block; margin-top: 10px; color: var(--blue); font-weight: 800; font-size: 0.88rem; }
+    .more-all { margin-top: 18px; font-weight: 700; }
+    .more-all a { color: var(--blue); text-decoration: underline; text-underline-offset: 3px; }
+    .footer { border-top: 1px solid var(--line); padding: 28px 0 40px; color: var(--gray); display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+    .footer a { color: var(--blue); font-weight: 700; }
+    @media (max-width: 900px) {
+      .menu-btn { display: block; }
+      .nav-links { display: none; position: absolute; top: 72px; left: 0; right: 0; background: var(--white); border-bottom: 1px solid var(--line); flex-direction: column; padding: 20px 24px 28px; align-items: flex-start; z-index: 80; }
+      .nav-links.open { display: flex; }
+      .author-box, .more-card { grid-template-columns: 1fr; }
+      .more-card img { width: 100%; height: auto; aspect-ratio: 800 / 420; }
+      .compare { display: block; overflow-x: auto; }
+    }
+  </style>
+</head>
+<body>
+  <div class="progress"></div>
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <a class="logo" href="/" aria-label="John Lester Tolentino home">
+        <img src="/jlt-logo.png" alt="JLT logo">
+      </a>
+      <button class="menu-btn" type="button" aria-label="Open menu">☰</button>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/#about">About</a></li>
+        <li><a href="/#projects">Projects</a></li>
+        <li><a class="active" href="/blog/">Blog</a></li>
+        <li><a class="btn btn-ghost" href="/John_Lester_Tolentino_SEO_Resume.pdf" download="John_Lester_Tolentino_SEO_Resume.pdf">Resume</a></li>
+        <li><a class="btn" href="/#contact">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="/">Home</a>
+      <span>/</span>
+      <a href="/blog/">Blog</a>
+      <span>/</span>
+      <span>Fix sitemap couldn't fetch in GSC</span>
+    </nav>
+
+    <header class="article-hero">
+      <p class="kicker">Technical SEO · 9 min read</p>
+      <h1>How to fix sitemap &quot;Couldn't fetch&quot; in Google Search Console</h1>
+      <p class="lead">You submitted your XML sitemap in Google Search Console and the status says <strong>Couldn't fetch</strong>. That usually means Google tried to open the file and hit a 404, 500, timeout, or property mismatch — not that your whole site is broken. This guide walks through the fixes in order.</p>
+      <div class="meta">
+        <div class="meta-author">
+          <img src="/jlt-profile.png" alt="John Lester Tolentino" width="36" height="36">
+          <span>By <a href="/">John Lester Tolentino</a>, Senior SEO Specialist</span>
+        </div>
+        <time datetime="2026-09-14">September 14, 2026</time>
+      </div>
+    </header>
+
+    <figure class="featured">
+      <img src="/blog/fix-sitemap-couldnt-fetch-gsc/featured.jpg" width="1200" height="630" alt="How to fix sitemap couldn't fetch in Google Search Console" fetchpriority="high" decoding="async">
+    </figure>
+
+    <nav class="toc" aria-label="Table of contents">
+      <h2>In this guide</h2>
+      <ol>
+        <li><a href="#what-it-means">What &quot;Couldn't fetch&quot; means</a></li>
+        <li><a href="#quick-fix">5-minute fix checklist</a></li>
+        <li><a href="#verify-live">Verify the sitemap is live</a></li>
+        <li><a href="#gsc-property">Match your GSC property</a></li>
+        <li><a href="#submit-correctly">Submit the sitemap correctly</a></li>
+        <li><a href="#robots-blocking">Check robots.txt and blocking</a></li>
+        <li><a href="#invalid-xml">Fix invalid XML and bad URLs</a></li>
+        <li><a href="#platform-tips">WordPress, static sites, and GitHub Pages</a></li>
+        <li><a href="#when-to-wait">When to wait vs. when to panic</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ol>
+    </nav>
+
+    <article class="prose" itemscope itemtype="https://schema.org/BlogPosting">
+      <meta itemprop="headline" content="How to Fix Sitemap Couldn't Fetch in Google Search Console">
+      <meta itemprop="datePublished" content="2026-09-14">
+      <meta itemprop="dateModified" content="2026-09-14">
+
+      <h2 id="what-it-means">What &quot;Couldn't fetch&quot; means</h2>
+      <p>In <a href="https://search.google.com/search-console" target="_blank" rel="noopener">Google Search Console</a>, the sitemap report shows whether Google could download and read your XML sitemap. <strong>Couldn't fetch</strong> means the request failed before Google could process the URLs inside it.</p>
+      <p>Common causes:</p>
+      <ul>
+        <li>The sitemap file returns <strong>404 Not Found</strong> (not uploaded yet or wrong path)</li>
+        <li>A temporary <strong>500 server error</strong> during deploy or hosting glitch</li>
+        <li>The sitemap was submitted to the <strong>wrong GSC property</strong> (http vs https, www vs non-www)</li>
+        <li><strong>robots.txt</strong> or firewall rules block Googlebot from the sitemap URL</li>
+        <li>The file is not valid XML or lists URLs on a different domain</li>
+      </ul>
+
+      <div class="callout">
+        <strong>Important:</strong> &quot;Couldn't fetch&quot; is about the sitemap <em>file</em>. Your pages can still be indexed through internal links. But fixing the sitemap helps Google discover new and updated URLs faster.
+      </div>
+
+      <h2 id="quick-fix">5-minute fix checklist</h2>
+      <p>Run through these steps before diving deeper:</p>
+      <ul class="checklist">
+        <li>Open your sitemap URL in a private browser tab — you should see XML, not a 404 or error page</li>
+        <li>Confirm you are in the correct Search Console property (exact protocol and hostname)</li>
+        <li>In GSC → Sitemaps, submit only <code>sitemap.xml</code> (for URL-prefix properties)</li>
+        <li>Check <code>/robots.txt</code> — make sure it does not block <code>/sitemap.xml</code></li>
+        <li>Wait 5–10 minutes after any deploy, then click <strong>Resubmit</strong></li>
+      </ul>
+
+      <h2 id="verify-live">Verify the sitemap is live</h2>
+      <p>Your sitemap must be publicly reachable. Test the exact URL you declare in robots.txt.</p>
+      <p>Example for a GitHub Pages site:</p>
+      <ul>
+        <li>Sitemap: <code>https://yoursite.github.io/sitemap.xml</code></li>
+        <li>Robots: <code>https://yoursite.github.io/robots.txt</code></li>
+      </ul>
+
+      <figure class="step-figure">
+        <img src="/blog/fix-sitemap-couldnt-fetch-gsc/guide-check-sitemap-live.jpg" width="1200" height="675" alt="Browser showing a live XML sitemap with urlset and loc tags" loading="lazy" decoding="async">
+        <figcaption class="step-caption"><strong>Check in browser first.</strong> If you see XML with <code>&lt;urlset&gt;</code> and <code>&lt;loc&gt;</code> tags, the file is live. A blank page, 404, or 500 means Google will fail too.</figcaption>
+      </figure>
+
+      <h3>Quick HTTP status check</h3>
+      <p>Use Chrome DevTools → Network, or run in terminal:</p>
+      <p><code>curl -I https://yoursite.com/sitemap.xml</code></p>
+      <p>You want <strong>HTTP 200</strong>. A 301 redirect to the correct HTTPS URL is usually fine. 404 and 500 are not.</p>
+
+      <h3>File not on the server yet</h3>
+      <p>This is the most common cause I see on static sites and GitHub Pages: the sitemap exists locally on your computer but was never pushed to production. After upload, wait a few minutes for the host to rebuild, then test the live URL again.</p>
+
+      <h2 id="gsc-property">Match your GSC property</h2>
+      <p>Search Console properties are strict about URL format. If your live site is:</p>
+      <p><code>https://example.com</code></p>
+      <p>…then your sitemap URLs inside the file must use <code>https://example.com/...</code>, and you must submit the sitemap under the <strong>https://example.com</strong> property — not <code>http://</code>, not <code>https://www.example.com</code> unless that is your canonical host.</p>
+
+      <figure class="step-figure">
+        <img src="/blog/fix-sitemap-couldnt-fetch-gsc/guide-gsc-property-match.jpg" width="1200" height="675" alt="Correct vs incorrect Google Search Console property for sitemap submission" loading="lazy" decoding="async">
+        <figcaption class="step-caption"><strong>Property must match.</strong> Submit the sitemap in the same Search Console property as your canonical URLs.</figcaption>
+      </figure>
+
+      <table class="compare" aria-label="GSC property mismatch examples">
+        <thead>
+          <tr><th>Live site</th><th>Wrong property</th><th>Correct property</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>https://site.com</code></td><td><code>http://site.com</code></td><td><code>https://site.com</code></td></tr>
+          <tr><td><code>https://www.site.com</code></td><td><code>https://site.com</code></td><td><code>https://www.site.com</code></td></tr>
+          <tr><td><code>https://user.github.io</code></td><td><code>https://github.io</code></td><td><code>https://user.github.io</code></td></tr>
+        </tbody>
+      </table>
+
+      <h2 id="submit-correctly">Submit the sitemap correctly</h2>
+      <p>In Google Search Console:</p>
+      <ol>
+        <li>Open your property</li>
+        <li>Go to <strong>Sitemaps</strong> (under Indexing)</li>
+        <li>Enter <code>sitemap.xml</code> in the &quot;Add a new sitemap&quot; field</li>
+        <li>Click <strong>Submit</strong></li>
+      </ol>
+      <p>For a URL-prefix property, GSC already knows your domain — you only need the path. Submitting the full URL twice sometimes causes confusion; stick to <code>sitemap.xml</code> unless you use a sitemap index at a different path.</p>
+
+      <h3>WordPress sitemap paths</h3>
+      <ul>
+        <li>Yoast / Rank Math: usually <code>sitemap_index.xml</code></li>
+        <li>WordPress core (5.5+): <code>wp-sitemap.xml</code></li>
+        <li>All in One SEO: <code>sitemap.xml</code></li>
+      </ul>
+      <p>Submit the path your plugin actually generates — open it in the browser first to confirm.</p>
+
+      <h2 id="robots-blocking">Check robots.txt and blocking</h2>
+      <p>Your robots.txt should <em>allow</em> Googlebot to fetch the sitemap. A typical setup:</p>
+      <p><code>User-agent: *<br>Allow: /<br><br>Sitemap: https://yoursite.com/sitemap.xml</code></p>
+      <p>Problems to watch for:</p>
+      <ul>
+        <li><code>Disallow: /sitemap.xml</code> — remove this</li>
+        <li>Sitemap line pointing to the wrong domain or old staging URL</li>
+        <li>CDN or security plugin blocking Googlebot with a challenge page</li>
+        <li>Password protection on the whole site (common on staging)</li>
+      </ul>
+      <p>The sitemap line in robots.txt is a hint for crawlers; the URL must still return 200 when fetched directly.</p>
+
+      <h2 id="invalid-xml">Fix invalid XML and bad URLs</h2>
+      <p>If Google can fetch the file but still reports errors, check the XML itself:</p>
+      <ul class="checklist">
+        <li>Starts with <code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</code></li>
+        <li>Uses <code>&lt;urlset xmlns=&quot;http://www.sitemaps.org/schemas/sitemap/0.9&quot;&gt;</code></li>
+        <li>Every <code>&lt;loc&gt;</code> is a full absolute URL (<code>https://...</code>)</li>
+        <li>No broken characters or copy-paste corruption</li>
+        <li>URLs in the sitemap return 200 (not 404 or redirect chains to unrelated domains)</li>
+      </ul>
+      <p>Validate with an XML sitemap validator or Search Console's URL Inspection on a few listed pages.</p>
+
+      <h2 id="platform-tips">WordPress, static sites, and GitHub Pages</h2>
+      <h3>WordPress</h3>
+      <ul>
+        <li>Flush permalinks (Settings → Permalinks → Save) if sitemap 404s</li>
+        <li>Disable conflicting SEO plugins — only one should generate the sitemap</li>
+        <li>Exclude noindex staging URLs from the sitemap</li>
+      </ul>
+
+      <h3>Static / custom HTML sites</h3>
+      <ul>
+        <li>Place <code>sitemap.xml</code> at the site root (same level as <code>index.html</code>)</li>
+        <li>Add a <code>.nojekyll</code> file on GitHub Pages if Jekyll processing causes issues</li>
+        <li>Regenerate the sitemap when you publish new blog posts</li>
+      </ul>
+
+      <h3>GitHub Pages</h3>
+      <p>Files must live in the repo root (or your configured <code>/docs</code> folder), not inside an un-deployed subfolder. After push, Pages can take 2–5 minutes to rebuild. A brief 500 error right after deploy is normal — resubmit once the URL loads cleanly.</p>
+
+      <h2 id="when-to-wait">When to wait vs. when to panic</h2>
+      <table class="compare" aria-label="When to wait or fix sitemap errors">
+        <thead>
+          <tr><th>Status</th><th>What to do</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Couldn't fetch right after deploy</td><td>Wait 10–30 min, verify live URL, resubmit</td></tr>
+          <tr><td>Couldn't fetch for 48+ hours</td><td>Fix server/path/property issue — do not ignore</td></tr>
+          <tr><td>Success but 0 discovered pages</td><td>Check URLs inside sitemap — may be blocked or noindex</td></tr>
+          <tr><td>Success with warnings</td><td>Fix individual URL errors listed in the report</td></tr>
+        </tbody>
+      </table>
+
+      <p>Sitemaps sit in the technical layer of search — they help discovery but do not replace good internal linking, canonical tags, or indexable content. For the full stack, see <a href="/blog/layers-of-seo/">layers of SEO</a> and <a href="/blog/what-is-seo/">what is SEO</a>.</p>
+
+      <h2 id="faq">FAQ</h2>
+      <div class="faq">
+        <div class="faq-item">
+          <h3>Does &quot;Couldn't fetch&quot; mean my site is deindexed?</h3>
+          <p>No. It means Google could not download the sitemap file. Your pages may still be indexed through links. Fix the sitemap so Google discovers URLs more reliably.</p>
+        </div>
+        <div class="faq-item">
+          <h3>How long after fixing should I wait?</h3>
+          <p>Resubmit in Search Console after the live sitemap returns 200. Status often updates within hours, but allow up to 48 hours before assuming something else is wrong.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Should I submit sitemap.xml or the full URL?</h3>
+          <p>For a URL-prefix property, enter <code>sitemap.xml</code>. For a Domain property, you can use the full URL <code>https://yoursite.com/sitemap.xml</code>.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Can I delete and resubmit the sitemap?</h3>
+          <p>Yes. Remove the failed entry, confirm the live file works, then submit again. This is often the fastest way to clear a stale error after a deploy.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Do I need a sitemap for a small site?</h3>
+          <p>Not strictly — Google can crawl small sites through links. Still, a sitemap is cheap insurance for new pages, blog posts, and after migrations. I recommend one for every site I manage.</p>
+        </div>
+      </div>
+
+      <aside class="author-box">
+        <img src="/jlt-profile.png" alt="Portrait of John Lester Tolentino" width="88" height="88">
+        <div>
+          <h3>About the author</h3>
+          <p>John Lester Tolentino is a Senior SEO Specialist in Sta. Rosa, Laguna. He fixes Search Console issues, sitemaps, and crawl errors across 67+ sites. <a href="/#contact">Get in touch</a> or browse the <a href="/blog/">SEO blog</a>.</p>
+        </div>
+      </aside>
+    </article>
+
+    <section class="more-posts" aria-label="More from the blog">
+      <h2>More from the blog</h2>
+      <div class="more-grid">
+        <a class="more-card" href="/blog/layers-of-seo/">
+          <img src="/blog/layers-of-seo/featured-card.jpg" width="148" height="78" alt="Layers of SEO" loading="lazy" decoding="async">
+          <div>
+            <small>SEO strategy · 10 min read</small>
+            <h3>Layers of SEO: From crawled to converted</h3>
+            <p>SEO, AEO, GEO, AIO, and SXO — the five layers of modern search visibility.</p>
+            <span class="more-cta">Read the guide →</span>
+          </div>
+        </a>
+        <a class="more-card" href="/blog/fast-website-load-speed/">
+          <img src="/blog/fast-website-load-speed/featured-card.jpg" width="148" height="78" alt="Fast website load speed" loading="lazy" decoding="async">
+          <div>
+            <small>Performance · 11 min read</small>
+            <h3>How to make your website load fast</h3>
+            <p>Core Web Vitals, caching, CDN, and image optimization with visuals.</p>
+            <span class="more-cta">Read the guide →</span>
+          </div>
+        </a>
+      </div>
+      <p class="more-all"><a href="/blog/">View all posts →</a></p>
+    </section>
+  </main>
+
+  <footer class="wrap footer">
+    <span>© 2026 John Lester Tolentino</span>
+    <a href="https://www.linkedin.com/in/john-lester-tolentino-8b376726b/" target="_blank" rel="noopener">LinkedIn profile</a>
+  </footer>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BlogPosting",
+        "@id": "https://tolentinojohnlester3-cyber.github.io/blog/fix-sitemap-couldnt-fetch-gsc/#article",
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://tolentinojohnlester3-cyber.github.io/blog/fix-sitemap-couldnt-fetch-gsc/"
+        },
+        "headline": "How to Fix Sitemap Couldn't Fetch in Google Search Console",
+        "alternativeHeadline": "Fix GSC sitemap fetch errors",
+        "description": "Fix Google Search Console sitemap Couldn't fetch errors with step-by-step verification of live sitemap, GSC property, robots.txt, and resubmission.",
+        "image": {
+          "@type": "ImageObject",
+          "url": "https://tolentinojohnlester3-cyber.github.io/blog/fix-sitemap-couldnt-fetch-gsc/featured.jpg",
+          "contentUrl": "https://tolentinojohnlester3-cyber.github.io/blog/fix-sitemap-couldnt-fetch-gsc/featured.jpg",
+          "width": 1200,
+          "height": 630
+        },
+        "datePublished": "2026-09-14",
+        "dateModified": "2026-09-14",
+        "author": { "@id": "https://tolentinojohnlester3-cyber.github.io/#person" },
+        "publisher": { "@id": "https://tolentinojohnlester3-cyber.github.io/#person" },
+        "inLanguage": "en",
+        "articleSection": "SEO",
+        "keywords": ["sitemap couldn't fetch", "Google Search Console", "XML sitemap", "technical SEO"],
+        "wordCount": 1650,
+        "timeRequired": "PT9M",
+        "isPartOf": {
+          "@type": "Blog",
+          "@id": "https://tolentinojohnlester3-cyber.github.io/blog/#blog",
+          "name": "John Lester Tolentino SEO Blog"
+        }
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://tolentinojohnlester3-cyber.github.io/blog/fix-sitemap-couldnt-fetch-gsc/",
+        "url": "https://tolentinojohnlester3-cyber.github.io/blog/fix-sitemap-couldnt-fetch-gsc/",
+        "name": "How to Fix Sitemap Couldn't Fetch in Google Search Console",
+        "isPartOf": { "@id": "https://tolentinojohnlester3-cyber.github.io/#website" },
+        "breadcrumb": { "@id": "https://tolentinojohnlester3-cyber.github.io/blog/fix-sitemap-couldnt-fetch-gsc/#breadcrumb" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://tolentinojohnlester3-cyber.github.io/blog/fix-sitemap-couldnt-fetch-gsc/#breadcrumb",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://tolentinojohnlester3-cyber.github.io/" },
+          { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://tolentinojohnlester3-cyber.github.io/blog/" },
+          { "@type": "ListItem", "position": 3, "name": "Fix sitemap couldn't fetch in GSC", "item": "https://tolentinojohnlester3-cyber.github.io/blog/fix-sitemap-couldnt-fetch-gsc/" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://tolentinojohnlester3-cyber.github.io/blog/fix-sitemap-couldnt-fetch-gsc/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Does Couldn't fetch mean my site is deindexed?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. It means Google could not download the sitemap file. Pages may still be indexed through links."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Should I submit sitemap.xml or the full URL?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "For a URL-prefix property, enter sitemap.xml. For a Domain property, use the full https URL."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How long after fixing should I wait?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Resubmit after the live sitemap returns HTTP 200. Allow up to 48 hours for status to update."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "Person",
+        "@id": "https://tolentinojohnlester3-cyber.github.io/#person",
+        "name": "John Lester Tolentino",
+        "jobTitle": "Senior SEO Specialist",
+        "url": "https://tolentinojohnlester3-cyber.github.io/"
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://tolentinojohnlester3-cyber.github.io/#website",
+        "url": "https://tolentinojohnlester3-cyber.github.io/",
+        "name": "John Lester Tolentino | JLT"
+      }
+    ]
+  }
+  </script>
+  <script>
+    (function () {
+      const progress = document.querySelector(".progress");
+      const menuBtn = document.querySelector(".menu-btn");
+      const links = document.querySelector(".nav-links");
+      window.addEventListener("scroll", function () {
+        const h = document.documentElement;
+        const scrolled = h.scrollTop / (h.scrollHeight - h.clientHeight || 1);
+        if (progress) progress.style.width = (scrolled * 100).toFixed(2) + "%";
+      });
+      if (menuBtn && links) {
+        menuBtn.addEventListener("click", function () { links.classList.toggle("open"); });
+        links.querySelectorAll("a").forEach(function (a) {
+          a.addEventListener("click", function () { links.classList.remove("open"); });
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
