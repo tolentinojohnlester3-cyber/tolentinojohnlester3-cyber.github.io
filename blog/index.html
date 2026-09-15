@@ -73,54 +73,15 @@
     .kicker { color: var(--orange); font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; font-size: 0.78rem; margin-bottom: 14px; }
     .crumbs { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; color: var(--gray); font-size: 0.88rem; font-weight: 600; padding: 28px 0 0; }
     .crumbs a { color: var(--blue); }
-    .page-head { padding: 28px 0 36px; display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; }
-    .page-head > div:first-child { max-width: 640px; }
+    .page-head { padding: 28px 0 36px; max-width: 640px; }
     .page-head h1 { font-size: clamp(2.2rem, 5vw, 3.6rem); letter-spacing: -0.04em; }
     .page-head p { margin-top: 16px; color: var(--gray); font-size: 1.05rem; }
-    .blog-head-actions { display: flex; gap: 8px; flex-shrink: 0; }
-    .blog-scroller { position: relative; margin-bottom: 80px; }
-    .blog-head-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      gap: 16px;
-      margin-bottom: 8px;
-    }
-    .blog-arrow {
-      width: 42px;
-      height: 42px;
-      border-radius: 50%;
-      border: 1px solid var(--line);
-      background: var(--white);
-      color: var(--black);
-      font-size: 1.15rem;
-      line-height: 1;
-      box-shadow: 0 8px 18px rgba(17, 29, 64, 0.08);
-    }
-    .blog-arrow:hover { border-color: var(--orange); color: var(--orange); }
-    .blog-hint {
-      display: none;
-      margin: 0 0 12px;
-      color: var(--gray);
-      font-size: 0.86rem;
-      font-weight: 700;
-    }
-    .blog-track {
-      display: flex;
-      gap: 16px;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      scroll-padding-inline: 2px;
-      padding: 8px 2px 18px;
-      -webkit-overflow-scrolling: touch;
-      overscroll-behavior-x: contain;
-      scrollbar-width: thin;
-      scrollbar-color: rgba(29, 78, 216, 0.35) transparent;
-    }
-    .blog-track::-webkit-scrollbar { height: 6px; }
-    .blog-track::-webkit-scrollbar-thumb {
-      background: rgba(29, 78, 216, 0.35);
-      border-radius: 99px;
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      align-items: stretch;
+      margin-bottom: 80px;
     }
     .post {
       display: flex;
@@ -131,13 +92,13 @@
       padding: 0;
       overflow: hidden;
       box-shadow: 0 10px 28px rgba(17, 29, 64, 0.06);
-      flex: 0 0 min(340px, 82vw);
-      min-height: 390px;
-      scroll-snap-align: start;
+      height: 100%;
+      min-height: 0;
+      transition: transform 0.25s, border-color 0.25s;
     }
     .post img { width: 100%; height: auto; aspect-ratio: 800 / 420; object-fit: cover; background: var(--bg-3); }
     .post-body { display: flex; flex-direction: column; flex: 1 1 auto; padding: 20px 22px 22px; }
-    .post:hover { border-color: var(--orange); }
+    .post:hover { border-color: var(--orange); transform: translateY(-6px); }
     .post small { color: var(--orange); font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; font-size: 0.72rem; }
     .post h2 { font-size: 1.12rem; margin: 8px 0 10px; line-height: 1.25; }
     .post p { color: var(--gray); font-size: 0.94rem; line-height: 1.55; }
@@ -145,6 +106,9 @@
     .post-cta { margin-top: 12px; color: var(--blue); font-weight: 800; font-size: 0.92rem; }
     .footer { border-top: 1px solid var(--line); padding: 28px 0 40px; color: var(--gray); display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
     .footer a { color: var(--blue); font-weight: 700; }
+    @media (max-width: 1100px) {
+      .blog-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
     @media (max-width: 900px) {
       .wrap { width: min(var(--max), calc(100% - 24px)); }
       .menu-btn { display: grid; place-items: center; min-width: 44px; min-height: 44px; }
@@ -168,13 +132,13 @@
       .nav-links.open { display: flex; }
       .nav-links a { min-height: 44px; display: flex; align-items: center; }
       .nav-links a.btn { justify-content: center; }
-      .page-head { padding: 20px 0 16px; flex-direction: column; align-items: flex-start; }
+      .page-head { padding: 20px 0 24px; }
       .page-head h1 { font-size: clamp(1.9rem, 10vw, 2.8rem); }
-      .blog-arrow { display: none; }
-      .blog-hint { display: block; }
-      .post { flex-basis: min(300px, 84vw); min-height: 360px; }
-      .blog-scroller { margin-bottom: 48px; }
+      .post:hover { transform: none; }
       .footer { padding: 22px 0 calc(28px + env(safe-area-inset-bottom)); }
+    }
+    @media (max-width: 640px) {
+      .blog-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -204,19 +168,11 @@
       <span>Blog</span>
     </nav>
     <header class="page-head">
-      <div>
-        <p class="kicker">SEO blog</p>
-        <h1>Guides from the work</h1>
-        <p>Practical SEO writing from John Lester Tolentino. Guides on search fundamentals, modern SEO layers, and how ranking actually works.</p>
-      </div>
-      <div class="blog-head-actions">
-        <button class="blog-arrow" type="button" data-scroll="prev" aria-label="Previous posts">‹</button>
-        <button class="blog-arrow" type="button" data-scroll="next" aria-label="Next posts">›</button>
-      </div>
+      <p class="kicker">SEO blog</p>
+      <h1>Guides from the work</h1>
+      <p>Practical SEO writing from John Lester Tolentino. Guides on search fundamentals, modern SEO layers, and how ranking actually works.</p>
     </header>
-    <p class="blog-hint">Swipe to browse posts →</p>
-    <div class="blog-scroller">
-    <div class="blog-track" id="blog-track">
+    <div class="blog-grid">
       <a class="post" href="/blog/google-business-profile-optimization/">
         <img src="/blog/google-business-profile-optimization/featured-card.webp" width="800" height="420" alt="Google Business Profile optimization guide for local SEO" loading="lazy" decoding="async">
         <div class="post-body">
@@ -304,7 +260,6 @@
           <span class="post-cta">Read the guide →</span>
         </div>
       </a>
-    </div>
     </div>
   </main>
 
@@ -518,18 +473,6 @@
           a.addEventListener("click", function () { links.classList.remove("open"); });
         });
       }
-      const blogTrack = document.getElementById("blog-track");
-      document.querySelectorAll("[data-scroll]").forEach(function (btn) {
-        btn.addEventListener("click", function () {
-          if (!blogTrack) return;
-          const card = blogTrack.querySelector(".post");
-          const amount = (card ? card.getBoundingClientRect().width : 320) + 16;
-          blogTrack.scrollBy({
-            left: btn.getAttribute("data-scroll") === "next" ? amount : -amount,
-            behavior: "smooth"
-          });
-        });
-      });
     })();
   </script>
 </body>
