@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" href="/favicon.png">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -26,8 +26,8 @@
   <meta property="og:title" content="Google Business Profile Optimization Guide (GMB) | JLT">
   <meta property="og:description" content="Step-by-step GMB optimization: verification, categories, reviews, posts, photos, and local pack rankings.">
   <meta property="og:url" content="https://tolentinojohnlester3-cyber.github.io/blog/google-business-profile-optimization/">
-  <meta property="og:image" content="https://tolentinojohnlester3-cyber.github.io/blog/google-business-profile-optimization/featured.svg">
-  <meta property="og:image:type" content="image/svg+xml">
+  <meta property="og:image" content="https://tolentinojohnlester3-cyber.github.io/blog/google-business-profile-optimization/featured.webp">
+  <meta property="og:image:type" content="image/webp">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Google Business Profile optimization guide by John Lester Tolentino (JLT)">
@@ -41,7 +41,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Google Business Profile Optimization Guide | JLT">
   <meta name="twitter:description" content="Complete GMB optimization: setup, reviews, posts, and map pack rankings.">
-  <meta name="twitter:image" content="https://tolentinojohnlester3-cyber.github.io/blog/google-business-profile-optimization/featured.svg">
+  <meta name="twitter:image" content="https://tolentinojohnlester3-cyber.github.io/blog/google-business-profile-optimization/featured.webp">
   <meta name="twitter:image:alt" content="Google Business Profile optimization guide by John Lester Tolentino (JLT)">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -138,12 +138,19 @@
     .footer { border-top: 1px solid var(--line); padding: 28px 0 40px; color: var(--gray); display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
     .footer a { color: var(--blue); font-weight: 700; }
     @media (max-width: 900px) {
-      .menu-btn { display: block; }
-      .nav-links { display: none; position: absolute; top: 72px; left: 0; right: 0; background: var(--white); border-bottom: 1px solid var(--line); flex-direction: column; padding: 20px 24px 28px; align-items: flex-start; z-index: 80; }
+      .wrap { width: min(var(--max), calc(100% - 24px)); }
+      .menu-btn { display: grid; place-items: center; min-width: 44px; min-height: 44px; }
+      .nav-inner { min-height: 60px; }
+      .logo img { height: 36px; }
+      .nav-links { display: none; position: absolute; top: 60px; left: 0; right: 0; background: var(--white); border-bottom: 1px solid var(--line); flex-direction: column; padding: 12px 20px 24px; align-items: stretch; z-index: 80; max-height: calc(100dvh - 60px); overflow-y: auto; }
       .nav-links.open { display: flex; }
+      .nav-links a { min-height: 44px; display: flex; align-items: center; }
+      .nav-links a.btn { justify-content: center; }
+      .article-hero h1 { font-size: clamp(1.8rem, 9vw, 2.6rem); }
       .author-box, .more-card { grid-template-columns: 1fr; }
       .more-card img { width: 100%; height: auto; aspect-ratio: 800 / 420; }
       .compare { display: block; overflow-x: auto; }
+      .footer { padding: 22px 0 calc(28px + env(safe-area-inset-bottom)); }
     }
   </style>
 </head>
@@ -152,7 +159,7 @@
   <header class="nav">
     <div class="wrap nav-inner">
       <a class="logo" href="/" aria-label="John Lester Tolentino home">
-        <img src="/jlt-logo.png" alt="JLT logo">
+        <img src="/jlt-logo.webp" alt="JLT logo">
       </a>
       <button class="menu-btn" type="button" aria-label="Open menu">☰</button>
       <ul class="nav-links">
@@ -181,7 +188,7 @@
       <p class="lead"><strong>Google Business Profile</strong> (formerly Google My Business / GMB) is the free listing that powers your presence on Google Search and Maps. A fully optimized profile helps you show up in the <strong>local map pack</strong>, earn clicks from &quot;near me&quot; searches, and convert searchers into calls, directions, and bookings.</p>
       <div class="meta">
         <div class="meta-author">
-          <img src="/jlt-profile.png" alt="John Lester Tolentino" width="36" height="36">
+          <img src="/jlt-profile.webp" alt="John Lester Tolentino" width="36" height="36">
           <span>By <a href="/">John Lester Tolentino</a>, Senior SEO Specialist</span>
         </div>
         <time datetime="2026-09-15">September 15, 2026</time>
@@ -189,7 +196,7 @@
     </header>
 
     <figure class="featured">
-      <img src="/blog/google-business-profile-optimization/featured.svg" width="1200" height="630" alt="Google Business Profile optimization guide for local SEO and map pack rankings" fetchpriority="high" decoding="async">
+      <img src="/blog/google-business-profile-optimization/featured.webp" width="1200" height="630" alt="Google Business Profile optimization guide for local SEO and map pack rankings" fetchpriority="high" decoding="async">
     </figure>
 
     <nav class="toc" aria-label="Table of contents">
@@ -393,7 +400,7 @@
       </div>
 
       <aside class="author-box">
-        <img src="/jlt-profile.png" alt="Portrait of John Lester Tolentino" width="88" height="88">
+        <img src="/jlt-profile.webp" alt="Portrait of John Lester Tolentino" width="88" height="88">
         <div>
           <h3>About the author</h3>
           <p>John Lester Tolentino is a Senior SEO Specialist in Sta. Rosa, Laguna. He handles local SEO, Google Business Profile optimization, and full-site SEO across 67+ websites. <a href="/#contact">Get in touch</a> or browse the <a href="/blog/">SEO blog</a>.</p>
@@ -405,7 +412,7 @@
       <h2>More from the blog</h2>
       <div class="more-grid">
         <a class="more-card" href="/blog/types-of-structured-data/">
-          <img src="/blog/types-of-structured-data/featured-card.jpg" width="148" height="78" alt="Types of structured data" loading="lazy" decoding="async">
+          <img src="/blog/types-of-structured-data/featured-card.webp" width="148" height="78" alt="Types of structured data" loading="lazy" decoding="async">
           <div>
             <small>Technical SEO · 14 min read</small>
             <h3>Types of structured data for your site</h3>
@@ -414,7 +421,7 @@
           </div>
         </a>
         <a class="more-card" href="/blog/layers-of-seo/">
-          <img src="/blog/layers-of-seo/featured-card.jpg" width="148" height="78" alt="Layers of SEO" loading="lazy" decoding="async">
+          <img src="/blog/layers-of-seo/featured-card.webp" width="148" height="78" alt="Layers of SEO" loading="lazy" decoding="async">
           <div>
             <small>SEO strategy · 10 min read</small>
             <h3>Layers of SEO: From crawled to converted</h3>
@@ -448,7 +455,7 @@
         "description": "Complete Google Business Profile (GMB) optimization guide covering verification, NAP, categories, reviews, posts, photos, and local map pack rankings.",
         "image": {
           "@type": "ImageObject",
-          "url": "https://tolentinojohnlester3-cyber.github.io/blog/google-business-profile-optimization/featured.svg",
+          "url": "https://tolentinojohnlester3-cyber.github.io/blog/google-business-profile-optimization/featured.webp",
           "width": 1200,
           "height": 630
         },

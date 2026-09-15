@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" href="/favicon.png">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -26,8 +26,8 @@
   <meta property="og:title" content="Fix Sitemap Couldn't Fetch in Google Search Console | JLT">
   <meta property="og:description" content="Verify your live sitemap, match the GSC property, fix robots.txt, and resubmit — a practical troubleshooting guide.">
   <meta property="og:url" content="https://tolentinojohnlester3-cyber.github.io/blog/fix-sitemap-couldnt-fetch-gsc/">
-  <meta property="og:image" content="https://tolentinojohnlester3-cyber.github.io/blog/fix-sitemap-couldnt-fetch-gsc/featured.jpg">
-  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image" content="https://tolentinojohnlester3-cyber.github.io/blog/fix-sitemap-couldnt-fetch-gsc/featured.webp">
+  <meta property="og:image:type" content="image/webp">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="How to fix sitemap couldn't fetch in Google Search Console — guide by John Lester Tolentino (JLT)">
@@ -41,7 +41,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Fix Sitemap Couldn't Fetch in GSC | JLT">
   <meta name="twitter:description" content="Step-by-step fix for Google Search Console sitemap fetch errors.">
-  <meta name="twitter:image" content="https://tolentinojohnlester3-cyber.github.io/blog/fix-sitemap-couldnt-fetch-gsc/featured.jpg">
+  <meta name="twitter:image" content="https://tolentinojohnlester3-cyber.github.io/blog/fix-sitemap-couldnt-fetch-gsc/featured.webp">
   <meta name="twitter:image:alt" content="How to fix sitemap couldn't fetch in Google Search Console — guide by John Lester Tolentino (JLT)">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -140,12 +140,19 @@
     .footer { border-top: 1px solid var(--line); padding: 28px 0 40px; color: var(--gray); display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
     .footer a { color: var(--blue); font-weight: 700; }
     @media (max-width: 900px) {
-      .menu-btn { display: block; }
-      .nav-links { display: none; position: absolute; top: 72px; left: 0; right: 0; background: var(--white); border-bottom: 1px solid var(--line); flex-direction: column; padding: 20px 24px 28px; align-items: flex-start; z-index: 80; }
+      .wrap { width: min(var(--max), calc(100% - 24px)); }
+      .menu-btn { display: grid; place-items: center; min-width: 44px; min-height: 44px; }
+      .nav-inner { min-height: 60px; }
+      .logo img { height: 36px; }
+      .nav-links { display: none; position: absolute; top: 60px; left: 0; right: 0; background: var(--white); border-bottom: 1px solid var(--line); flex-direction: column; padding: 12px 20px 24px; align-items: stretch; z-index: 80; max-height: calc(100dvh - 60px); overflow-y: auto; }
       .nav-links.open { display: flex; }
+      .nav-links a { min-height: 44px; display: flex; align-items: center; }
+      .nav-links a.btn { justify-content: center; }
+      .article-hero h1 { font-size: clamp(1.8rem, 9vw, 2.6rem); }
       .author-box, .more-card { grid-template-columns: 1fr; }
       .more-card img { width: 100%; height: auto; aspect-ratio: 800 / 420; }
       .compare { display: block; overflow-x: auto; }
+      .footer { padding: 22px 0 calc(28px + env(safe-area-inset-bottom)); }
     }
   </style>
 </head>
@@ -154,7 +161,7 @@
   <header class="nav">
     <div class="wrap nav-inner">
       <a class="logo" href="/" aria-label="John Lester Tolentino home">
-        <img src="/jlt-logo.png" alt="JLT logo">
+        <img src="/jlt-logo.webp" alt="JLT logo">
       </a>
       <button class="menu-btn" type="button" aria-label="Open menu">☰</button>
       <ul class="nav-links">
@@ -183,7 +190,7 @@
       <p class="lead">You submitted your XML sitemap in Google Search Console and the status says <strong>Couldn't fetch</strong>. That usually means Google tried to open the file and hit a 404, 500, timeout, or property mismatch — not that your whole site is broken. This guide walks through the fixes in order.</p>
       <div class="meta">
         <div class="meta-author">
-          <img src="/jlt-profile.png" alt="John Lester Tolentino" width="36" height="36">
+          <img src="/jlt-profile.webp" alt="John Lester Tolentino" width="36" height="36">
           <span>By <a href="/">John Lester Tolentino</a>, Senior SEO Specialist</span>
         </div>
         <time datetime="2026-09-14">September 14, 2026</time>
@@ -191,7 +198,7 @@
     </header>
 
     <figure class="featured">
-      <img src="/blog/fix-sitemap-couldnt-fetch-gsc/featured.jpg" width="1200" height="630" alt="How to fix sitemap couldn't fetch in Google Search Console" fetchpriority="high" decoding="async">
+      <img src="/blog/fix-sitemap-couldnt-fetch-gsc/featured.webp" width="1200" height="630" alt="How to fix sitemap couldn't fetch in Google Search Console" fetchpriority="high" decoding="async">
     </figure>
 
     <nav class="toc" aria-label="Table of contents">
@@ -249,7 +256,7 @@
       </ul>
 
       <figure class="step-figure">
-        <img src="/blog/fix-sitemap-couldnt-fetch-gsc/guide-check-sitemap-live.jpg" width="1200" height="675" alt="Browser showing a live XML sitemap with urlset and loc tags" loading="lazy" decoding="async">
+        <img src="/blog/fix-sitemap-couldnt-fetch-gsc/guide-check-sitemap-live.webp" width="1200" height="675" alt="Browser showing a live XML sitemap with urlset and loc tags" loading="lazy" decoding="async">
         <figcaption class="step-caption"><strong>Check in browser first.</strong> If you see XML with <code>&lt;urlset&gt;</code> and <code>&lt;loc&gt;</code> tags, the file is live. A blank page, 404, or 500 means Google will fail too.</figcaption>
       </figure>
 
@@ -267,7 +274,7 @@
       <p>…then your sitemap URLs inside the file must use <code>https://example.com/...</code>, and you must submit the sitemap under the <strong>https://example.com</strong> property — not <code>http://</code>, not <code>https://www.example.com</code> unless that is your canonical host.</p>
 
       <figure class="step-figure">
-        <img src="/blog/fix-sitemap-couldnt-fetch-gsc/guide-gsc-property-match.jpg" width="1200" height="675" alt="Correct vs incorrect Google Search Console property for sitemap submission" loading="lazy" decoding="async">
+        <img src="/blog/fix-sitemap-couldnt-fetch-gsc/guide-gsc-property-match.webp" width="1200" height="675" alt="Correct vs incorrect Google Search Console property for sitemap submission" loading="lazy" decoding="async">
         <figcaption class="step-caption"><strong>Property must match.</strong> Submit the sitemap in the same Search Console property as your canonical URLs.</figcaption>
       </figure>
 
@@ -381,7 +388,7 @@
       </div>
 
       <aside class="author-box">
-        <img src="/jlt-profile.png" alt="Portrait of John Lester Tolentino" width="88" height="88">
+        <img src="/jlt-profile.webp" alt="Portrait of John Lester Tolentino" width="88" height="88">
         <div>
           <h3>About the author</h3>
           <p>John Lester Tolentino is a Senior SEO Specialist in Sta. Rosa, Laguna. He fixes Search Console issues, sitemaps, and crawl errors across 67+ sites. <a href="/#contact">Get in touch</a> or browse the <a href="/blog/">SEO blog</a>.</p>
@@ -393,7 +400,7 @@
       <h2>More from the blog</h2>
       <div class="more-grid">
         <a class="more-card" href="/blog/layers-of-seo/">
-          <img src="/blog/layers-of-seo/featured-card.jpg" width="148" height="78" alt="Layers of SEO" loading="lazy" decoding="async">
+          <img src="/blog/layers-of-seo/featured-card.webp" width="148" height="78" alt="Layers of SEO" loading="lazy" decoding="async">
           <div>
             <small>SEO strategy · 10 min read</small>
             <h3>Layers of SEO: From crawled to converted</h3>
@@ -402,7 +409,7 @@
           </div>
         </a>
         <a class="more-card" href="/blog/fast-website-load-speed/">
-          <img src="/blog/fast-website-load-speed/featured-card.jpg" width="148" height="78" alt="Fast website load speed" loading="lazy" decoding="async">
+          <img src="/blog/fast-website-load-speed/featured-card.webp" width="148" height="78" alt="Fast website load speed" loading="lazy" decoding="async">
           <div>
             <small>Performance · 11 min read</small>
             <h3>How to make your website load fast</h3>
@@ -436,8 +443,8 @@
         "description": "Fix Google Search Console sitemap Couldn't fetch errors with step-by-step verification of live sitemap, GSC property, robots.txt, and resubmission.",
         "image": {
           "@type": "ImageObject",
-          "url": "https://tolentinojohnlester3-cyber.github.io/blog/fix-sitemap-couldnt-fetch-gsc/featured.jpg",
-          "contentUrl": "https://tolentinojohnlester3-cyber.github.io/blog/fix-sitemap-couldnt-fetch-gsc/featured.jpg",
+          "url": "https://tolentinojohnlester3-cyber.github.io/blog/fix-sitemap-couldnt-fetch-gsc/featured.webp",
+          "contentUrl": "https://tolentinojohnlester3-cyber.github.io/blog/fix-sitemap-couldnt-fetch-gsc/featured.webp",
           "width": 1200,
           "height": 630
         },

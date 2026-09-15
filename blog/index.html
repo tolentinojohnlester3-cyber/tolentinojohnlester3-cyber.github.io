@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" href="/favicon.png">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -27,11 +27,11 @@
   <meta property="og:title" content="SEO Blog | John Lester Tolentino (JLT)">
   <meta property="og:description" content="Practical SEO articles from John Lester Tolentino (JLT), Senior SEO Specialist.">
   <meta property="og:url" content="https://tolentinojohnlester3-cyber.github.io/blog/">
-  <meta property="og:image" content="https://tolentinojohnlester3-cyber.github.io/jlt-profile.png">
+  <meta property="og:image" content="https://tolentinojohnlester3-cyber.github.io/jlt-profile.webp">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="SEO Blog | John Lester Tolentino (JLT)">
   <meta name="twitter:description" content="Practical SEO articles from John Lester Tolentino (JLT), Senior SEO Specialist.">
-  <meta name="twitter:image" content="https://tolentinojohnlester3-cyber.github.io/jlt-profile.png">
+  <meta name="twitter:image" content="https://tolentinojohnlester3-cyber.github.io/jlt-profile.webp">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
@@ -73,15 +73,54 @@
     .kicker { color: var(--orange); font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; font-size: 0.78rem; margin-bottom: 14px; }
     .crumbs { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; color: var(--gray); font-size: 0.88rem; font-weight: 600; padding: 28px 0 0; }
     .crumbs a { color: var(--blue); }
-    .page-head { padding: 28px 0 36px; max-width: 640px; }
+    .page-head { padding: 28px 0 36px; display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; }
+    .page-head > div:first-child { max-width: 640px; }
     .page-head h1 { font-size: clamp(2.2rem, 5vw, 3.6rem); letter-spacing: -0.04em; }
     .page-head p { margin-top: 16px; color: var(--gray); font-size: 1.05rem; }
-    .blog-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 18px;
-      align-items: stretch;
-      margin-bottom: 80px;
+    .blog-head-actions { display: flex; gap: 8px; flex-shrink: 0; }
+    .blog-scroller { position: relative; margin-bottom: 80px; }
+    .blog-head-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 16px;
+      margin-bottom: 8px;
+    }
+    .blog-arrow {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      border: 1px solid var(--line);
+      background: var(--white);
+      color: var(--black);
+      font-size: 1.15rem;
+      line-height: 1;
+      box-shadow: 0 8px 18px rgba(17, 29, 64, 0.08);
+    }
+    .blog-arrow:hover { border-color: var(--orange); color: var(--orange); }
+    .blog-hint {
+      display: none;
+      margin: 0 0 12px;
+      color: var(--gray);
+      font-size: 0.86rem;
+      font-weight: 700;
+    }
+    .blog-track {
+      display: flex;
+      gap: 16px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-padding-inline: 2px;
+      padding: 8px 2px 18px;
+      -webkit-overflow-scrolling: touch;
+      overscroll-behavior-x: contain;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(29, 78, 216, 0.35) transparent;
+    }
+    .blog-track::-webkit-scrollbar { height: 6px; }
+    .blog-track::-webkit-scrollbar-thumb {
+      background: rgba(29, 78, 216, 0.35);
+      border-radius: 99px;
     }
     .post {
       display: flex;
@@ -92,7 +131,9 @@
       padding: 0;
       overflow: hidden;
       box-shadow: 0 10px 28px rgba(17, 29, 64, 0.06);
-      height: 100%;
+      flex: 0 0 min(340px, 82vw);
+      min-height: 390px;
+      scroll-snap-align: start;
     }
     .post img { width: 100%; height: auto; aspect-ratio: 800 / 420; object-fit: cover; background: var(--bg-3); }
     .post-body { display: flex; flex-direction: column; flex: 1 1 auto; padding: 20px 22px 22px; }
@@ -102,25 +143,38 @@
     .post p { color: var(--gray); font-size: 0.94rem; line-height: 1.55; }
     .post .meta { margin-top: auto; padding-top: 12px; font-size: 0.82rem; font-weight: 600; color: var(--gray); }
     .post-cta { margin-top: 12px; color: var(--blue); font-weight: 800; font-size: 0.92rem; }
-    .post-all {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      min-height: 280px;
-      padding: 28px 24px;
-      background: linear-gradient(160deg, var(--bg-2) 0%, var(--bg-3) 100%);
-    }
-    .post-all h2 { font-size: 1.2rem; }
-    @media (max-width: 1100px) {
-      .blog-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    }
     .footer { border-top: 1px solid var(--line); padding: 28px 0 40px; color: var(--gray); display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
     .footer a { color: var(--blue); font-weight: 700; }
     @media (max-width: 900px) {
-      .blog-grid { grid-template-columns: 1fr; }
-      .menu-btn { display: block; }
-      .nav-links { display: none; position: absolute; top: 72px; left: 0; right: 0; background: var(--white); border-bottom: 1px solid var(--line); flex-direction: column; padding: 20px 24px 28px; align-items: flex-start; z-index: 80; }
+      .wrap { width: min(var(--max), calc(100% - 24px)); }
+      .menu-btn { display: grid; place-items: center; min-width: 44px; min-height: 44px; }
+      .nav-inner { min-height: 60px; }
+      .logo img { height: 36px; }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background: var(--white);
+        border-bottom: 1px solid var(--line);
+        flex-direction: column;
+        padding: 12px 20px 24px;
+        align-items: stretch;
+        z-index: 80;
+        max-height: calc(100dvh - 60px);
+        overflow-y: auto;
+      }
       .nav-links.open { display: flex; }
+      .nav-links a { min-height: 44px; display: flex; align-items: center; }
+      .nav-links a.btn { justify-content: center; }
+      .page-head { padding: 20px 0 16px; flex-direction: column; align-items: flex-start; }
+      .page-head h1 { font-size: clamp(1.9rem, 10vw, 2.8rem); }
+      .blog-arrow { display: none; }
+      .blog-hint { display: block; }
+      .post { flex-basis: min(300px, 84vw); min-height: 360px; }
+      .blog-scroller { margin-bottom: 48px; }
+      .footer { padding: 22px 0 calc(28px + env(safe-area-inset-bottom)); }
     }
   </style>
 </head>
@@ -129,7 +183,7 @@
   <header class="nav">
     <div class="wrap nav-inner">
       <a class="logo" href="/" aria-label="John Lester Tolentino home">
-        <img src="/jlt-logo.png" alt="JLT logo">
+        <img src="/jlt-logo.webp" alt="JLT logo">
       </a>
       <button class="menu-btn" type="button" aria-label="Open menu">☰</button>
       <ul class="nav-links">
@@ -150,14 +204,21 @@
       <span>Blog</span>
     </nav>
     <header class="page-head">
-      <p class="kicker">SEO blog</p>
-      <h1>Guides from the work</h1>
-      <p>Practical SEO writing from John Lester Tolentino. Guides on search fundamentals, modern SEO layers, and how ranking actually works.</p>
+      <div>
+        <p class="kicker">SEO blog</p>
+        <h1>Guides from the work</h1>
+        <p>Practical SEO writing from John Lester Tolentino. Guides on search fundamentals, modern SEO layers, and how ranking actually works.</p>
+      </div>
+      <div class="blog-head-actions">
+        <button class="blog-arrow" type="button" data-scroll="prev" aria-label="Previous posts">‹</button>
+        <button class="blog-arrow" type="button" data-scroll="next" aria-label="Next posts">›</button>
+      </div>
     </header>
-
-    <div class="blog-grid">
+    <p class="blog-hint">Swipe to browse posts →</p>
+    <div class="blog-scroller">
+    <div class="blog-track" id="blog-track">
       <a class="post" href="/blog/google-business-profile-optimization/">
-        <img src="/blog/google-business-profile-optimization/featured-card.svg" width="800" height="420" alt="Google Business Profile optimization guide for local SEO" loading="lazy" decoding="async">
+        <img src="/blog/google-business-profile-optimization/featured-card.webp" width="800" height="420" alt="Google Business Profile optimization guide for local SEO" loading="lazy" decoding="async">
         <div class="post-body">
           <small>Local SEO · 12 min read · New</small>
           <h2>Google Business Profile optimization: the complete GMB guide</h2>
@@ -168,7 +229,7 @@
       </a>
 
       <a class="post" href="/blog/types-of-structured-data/">
-        <img src="/blog/types-of-structured-data/featured-card.jpg" width="800" height="420" alt="Types of structured data for websites — Schema.org guide" loading="lazy" decoding="async">
+        <img src="/blog/types-of-structured-data/featured-card.webp" width="800" height="420" alt="Types of structured data for websites — Schema.org guide" loading="lazy" decoding="async">
         <div class="post-body">
           <small>Technical SEO · 14 min read</small>
           <h2>Types of structured data you can put on a website</h2>
@@ -179,7 +240,7 @@
       </a>
 
       <a class="post" href="/blog/fix-sitemap-couldnt-fetch-gsc/">
-        <img src="/blog/fix-sitemap-couldnt-fetch-gsc/featured-card.jpg" width="800" height="420" alt="How to fix sitemap couldn't fetch in Google Search Console" loading="lazy" decoding="async">
+        <img src="/blog/fix-sitemap-couldnt-fetch-gsc/featured-card.webp" width="800" height="420" alt="How to fix sitemap couldn't fetch in Google Search Console" loading="lazy" decoding="async">
         <div class="post-body">
           <small>Technical SEO · 9 min read</small>
           <h2>How to fix sitemap &quot;Couldn't fetch&quot; in Google Search Console</h2>
@@ -190,7 +251,7 @@
       </a>
 
       <a class="post" href="/blog/fast-website-load-speed/">
-        <img src="/blog/fast-website-load-speed/featured-card.jpg" width="800" height="420" alt="How to make your website load fast" loading="lazy" decoding="async">
+        <img src="/blog/fast-website-load-speed/featured-card.webp" width="800" height="420" alt="How to make your website load fast" loading="lazy" decoding="async">
         <div class="post-body">
           <small>Performance · 11 min read</small>
           <h2>How to make your website load fast</h2>
@@ -201,7 +262,7 @@
       </a>
 
       <a class="post" href="/blog/install-wordpress-cpanel/">
-        <img src="/blog/install-wordpress-cpanel/featured-card.jpg" width="800" height="420" alt="How to install WordPress in cPanel" loading="lazy" decoding="async">
+        <img src="/blog/install-wordpress-cpanel/featured-card.webp" width="800" height="420" alt="How to install WordPress in cPanel" loading="lazy" decoding="async">
         <div class="post-body">
           <small>WordPress · 12 min read</small>
           <h2>How to install WordPress in cPanel (step-by-step)</h2>
@@ -212,7 +273,7 @@
       </a>
 
       <a class="post" href="/blog/google-august-2026-spam-update/">
-        <img src="/blog/google-august-2026-spam-update/featured-card.jpg" width="800" height="420" alt="Google August 2026 spam update explained" loading="lazy" decoding="async">
+        <img src="/blog/google-august-2026-spam-update/featured-card.webp" width="800" height="420" alt="Google August 2026 spam update explained" loading="lazy" decoding="async">
         <div class="post-body">
           <small>Algorithm update · 9 min read</small>
           <h2>Google August 2026 spam update: what SEOs need to know</h2>
@@ -223,7 +284,7 @@
       </a>
 
       <a class="post" href="/blog/layers-of-seo/">
-        <img src="/blog/layers-of-seo/featured-card.jpg" width="800" height="420" alt="Layers of SEO: from crawled to converted" loading="lazy" decoding="async">
+        <img src="/blog/layers-of-seo/featured-card.webp" width="800" height="420" alt="Layers of SEO: from crawled to converted" loading="lazy" decoding="async">
         <div class="post-body">
           <small>SEO strategy · 10 min read</small>
           <h2>Layers of SEO: From crawled to converted</h2>
@@ -234,7 +295,7 @@
       </a>
 
       <a class="post" href="/blog/what-is-seo/">
-        <img src="/blog/what-is-seo/featured-card.jpg" width="800" height="420" alt="What is SEO? Search engine optimization explained" loading="lazy" decoding="async">
+        <img src="/blog/what-is-seo/featured-card.webp" width="800" height="420" alt="What is SEO? Search engine optimization explained" loading="lazy" decoding="async">
         <div class="post-body">
           <small>SEO basics · 8 min read</small>
           <h2>What is SEO? Search engine optimization explained</h2>
@@ -243,6 +304,7 @@
           <span class="post-cta">Read the guide →</span>
         </div>
       </a>
+    </div>
     </div>
   </main>
 
@@ -270,7 +332,7 @@
             "@id": "https://tolentinojohnlester3-cyber.github.io/blog/google-business-profile-optimization/#article",
             "headline": "Google Business Profile Optimization: The Complete GMB Guide",
             "url": "https://tolentinojohnlester3-cyber.github.io/blog/google-business-profile-optimization/",
-            "image": "https://tolentinojohnlester3-cyber.github.io/blog/google-business-profile-optimization/featured.svg",
+            "image": "https://tolentinojohnlester3-cyber.github.io/blog/google-business-profile-optimization/featured.webp",
             "datePublished": "2026-09-15",
             "dateModified": "2026-09-15"
           },
@@ -279,7 +341,7 @@
             "@id": "https://tolentinojohnlester3-cyber.github.io/blog/types-of-structured-data/#article",
             "headline": "Types of Structured Data You Can Put on a Website",
             "url": "https://tolentinojohnlester3-cyber.github.io/blog/types-of-structured-data/",
-            "image": "https://tolentinojohnlester3-cyber.github.io/blog/types-of-structured-data/featured.jpg",
+            "image": "https://tolentinojohnlester3-cyber.github.io/blog/types-of-structured-data/featured.webp",
             "datePublished": "2026-09-15",
             "dateModified": "2026-09-15"
           },
@@ -288,7 +350,7 @@
             "@id": "https://tolentinojohnlester3-cyber.github.io/blog/fix-sitemap-couldnt-fetch-gsc/#article",
             "headline": "How to Fix Sitemap Couldn't Fetch in Google Search Console",
             "url": "https://tolentinojohnlester3-cyber.github.io/blog/fix-sitemap-couldnt-fetch-gsc/",
-            "image": "https://tolentinojohnlester3-cyber.github.io/blog/fix-sitemap-couldnt-fetch-gsc/featured.jpg",
+            "image": "https://tolentinojohnlester3-cyber.github.io/blog/fix-sitemap-couldnt-fetch-gsc/featured.webp",
             "datePublished": "2026-09-14",
             "dateModified": "2026-09-14"
           },
@@ -297,7 +359,7 @@
             "@id": "https://tolentinojohnlester3-cyber.github.io/blog/fast-website-load-speed/#article",
             "headline": "How to Make Your Website Load Fast: A Practical Speed Guide",
             "url": "https://tolentinojohnlester3-cyber.github.io/blog/fast-website-load-speed/",
-            "image": "https://tolentinojohnlester3-cyber.github.io/blog/fast-website-load-speed/featured.jpg",
+            "image": "https://tolentinojohnlester3-cyber.github.io/blog/fast-website-load-speed/featured.webp",
             "datePublished": "2026-09-14",
             "dateModified": "2026-09-14"
           },
@@ -306,7 +368,7 @@
             "@id": "https://tolentinojohnlester3-cyber.github.io/blog/install-wordpress-cpanel/#article",
             "headline": "How to Install WordPress in cPanel (Step-by-Step Guide)",
             "url": "https://tolentinojohnlester3-cyber.github.io/blog/install-wordpress-cpanel/",
-            "image": "https://tolentinojohnlester3-cyber.github.io/blog/install-wordpress-cpanel/featured.jpg",
+            "image": "https://tolentinojohnlester3-cyber.github.io/blog/install-wordpress-cpanel/featured.webp",
             "datePublished": "2026-09-14",
             "dateModified": "2026-09-14"
           },
@@ -315,7 +377,7 @@
             "@id": "https://tolentinojohnlester3-cyber.github.io/blog/google-august-2026-spam-update/#article",
             "headline": "Google August 2026 Spam Update: What SEOs Need to Know",
             "url": "https://tolentinojohnlester3-cyber.github.io/blog/google-august-2026-spam-update/",
-            "image": "https://tolentinojohnlester3-cyber.github.io/blog/google-august-2026-spam-update/featured.jpg",
+            "image": "https://tolentinojohnlester3-cyber.github.io/blog/google-august-2026-spam-update/featured.webp",
             "datePublished": "2026-09-13",
             "dateModified": "2026-09-13"
           },
@@ -324,7 +386,7 @@
             "@id": "https://tolentinojohnlester3-cyber.github.io/blog/layers-of-seo/#article",
             "headline": "Layers of SEO: From Crawled to Converted",
             "url": "https://tolentinojohnlester3-cyber.github.io/blog/layers-of-seo/",
-            "image": "https://tolentinojohnlester3-cyber.github.io/blog/layers-of-seo/featured.jpg",
+            "image": "https://tolentinojohnlester3-cyber.github.io/blog/layers-of-seo/featured.webp",
             "datePublished": "2026-09-13",
             "dateModified": "2026-09-13"
           },
@@ -333,7 +395,7 @@
             "@id": "https://tolentinojohnlester3-cyber.github.io/blog/what-is-seo/#article",
             "headline": "What Is SEO? Search Engine Optimization Explained",
             "url": "https://tolentinojohnlester3-cyber.github.io/blog/what-is-seo/",
-            "image": "https://tolentinojohnlester3-cyber.github.io/blog/what-is-seo/featured.jpg",
+            "image": "https://tolentinojohnlester3-cyber.github.io/blog/what-is-seo/featured.webp",
             "datePublished": "2026-09-12",
             "dateModified": "2026-09-12"
           }
@@ -456,6 +518,18 @@
           a.addEventListener("click", function () { links.classList.remove("open"); });
         });
       }
+      const blogTrack = document.getElementById("blog-track");
+      document.querySelectorAll("[data-scroll]").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          if (!blogTrack) return;
+          const card = blogTrack.querySelector(".post");
+          const amount = (card ? card.getBoundingClientRect().width : 320) + 16;
+          blogTrack.scrollBy({
+            left: btn.getAttribute("data-scroll") === "next" ? amount : -amount,
+            behavior: "smooth"
+          });
+        });
+      });
     })();
   </script>
 </body>

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <link rel="icon" href="favicon.ico" sizes="any">
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -28,14 +28,14 @@
   <meta property="og:title" content="John Lester Tolentino (JLT) | Senior SEO Specialist">
   <meta property="og:description" content="Official portfolio of John Lester Tolentino (JLT), Senior SEO Specialist in Sta. Rosa, Laguna, Philippines.">
   <meta property="og:url" content="https://tolentinojohnlester3-cyber.github.io/">
-  <meta property="og:image" content="https://tolentinojohnlester3-cyber.github.io/jlt-profile.png">
+  <meta property="og:image" content="https://tolentinojohnlester3-cyber.github.io/jlt-profile.webp">
   <meta property="og:image:alt" content="Portrait of John Lester Tolentino">
   <meta property="profile:first_name" content="John Lester">
   <meta property="profile:last_name" content="Tolentino">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="John Lester Tolentino (JLT) | Senior SEO Specialist">
   <meta name="twitter:description" content="Official portfolio of John Lester Tolentino (JLT), Senior SEO Specialist in Sta. Rosa, Laguna.">
-  <meta name="twitter:image" content="https://tolentinojohnlester3-cyber.github.io/jlt-profile.png">
+  <meta name="twitter:image" content="https://tolentinojohnlester3-cyber.github.io/jlt-profile.webp">
   <meta name="twitter:image:alt" content="Portrait of John Lester Tolentino">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -439,18 +439,51 @@
     }
     .faq-item h3 { font-size: 1.08rem; margin-bottom: 8px; }
     .faq-item p { color: var(--gray); }
-    .blog-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 18px;
-      align-items: stretch;
+    .blog-scroller { position: relative; }
+    .blog-head-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+    .blog-arrow {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      border: 1px solid var(--line);
+      background: var(--white);
+      color: var(--black);
+      font-size: 1.15rem;
+      line-height: 1;
+      box-shadow: 0 8px 18px rgba(17, 29, 64, 0.08);
+    }
+    .blog-arrow:hover { border-color: var(--orange); color: var(--orange); }
+    .blog-track {
+      display: flex;
+      gap: 16px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-padding-inline: 2px;
+      padding: 8px 2px 18px;
+      -webkit-overflow-scrolling: touch;
+      overscroll-behavior-x: contain;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(29, 78, 216, 0.35) transparent;
+    }
+    .blog-track::-webkit-scrollbar { height: 6px; }
+    .blog-track::-webkit-scrollbar-thumb {
+      background: rgba(29, 78, 216, 0.35);
+      border-radius: 99px;
     }
     .blog-card {
       display: flex;
       flex-direction: column;
       overflow: hidden;
       padding: 0;
-      height: 100%;
+      flex: 0 0 min(340px, 82vw);
+      min-height: 390px;
+      scroll-snap-align: start;
+      height: auto;
     }
     .blog-card img {
       width: 100%;
@@ -477,6 +510,7 @@
       margin: 10px 0 8px;
       font-size: 1.12rem;
       line-height: 1.25;
+      min-height: 0;
     }
     .blog-card p {
       color: var(--gray);
@@ -498,8 +532,7 @@
       justify-content: center;
       align-items: flex-start;
       text-align: left;
-      height: 100%;
-      min-height: 280px;
+      min-height: 390px;
       padding: 28px 24px;
       background: linear-gradient(160deg, var(--bg-2) 0%, var(--bg-3) 100%);
     }
@@ -511,27 +544,72 @@
       color: var(--gray);
       margin: 0;
     }
-    @media (max-width: 1100px) {
-      .blog-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .blog-hint {
+      display: none;
+      margin: 0 0 12px;
+      color: var(--gray);
+      font-size: 0.86rem;
+      font-weight: 700;
     }
     @media (max-width: 900px) {
-      .hero, .about-grid, .job, .projects, .contact-box, .blog-grid { grid-template-columns: 1fr; }
-      .menu-btn { display: block; }
+      .wrap { width: min(var(--max), calc(100% - 24px)); }
+      .hero, .about-grid, .job, .projects, .contact-box { grid-template-columns: 1fr; }
+      .menu-btn {
+        display: grid;
+        place-items: center;
+        min-width: 44px;
+        min-height: 44px;
+      }
+      .nav-inner { min-height: 60px; }
+      .logo img { height: 36px; }
       .nav-links {
         display: none;
         position: absolute;
-        top: 72px;
+        top: 60px;
         left: 0;
         right: 0;
         background: var(--white);
         border-bottom: 1px solid var(--line);
         flex-direction: column;
-        padding: 20px 24px 28px;
-        align-items: flex-start;
+        padding: 12px 20px 24px;
+        align-items: stretch;
         z-index: 80;
+        max-height: calc(100dvh - 60px);
+        overflow-y: auto;
       }
       .nav-links.open { display: flex; }
-      .photo-wrap { justify-self: center; width: min(100%, 320px); }
+      .nav-links a { min-height: 44px; display: flex; align-items: center; }
+      .nav-links a.btn { justify-content: center; }
+      .hero { padding: 36px 0 20px; gap: 28px; }
+      .hero h1 { font-size: clamp(2.15rem, 12vw, 3.1rem); }
+      .lead { font-size: 0.98rem; max-width: none; }
+      .hero-actions { margin-top: 22px; }
+      .hero-actions .btn { flex: 1 1 160px; }
+      .stats { margin-top: 24px; gap: 8px; }
+      .stat { padding: 12px; }
+      .stat b { font-size: 1.35rem; }
+      .stat span { font-size: 0.78rem; }
+      .photo-wrap { justify-self: center; width: min(100%, 280px); }
+      .section { padding: 56px 0; }
+      .section-head { flex-direction: column; align-items: flex-start; margin-bottom: 22px; }
+      .section-head p { max-width: none; }
+      .job { padding: 18px; }
+      .project h3, .project p { min-height: 0; }
+      .project-thumb { height: 150px; }
+      .fact { flex-direction: column; align-items: flex-start; gap: 4px; }
+      .chip, .filter { min-height: 40px; }
+      .contact-box { padding: 20px; }
+      .result-modal { padding: 12px; }
+      .result-modal-inner { padding: 16px; }
+      .blog-arrow { display: none; }
+      .blog-hint { display: block; }
+      .blog-card, .blog-card-all { flex-basis: min(300px, 84vw); min-height: 360px; }
+      .footer { padding: 22px 0 calc(28px + env(safe-area-inset-bottom)); }
+      .card:hover, .project:hover { transform: none; }
+    }
+    @media (max-width: 600px) {
+      .stats { grid-template-columns: 1fr 1fr 1fr; }
+      .cert-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -540,7 +618,7 @@
   <header class="nav">
     <div class="wrap nav-inner">
       <a class="logo" href="#top" aria-label="John Lester Tolentino home">
-        <img src="jlt-logo.png" alt="JLT logo">
+        <img src="jlt-logo.webp" alt="JLT logo">
       </a>
       <button class="menu-btn" type="button" aria-label="Open menu">☰</button>
       <ul class="nav-links">
@@ -575,7 +653,7 @@
         </div>
       </div>
       <div class="photo-wrap">
-        <img src="jlt-profile.png" alt="Portrait of John Lester Tolentino">
+        <img src="jlt-profile.webp" alt="Portrait of John Lester Tolentino">
       </div>
     </section>
 
@@ -680,8 +758,8 @@
           <p>Selected highlights from 67 sites I’ve handled. Full list available upon request.</p>
         </div>
         <div class="projects">
-          <button type="button" class="card project" data-result="gsc-aw8nepal.png" data-title="AW8 Nepal" data-url="https://aw8nepal.org/" data-caption="Freelance SEO — 92.7K clicks, 413K impressions, 22.4% CTR, and average position 3.4 in 3 months.">
-            <img class="project-thumb" src="gsc-aw8nepal.png" alt="AW8 Nepal Google Search Console results">
+          <button type="button" class="card project" data-result="gsc-aw8nepal.webp" data-title="AW8 Nepal" data-url="https://aw8nepal.org/" data-caption="Freelance SEO — 92.7K clicks, 413K impressions, 22.4% CTR, and average position 3.4 in 3 months.">
+            <img class="project-thumb" src="gsc-aw8nepal.webp" alt="AW8 Nepal Google Search Console results">
             <div class="project-body">
               <small>FREELANCE · SEO</small>
               <h3>AW8 Nepal</h3>
@@ -689,8 +767,8 @@
               <span class="project-cta">View results →</span>
             </div>
           </button>
-          <button type="button" class="card project" data-result="gsc-god345.png" data-gallery="gsc-god345.png,site-god345.png" data-title="GOD345" data-url="https://god345.co.com/" data-caption="68.2K clicks, 121K impressions, 56.4% CTR, and average position 3.6 in 3 months — plus the live homepage.">
-            <img class="project-thumb" src="gsc-god345.png" alt="GOD345 Google Search Console results">
+          <button type="button" class="card project" data-result="gsc-god345.webp" data-gallery="gsc-god345.webp,site-god345.webp" data-title="GOD345" data-url="https://god345.co.com/" data-caption="68.2K clicks, 121K impressions, 56.4% CTR, and average position 3.6 in 3 months — plus the live homepage.">
+            <img class="project-thumb" src="gsc-god345.webp" alt="GOD345 Google Search Console results">
             <div class="project-body">
               <small>SEO · WEB</small>
               <h3>GOD345</h3>
@@ -698,8 +776,8 @@
               <span class="project-cta">View site & results →</span>
             </div>
           </button>
-          <button type="button" class="card project" data-result="gsc-ivip9c.png" data-gallery="gsc-ivip9c.png,site-ivip9c.png" data-title="IVIP9C" data-url="https://ivip9c.com/" data-caption="62.2K clicks, 73.4K impressions, 84.7% CTR, and average position 1.1 in 3 months — plus the live homepage.">
-            <img class="project-thumb" src="gsc-ivip9c.png" alt="IVIP9C Google Search Console results">
+          <button type="button" class="card project" data-result="gsc-ivip9c.webp" data-gallery="gsc-ivip9c.webp,site-ivip9c.webp" data-title="IVIP9C" data-url="https://ivip9c.com/" data-caption="62.2K clicks, 73.4K impressions, 84.7% CTR, and average position 1.1 in 3 months — plus the live homepage.">
+            <img class="project-thumb" src="gsc-ivip9c.webp" alt="IVIP9C Google Search Console results">
             <div class="project-body">
               <small>SEO · WEB</small>
               <h3>IVIP9C</h3>
@@ -707,8 +785,8 @@
               <span class="project-cta">View site & results →</span>
             </div>
           </button>
-          <button type="button" class="card project" data-result="gsc-datowin365.png" data-gallery="gsc-datowin365.png,site-datowin365.png" data-title="DATOWIN365 Malaysia" data-url="https://datowin365.co/" data-caption="Freelance SEO — 15.8K clicks, 30.9K impressions, 51% CTR, and average position 9.6 in 3 months — plus the live homepage.">
-            <img class="project-thumb" src="gsc-datowin365.png" alt="DATOWIN365 Google Search Console results">
+          <button type="button" class="card project" data-result="gsc-datowin365.webp" data-gallery="gsc-datowin365.webp,site-datowin365.webp" data-title="DATOWIN365 Malaysia" data-url="https://datowin365.co/" data-caption="Freelance SEO — 15.8K clicks, 30.9K impressions, 51% CTR, and average position 9.6 in 3 months — plus the live homepage.">
+            <img class="project-thumb" src="gsc-datowin365.webp" alt="DATOWIN365 Google Search Console results">
             <div class="project-body">
               <small>FREELANCE · SEO</small>
               <h3>DATOWIN365 Malaysia</h3>
@@ -716,8 +794,8 @@
               <span class="project-cta">View site & results →</span>
             </div>
           </button>
-          <button type="button" class="card project" data-result="gsc-aw8pro.png" data-gallery="gsc-aw8pro.png,site-aw8pro.png" data-title="AW8 Pro Malaysia" data-url="https://aw8pro.my/" data-caption="Freelance SEO — 3.64K clicks, 44.8K impressions, 8.1% CTR, and average position 6.2 in 3 months — plus the live homepage.">
-            <img class="project-thumb" src="gsc-aw8pro.png" alt="AW8 Pro Google Search Console results">
+          <button type="button" class="card project" data-result="gsc-aw8pro.webp" data-gallery="gsc-aw8pro.webp,site-aw8pro.webp" data-title="AW8 Pro Malaysia" data-url="https://aw8pro.my/" data-caption="Freelance SEO — 3.64K clicks, 44.8K impressions, 8.1% CTR, and average position 6.2 in 3 months — plus the live homepage.">
+            <img class="project-thumb" src="gsc-aw8pro.webp" alt="AW8 Pro Google Search Console results">
             <div class="project-body">
               <small>FREELANCE · SEO</small>
               <h3>AW8 Pro Malaysia</h3>
@@ -725,8 +803,8 @@
               <span class="project-cta">View site & results →</span>
             </div>
           </button>
-          <button type="button" class="card project" data-result="gsc-kz8.png" data-gallery="gsc-kz8.png,site-kz8.png" data-title="KZ8 Malaysia" data-url="https://kz8.my/" data-caption="Casino and sportsbook SEO — 3.1K clicks, 10.4K impressions, 29.9% CTR, and average position 4.5 in 3 months — plus the live homepage.">
-            <img class="project-thumb" src="gsc-kz8.png" alt="KZ8 Google Search Console results">
+          <button type="button" class="card project" data-result="gsc-kz8.webp" data-gallery="gsc-kz8.webp,site-kz8.webp" data-title="KZ8 Malaysia" data-url="https://kz8.my/" data-caption="Casino and sportsbook SEO — 3.1K clicks, 10.4K impressions, 29.9% CTR, and average position 4.5 in 3 months — plus the live homepage.">
+            <img class="project-thumb" src="gsc-kz8.webp" alt="KZ8 Google Search Console results">
             <div class="project-body">
               <small>SEO · MALAYSIA</small>
               <h3>KZ8 Malaysia</h3>
@@ -734,8 +812,8 @@
               <span class="project-cta">View site & results →</span>
             </div>
           </button>
-          <button type="button" class="card project" data-result="gsc-bookiespedia.png" data-gallery="gsc-bookiespedia.png,site-bookiespedia.png" data-title="Bookiespedia" data-url="https://bookiespedia.com/" data-caption="Search Console performance for Australian casino and sportsbook reviews — plus the live homepage.">
-            <img class="project-thumb" src="gsc-bookiespedia.png" alt="Bookiespedia Google Search Console results">
+          <button type="button" class="card project" data-result="gsc-bookiespedia.webp" data-gallery="gsc-bookiespedia.webp,site-bookiespedia.webp" data-title="Bookiespedia" data-url="https://bookiespedia.com/" data-caption="Search Console performance for Australian casino and sportsbook reviews — plus the live homepage.">
+            <img class="project-thumb" src="gsc-bookiespedia.webp" alt="Bookiespedia Google Search Console results">
             <div class="project-body">
               <small>SEO · CONTENT</small>
               <h3>Bookiespedia</h3>
@@ -743,8 +821,8 @@
               <span class="project-cta">View site & results →</span>
             </div>
           </button>
-          <button type="button" class="card project" data-result="project-monsoon-2.png" data-title="Rev Check Australia" data-url="https://revcheck.site/" data-caption="Motorcycle reviews, buying guides, and SEO for riders looking up bikes in Australia.">
-            <img class="project-thumb" src="project-monsoon-2.png" alt="Rev Check Australia website">
+          <button type="button" class="card project" data-result="project-monsoon-2.webp" data-title="Rev Check Australia" data-url="https://revcheck.site/" data-caption="Motorcycle reviews, buying guides, and SEO for riders looking up bikes in Australia.">
+            <img class="project-thumb" src="project-monsoon-2.webp" alt="Rev Check Australia website">
             <div class="project-body">
               <small>SEO · CONTENT · WEB</small>
               <h3>Rev Check Australia</h3>
@@ -752,8 +830,8 @@
               <span class="project-cta">View image →</span>
             </div>
           </button>
-          <button type="button" class="card project" data-result="site-kada.png" data-title="KADA Systems" data-url="https://kada.net.au/" data-caption="Web design for KADA Systems — electrical, air conditioning, and plumbing contractor site in Western Australia.">
-            <img class="project-thumb" src="site-kada.png" alt="KADA Systems website design">
+          <button type="button" class="card project" data-result="site-kada.webp" data-title="KADA Systems" data-url="https://kada.net.au/" data-caption="Web design for KADA Systems — electrical, air conditioning, and plumbing contractor site in Western Australia.">
+            <img class="project-thumb" src="site-kada.webp" alt="KADA Systems website design">
             <div class="project-body">
               <small>WEB · DESIGN</small>
               <h3>KADA Systems</h3>
@@ -761,8 +839,8 @@
               <span class="project-cta">View design →</span>
             </div>
           </button>
-          <button type="button" class="card project" data-result="site-mpbl.png" data-gallery="site-mpbl.png,mpbl-player-of-the-game.png" data-title="MPBL" data-url="https://mpbl.com.ph/" data-caption="Live homepage plus Player of the Game design for the official Maharlika Pilipinas Basketball League site.">
-            <img class="project-thumb" src="site-mpbl.png" alt="MPBL homepage design">
+          <button type="button" class="card project" data-result="site-mpbl.webp" data-gallery="site-mpbl.webp,mpbl-player-of-the-game.webp" data-title="MPBL" data-url="https://mpbl.com.ph/" data-caption="Live homepage plus Player of the Game design for the official Maharlika Pilipinas Basketball League site.">
+            <img class="project-thumb" src="site-mpbl.webp" alt="MPBL homepage design">
             <div class="project-body">
               <small>WEB · CONTENT · DESIGN</small>
               <h3>MPBL</h3>
@@ -770,8 +848,8 @@
               <span class="project-cta">View site & design →</span>
             </div>
           </button>
-          <button type="button" class="card project" data-result="fos-02.png" data-gallery="fos-02.png,fos-01.png,fos-03.png,fos-04.png,fos-05.png,fos-06.png,fos-07.png,fos-08.png" data-title="Filipino Online Sportsbook" data-url="https://filipinoonlinesportsbook.ph/" data-caption="Search Console (22.7K clicks and 1.24M impressions, Feb 2023–Mar 2024), then homepage and ranking screenshots.">
-            <img class="project-thumb" src="fos-02.png" alt="Filipino Online Sportsbook Search Console results">
+          <button type="button" class="card project" data-result="fos-02.webp" data-gallery="fos-02.webp,fos-01.webp,fos-03.webp,fos-04.webp,fos-05.webp,fos-06.webp,fos-07.webp,fos-08.webp" data-title="Filipino Online Sportsbook" data-url="https://filipinoonlinesportsbook.ph/" data-caption="Search Console (22.7K clicks and 1.24M impressions, Feb 2023–Mar 2024), then homepage and ranking screenshots.">
+            <img class="project-thumb" src="fos-02.webp" alt="Filipino Online Sportsbook Search Console results">
             <div class="project-body">
               <small>SEO · CONTENT</small>
               <h3>Filipino Online Sportsbook</h3>
@@ -779,8 +857,8 @@
               <span class="project-cta">View gallery →</span>
             </div>
           </button>
-          <button type="button" class="card project" data-result="okbet-gs-01.png" data-gallery="okbet-gs-01.png,okbet-gs-02.png,project-okbet-online-games.png" data-title="OKBet Online Games" data-url="https://www.okbet4444.com/" data-caption="Search Console: 2,232 clicks, 511K impressions, and average position 5.3, plus brand artwork.">
-            <img class="project-thumb" src="okbet-gs-01.png" alt="OKBet Online Games Google Search Console results">
+          <button type="button" class="card project" data-result="okbet-gs-01.webp" data-gallery="okbet-gs-01.webp,okbet-gs-02.webp,project-okbet-online-games.webp" data-title="OKBet Online Games" data-url="https://www.okbet4444.com/" data-caption="Search Console: 2,232 clicks, 511K impressions, and average position 5.3, plus brand artwork.">
+            <img class="project-thumb" src="okbet-gs-01.webp" alt="OKBet Online Games Google Search Console results">
             <div class="project-body">
               <small>SEO · WEB</small>
               <h3>OKBet Online Games</h3>
@@ -788,8 +866,8 @@
               <span class="project-cta">View gallery →</span>
             </div>
           </button>
-          <button type="button" class="card project" data-result="site-pba.png" data-gallery="site-pba.png,project-pba-updates.png" data-title="PBA Updates" data-url="https://pbaupdates.ph/" data-caption="Live homepage and brand mark for PBA Updates PH.">
-            <img class="project-thumb" src="site-pba.png" alt="PBA Updates homepage design">
+          <button type="button" class="card project" data-result="site-pba.webp" data-gallery="site-pba.webp,project-pba-updates.webp" data-title="PBA Updates" data-url="https://pbaupdates.ph/" data-caption="Live homepage and brand mark for PBA Updates PH.">
+            <img class="project-thumb" src="site-pba.webp" alt="PBA Updates homepage design">
             <div class="project-body">
               <small>CONTENT · SEO</small>
               <h3>PBA Updates</h3>
@@ -797,8 +875,8 @@
               <span class="project-cta">View site →</span>
             </div>
           </button>
-          <button type="button" class="card project" data-result="project-okbet-gavin.png" data-title="OKBET Sports PH" data-url="https://okbetsports.ph/" data-caption="Brand and sports SEO project under the OKBet ecosystem.">
-            <img class="project-thumb logo" src="project-okbet-gavin.png" alt="OKBET Sports PH product artwork">
+          <button type="button" class="card project" data-result="project-okbet-gavin.webp" data-title="OKBET Sports PH" data-url="https://okbetsports.ph/" data-caption="Brand and sports SEO project under the OKBet ecosystem.">
+            <img class="project-thumb logo" src="project-okbet-gavin.webp" alt="OKBET Sports PH product artwork">
             <div class="project-body">
               <small>SEO · BRAND</small>
               <h3>OKBET Sports PH</h3>
@@ -912,12 +990,20 @@
     <section class="section" id="blog">
       <div class="wrap">
         <div class="section-head">
-          <h2>Blog</h2>
-          <p>SEO guides written for people and for search.</p>
+          <div>
+            <h2>Blog</h2>
+            <p>SEO guides written for people and for search.</p>
+          </div>
+          <div class="blog-head-actions">
+            <button class="blog-arrow" type="button" data-scroll="prev" aria-label="Previous posts">‹</button>
+            <button class="blog-arrow" type="button" data-scroll="next" aria-label="Next posts">›</button>
+          </div>
         </div>
-        <div class="blog-grid">
+        <p class="blog-hint">Swipe to browse posts →</p>
+        <div class="blog-scroller">
+          <div class="blog-track" id="blog-track">
           <a class="card blog-card" href="/blog/google-business-profile-optimization/">
-            <img src="/blog/google-business-profile-optimization/featured-card.svg" width="800" height="420" alt="Google Business Profile optimization guide" loading="lazy" decoding="async">
+            <img src="/blog/google-business-profile-optimization/featured-card.webp" width="800" height="420" alt="Google Business Profile optimization guide" loading="lazy" decoding="async">
             <div class="blog-card-body">
               <small>Local SEO · 12 min read · New</small>
               <h3>Google Business Profile optimization (GMB)</h3>
@@ -926,7 +1012,7 @@
             </div>
           </a>
           <a class="card blog-card" href="/blog/types-of-structured-data/">
-            <img src="/blog/types-of-structured-data/featured-card.jpg" width="800" height="420" alt="Types of structured data for websites" loading="lazy" decoding="async">
+            <img src="/blog/types-of-structured-data/featured-card.webp" width="800" height="420" alt="Types of structured data for websites" loading="lazy" decoding="async">
             <div class="blog-card-body">
               <small>Technical SEO · 14 min read</small>
               <h3>Types of structured data for your site</h3>
@@ -934,8 +1020,17 @@
               <span class="blog-card-cta">Read the guide →</span>
             </div>
           </a>
+          <a class="card blog-card" href="/blog/fix-sitemap-couldnt-fetch-gsc/">
+            <img src="/blog/fix-sitemap-couldnt-fetch-gsc/featured-card.webp" width="800" height="420" alt="Fix sitemap couldn't fetch in Google Search Console" loading="lazy" decoding="async">
+            <div class="blog-card-body">
+              <small>Technical SEO · 9 min read</small>
+              <h3>Fix sitemap Couldn't fetch in GSC</h3>
+              <p>Verify the live sitemap, match your Search Console property, and resubmit.</p>
+              <span class="blog-card-cta">Read the guide →</span>
+            </div>
+          </a>
           <a class="card blog-card" href="/blog/fast-website-load-speed/">
-            <img src="/blog/fast-website-load-speed/featured-card.jpg" width="800" height="420" alt="Make your website load fast" loading="lazy" decoding="async">
+            <img src="/blog/fast-website-load-speed/featured-card.webp" width="800" height="420" alt="Make your website load fast" loading="lazy" decoding="async">
             <div class="blog-card-body">
               <small>Performance · 11 min read</small>
               <h3>Make your website load fast</h3>
@@ -944,7 +1039,7 @@
             </div>
           </a>
           <a class="card blog-card" href="/blog/install-wordpress-cpanel/">
-            <img src="/blog/install-wordpress-cpanel/featured-card.jpg" width="800" height="420" alt="Install WordPress in cPanel" loading="lazy" decoding="async">
+            <img src="/blog/install-wordpress-cpanel/featured-card.webp" width="800" height="420" alt="Install WordPress in cPanel" loading="lazy" decoding="async">
             <div class="blog-card-body">
               <small>WordPress · 12 min read</small>
               <h3>Install WordPress in cPanel</h3>
@@ -953,7 +1048,7 @@
             </div>
           </a>
           <a class="card blog-card" href="/blog/google-august-2026-spam-update/">
-            <img src="/blog/google-august-2026-spam-update/featured-card.jpg" width="800" height="420" alt="Google August 2026 spam update" loading="lazy" decoding="async">
+            <img src="/blog/google-august-2026-spam-update/featured-card.webp" width="800" height="420" alt="Google August 2026 spam update" loading="lazy" decoding="async">
             <div class="blog-card-body">
               <small>Algorithm update · 9 min read</small>
               <h3>Google August 2026 spam update</h3>
@@ -961,8 +1056,32 @@
               <span class="blog-card-cta">Read the guide →</span>
             </div>
           </a>
+          <a class="card blog-card" href="/blog/layers-of-seo/">
+            <img src="/blog/layers-of-seo/featured-card.webp" width="800" height="420" alt="Layers of SEO" loading="lazy" decoding="async">
+            <div class="blog-card-body">
+              <small>SEO strategy · 10 min read</small>
+              <h3>Layers of SEO: crawled to converted</h3>
+              <p>SEO, AEO, GEO, AIO, and SXO — the five layers of modern search visibility.</p>
+              <span class="blog-card-cta">Read the guide →</span>
+            </div>
+          </a>
+          <a class="card blog-card" href="/blog/what-is-seo/">
+            <img src="/blog/what-is-seo/featured-card.webp" width="800" height="420" alt="What is SEO" loading="lazy" decoding="async">
+            <div class="blog-card-body">
+              <small>SEO basics · 8 min read</small>
+              <h3>What is SEO? Search engine optimization</h3>
+              <p>How search engines crawl, index, and rank pages, plus on-page, technical, and off-page SEO.</p>
+              <span class="blog-card-cta">Read the guide →</span>
+            </div>
+          </a>
+          <a class="card blog-card blog-card-all" href="/blog/">
+            <small>All posts</small>
+            <h3>Browse the full SEO blog</h3>
+            <p>See every guide in one place, including structured data, speed, WordPress, and local SEO.</p>
+            <span class="blog-card-cta">View all posts →</span>
+          </a>
+          </div>
         </div>
-        <p style="margin-top:18px; font-weight:700;"><a href="/blog/" style="color:var(--blue);">Browse all blog posts →</a></p>
       </div>
     </section>
 
@@ -1040,7 +1159,7 @@
         "mainEntity": { "@id": "https://tolentinojohnlester3-cyber.github.io/#person" },
         "primaryImageOfPage": {
           "@type": "ImageObject",
-          "url": "https://tolentinojohnlester3-cyber.github.io/jlt-profile.png"
+          "url": "https://tolentinojohnlester3-cyber.github.io/jlt-profile.webp"
         },
         "dateModified": "2026-09-15",
         "speakable": {
@@ -1058,7 +1177,7 @@
         "jobTitle": "Senior SEO Specialist",
         "url": "https://tolentinojohnlester3-cyber.github.io/",
         "mainEntityOfPage": { "@id": "https://tolentinojohnlester3-cyber.github.io/#webpage" },
-        "image": "https://tolentinojohnlester3-cyber.github.io/jlt-profile.png",
+        "image": "https://tolentinojohnlester3-cyber.github.io/jlt-profile.webp",
         "description": "Senior SEO Specialist, International SEO, Content Writer, and Computer Engineer based in Sta. Rosa, Laguna, Philippines. He has handled 67 websites.",
         "email": "mailto:tolentinojohnlester3@gmail.com",
         "telephone": "+639619684118",
@@ -1315,6 +1434,18 @@
       }
       document.addEventListener("keydown", function (e) {
         if (e.key === "Escape") closeModal();
+      });
+      const blogTrack = document.getElementById("blog-track");
+      document.querySelectorAll("[data-scroll]").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          if (!blogTrack) return;
+          const card = blogTrack.querySelector(".blog-card");
+          const amount = (card ? card.getBoundingClientRect().width : 320) + 16;
+          blogTrack.scrollBy({
+            left: btn.getAttribute("data-scroll") === "next" ? amount : -amount,
+            behavior: "smooth"
+          });
+        });
       });
     })();
   </script>

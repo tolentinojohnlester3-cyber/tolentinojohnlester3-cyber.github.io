@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" href="/favicon.png">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -27,8 +27,8 @@
   <meta property="og:description" content="Core Web Vitals, images, caching, CDN, and testing tools — a practical speed guide with visuals.">
   <meta property="og:url" content="https://tolentinojohnlester3-cyber.github.io/blog/fast-website-load-speed/">
   <link rel="preload" as="image" href="/blog/fast-website-load-speed/featured.webp" type="image/webp">
-  <meta property="og:image" content="https://tolentinojohnlester3-cyber.github.io/blog/fast-website-load-speed/featured.jpg">
-  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image" content="https://tolentinojohnlester3-cyber.github.io/blog/fast-website-load-speed/featured.webp">
+  <meta property="og:image:type" content="image/webp">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Website speed optimization guide by John Lester Tolentino (JLT)">
@@ -42,7 +42,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Make Your Website Load Fast | JLT">
   <meta name="twitter:description" content="Practical website speed optimization with Core Web Vitals, caching, and image fixes.">
-  <meta name="twitter:image" content="https://tolentinojohnlester3-cyber.github.io/blog/fast-website-load-speed/featured.jpg">
+  <meta name="twitter:image" content="https://tolentinojohnlester3-cyber.github.io/blog/fast-website-load-speed/featured.webp">
   <meta name="twitter:image:alt" content="Website speed optimization guide by John Lester Tolentino (JLT)">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -140,12 +140,19 @@
     .footer { border-top: 1px solid var(--line); padding: 28px 0 40px; color: var(--gray); display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
     .footer a { color: var(--blue); font-weight: 700; }
     @media (max-width: 900px) {
-      .menu-btn { display: block; }
-      .nav-links { display: none; position: absolute; top: 72px; left: 0; right: 0; background: var(--white); border-bottom: 1px solid var(--line); flex-direction: column; padding: 20px 24px 28px; align-items: flex-start; z-index: 80; }
+      .wrap { width: min(var(--max), calc(100% - 24px)); }
+      .menu-btn { display: grid; place-items: center; min-width: 44px; min-height: 44px; }
+      .nav-inner { min-height: 60px; }
+      .logo img { height: 36px; }
+      .nav-links { display: none; position: absolute; top: 60px; left: 0; right: 0; background: var(--white); border-bottom: 1px solid var(--line); flex-direction: column; padding: 12px 20px 24px; align-items: stretch; z-index: 80; max-height: calc(100dvh - 60px); overflow-y: auto; }
       .nav-links.open { display: flex; }
+      .nav-links a { min-height: 44px; display: flex; align-items: center; }
+      .nav-links a.btn { justify-content: center; }
+      .article-hero h1 { font-size: clamp(1.8rem, 9vw, 2.6rem); }
       .author-box, .more-card { grid-template-columns: 1fr; }
       .more-card img { width: 100%; height: auto; aspect-ratio: 800 / 420; }
       .compare { display: block; overflow-x: auto; }
+      .footer { padding: 22px 0 calc(28px + env(safe-area-inset-bottom)); }
     }
   </style>
 </head>
@@ -154,7 +161,7 @@
   <header class="nav">
     <div class="wrap nav-inner">
       <a class="logo" href="/" aria-label="John Lester Tolentino home">
-        <img src="/jlt-logo.png" alt="JLT logo">
+        <img src="/jlt-logo.webp" alt="JLT logo">
       </a>
       <button class="menu-btn" type="button" aria-label="Open menu">☰</button>
       <ul class="nav-links">
@@ -183,7 +190,7 @@
       <p class="lead">Slow sites lose visitors, rankings, and revenue. This guide shows how to optimize load speed — from Core Web Vitals and image compression to caching, CDN, and mobile performance — with visuals at every step.</p>
       <div class="meta">
         <div class="meta-author">
-          <img src="/jlt-profile.png" alt="John Lester Tolentino" width="36" height="36">
+          <img src="/jlt-profile.webp" alt="John Lester Tolentino" width="36" height="36">
           <span>By <a href="/">John Lester Tolentino</a>, Senior SEO Specialist</span>
         </div>
         <time datetime="2026-09-14">September 14, 2026</time>
@@ -191,10 +198,7 @@
     </header>
 
     <figure class="featured">
-      <picture>
-        <source srcset="/blog/fast-website-load-speed/featured.webp" type="image/webp">
-        <img src="/blog/fast-website-load-speed/featured.jpg" width="1200" height="630" alt="How to make your website load fast — speed optimization guide" fetchpriority="high" decoding="async">
-      </picture>
+      <img src="/blog/fast-website-load-speed/featured.webp" width="1200" height="630" alt="How to make your website load fast — speed optimization guide" fetchpriority="high" decoding="async">
     </figure>
 
     <nav class="toc" aria-label="Table of contents">
@@ -230,7 +234,7 @@
       <p>Google’s <strong>Core Web Vitals</strong> measure real-world user experience in three areas. Aim for “Good” on all three in Google Search Console and PageSpeed Insights.</p>
 
       <figure class="step-figure">
-        <img src="/blog/fast-website-load-speed/guide-core-web-vitals.jpg" width="1200" height="675" alt="Core Web Vitals: LCP, INP, and CLS explained" loading="lazy" decoding="async">
+        <img src="/blog/fast-website-load-speed/guide-core-web-vitals.webp" width="1200" height="675" alt="Core Web Vitals: LCP, INP, and CLS explained" loading="lazy" decoding="async">
         <figcaption class="step-caption"><strong>Core Web Vitals.</strong> LCP = load speed, INP = interactivity, CLS = layout stability. Watermarked JLT · tolentinojohnlester3-cyber.github.io.</figcaption>
       </figure>
 
@@ -257,7 +261,7 @@
       </ul>
 
       <figure class="step-figure">
-        <img src="/blog/fast-website-load-speed/guide-test-tools.jpg" width="1200" height="675" alt="PageSpeed Insights and speed testing tools dashboard" loading="lazy" decoding="async">
+        <img src="/blog/fast-website-load-speed/guide-test-tools.webp" width="1200" height="675" alt="PageSpeed Insights and speed testing tools dashboard" loading="lazy" decoding="async">
         <figcaption class="step-caption"><strong>Test first.</strong> Run mobile and desktop reports, then work through the top opportunities listed.</figcaption>
       </figure>
 
@@ -267,7 +271,7 @@
       <p>Images are the number-one cause of slow pages on content sites. A single uncompressed 4000px photo can weigh more than the rest of the page combined.</p>
 
       <figure class="step-figure">
-        <img src="/blog/fast-website-load-speed/guide-image-optimization.jpg" width="1200" height="675" alt="Before and after image optimization — compress JPG to WebP" loading="lazy" decoding="async">
+        <img src="/blog/fast-website-load-speed/guide-image-optimization.webp" width="1200" height="675" alt="Before and after image optimization — compress JPG to WebP" loading="lazy" decoding="async">
         <figcaption class="step-caption"><strong>Image workflow.</strong> Resize to display size, compress, serve WebP/AVIF, lazy-load below the fold.</figcaption>
       </figure>
 
@@ -284,7 +288,7 @@
       <p><strong>Caching</strong> stores copies of pages and static files so repeat visitors don’t re-download everything. A <strong>CDN</strong> (Content Delivery Network) serves those files from servers closer to the user.</p>
 
       <figure class="step-figure">
-        <img src="/blog/fast-website-load-speed/guide-caching-cdn.jpg" width="1200" height="675" alt="Browser cache and CDN diagram for faster website delivery" loading="lazy" decoding="async">
+        <img src="/blog/fast-website-load-speed/guide-caching-cdn.webp" width="1200" height="675" alt="Browser cache and CDN diagram for faster website delivery" loading="lazy" decoding="async">
         <figcaption class="step-caption"><strong>Caching + CDN.</strong> Browser cache for repeat visits; CDN edge servers for global fast delivery.</figcaption>
       </figure>
 
@@ -327,7 +331,7 @@
       <p>Google indexes mobile-first. A fast desktop score means little if mobile users wait five seconds on 4G.</p>
 
       <figure class="step-figure">
-        <img src="/blog/fast-website-load-speed/guide-mobile-speed.jpg" width="1200" height="675" alt="Mobile website fast loading on smartphone" loading="lazy" decoding="async">
+        <img src="/blog/fast-website-load-speed/guide-mobile-speed.webp" width="1200" height="675" alt="Mobile website fast loading on smartphone" loading="lazy" decoding="async">
         <figcaption class="step-caption"><strong>Mobile first.</strong> Test on real devices and throttled connections — most traffic is mobile.</figcaption>
       </figure>
 
@@ -392,7 +396,7 @@
       </div>
 
       <aside class="author-box">
-        <img src="/jlt-profile.png" alt="Portrait of John Lester Tolentino" width="88" height="88">
+        <img src="/jlt-profile.webp" alt="Portrait of John Lester Tolentino" width="88" height="88">
         <div>
           <h3>About the author</h3>
           <p>John Lester Tolentino is a Senior SEO Specialist in Sta. Rosa, Laguna. He optimizes WordPress and custom sites across 67+ projects for speed, crawlability, and rankings. <a href="/#contact">Get in touch</a> or browse the <a href="/blog/">SEO blog</a>.</p>
@@ -404,7 +408,7 @@
       <h2>More from the blog</h2>
       <div class="more-grid">
         <a class="more-card" href="/blog/install-wordpress-cpanel/">
-          <img src="/blog/install-wordpress-cpanel/featured-card.jpg" width="148" height="78" alt="Install WordPress in cPanel" loading="lazy" decoding="async">
+          <img src="/blog/install-wordpress-cpanel/featured-card.webp" width="148" height="78" alt="Install WordPress in cPanel" loading="lazy" decoding="async">
           <div>
             <small>WordPress · 12 min read</small>
             <h3>Install WordPress in cPanel</h3>
@@ -413,7 +417,7 @@
           </div>
         </a>
         <a class="more-card" href="/blog/layers-of-seo/">
-          <img src="/blog/layers-of-seo/featured-card.jpg" width="148" height="78" alt="Layers of SEO" loading="lazy" decoding="async">
+          <img src="/blog/layers-of-seo/featured-card.webp" width="148" height="78" alt="Layers of SEO" loading="lazy" decoding="async">
           <div>
             <small>SEO strategy · 10 min read</small>
             <h3>Layers of SEO: From crawled to converted</h3>
@@ -447,8 +451,8 @@
         "description": "Make your website load fast with Core Web Vitals, image optimization, caching, CDN, and mobile speed fixes.",
         "image": {
           "@type": "ImageObject",
-          "url": "https://tolentinojohnlester3-cyber.github.io/blog/fast-website-load-speed/featured.jpg",
-          "contentUrl": "https://tolentinojohnlester3-cyber.github.io/blog/fast-website-load-speed/featured.jpg",
+          "url": "https://tolentinojohnlester3-cyber.github.io/blog/fast-website-load-speed/featured.webp",
+          "contentUrl": "https://tolentinojohnlester3-cyber.github.io/blog/fast-website-load-speed/featured.webp",
           "width": 1200,
           "height": 630
         },
