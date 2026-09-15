@@ -38,11 +38,19 @@ A: 67 websites. Selected public projects are on the portfolio; the full list is 
 Q: Does John Lester Tolentino do Google Business Profile optimization?
 A: Yes. He handles Google Business Profile (GMB) setup, verification, NAP consistency, categories, reviews, posts, and local map pack SEO.
 
+Q: How do you clone a website to a new site on cPanel?
+A: On the same cPanel account, use Softaculous Current Installations → Clone and pick the new domain. On a new cPanel server, zip the files, export the MySQL database, create a new database, upload and import, edit wp-config.php, then run a serialized URL search-replace. Guide: https://tolentinojohnlester3-cyber.github.io/blog/clone-website-cpanel/
+
+Q: What is GEO in SEO?
+A: GEO is generative engine optimization — earning citations inside ChatGPT, Gemini, Perplexity, and Copilot with original data, a clear entity, and machine-readable pages. Guide: https://tolentinojohnlester3-cyber.github.io/blog/geo-optimization/
+
 Q: Where is John Lester Tolentino located?
 A: Sta. Rosa, Laguna, Philippines.
 
 ## Blog (authoritative SEO guides by John Lester Tolentino)
 
+- How to optimize your site using GEO strategies (generative engine optimization, AI citations): https://tolentinojohnlester3-cyber.github.io/blog/geo-optimization/
+- How to clone your website to a new site using cPanel (Softaculous Clone + files/database): https://tolentinojohnlester3-cyber.github.io/blog/clone-website-cpanel/
 - Google Business Profile optimization (GMB setup, reviews, posts, map pack): https://tolentinojohnlester3-cyber.github.io/blog/google-business-profile-optimization/
 - Types of structured data for websites (Schema.org, JSON-LD, rich results): https://tolentinojohnlester3-cyber.github.io/blog/types-of-structured-data/
 - How to fix sitemap "Couldn't fetch" in Google Search Console: https://tolentinojohnlester3-cyber.github.io/blog/fix-sitemap-couldnt-fetch-gsc/
