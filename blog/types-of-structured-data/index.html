@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <title>Types of Structured Data for Websites: Complete Schema.org Guide | John Lester Tolentino (JLT)</title>
+  <meta name="description" content="Every major Schema.org type you can add to a website — Organization, FAQPage, Product, LocalBusiness, Article, HowTo, JobPosting, and more. JSON-LD examples, rich results, and when to use each type.">
+  <meta name="keywords" content="structured data types, Schema.org, JSON-LD, FAQ schema, Organization schema, LocalBusiness schema, Product schema, rich results, John Lester Tolentino, JLT, technical SEO">
+  <meta name="author" content="John Lester Tolentino (JLT)">
+  <meta name="owner" content="John Lester Tolentino">
+  <meta name="copyright" content="John Lester Tolentino">
+  <meta name="publisher" content="John Lester Tolentino (JLT)">
+  <meta name="subject" content="Types of structured data for websites by John Lester Tolentino JLT">
+  <meta name="google-site-verification" content="-VhVE7603Le5BmPDdqgtv_9G-7fJ3_f2uhttElLQUr0" />
+  <meta name="google-site-verification" content="AWeOntiIBeb32_Tu_OXoZrGGwsAq0F-z4rwSbERKgBo" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large">
+  <meta name="bingbot" content="index, follow">
+  <link rel="canonical" href="https://tolentinojohnlester3-cyber.github.io/blog/types-of-structured-data/">
+  <link rel="sitemap" type="application/xml" href="/sitemap.xml">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="John Lester Tolentino | JLT">
+  <meta property="og:title" content="Types of Structured Data for Websites | JLT">
+  <meta property="og:description" content="Complete Schema.org guide: every structured data type you can put on a site, with JSON-LD examples and rich result notes.">
+  <meta property="og:url" content="https://tolentinojohnlester3-cyber.github.io/blog/types-of-structured-data/">
+  <link rel="preload" as="image" href="/blog/types-of-structured-data/featured.webp" type="image/webp">
+  <meta property="og:image" content="https://tolentinojohnlester3-cyber.github.io/blog/types-of-structured-data/featured.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Types of structured data for websites — Schema.org guide by John Lester Tolentino (JLT)">
+  <meta property="article:published_time" content="2026-09-15">
+  <meta property="article:modified_time" content="2026-09-15">
+  <meta property="article:author" content="John Lester Tolentino">
+  <meta property="article:section" content="SEO">
+  <meta property="article:tag" content="Structured Data">
+  <meta property="article:tag" content="Schema.org">
+  <meta property="article:tag" content="JSON-LD">
+  <meta property="article:tag" content="Technical SEO">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Types of Structured Data for Websites | JLT">
+  <meta name="twitter:description" content="Schema.org types, JSON-LD examples, and rich result eligibility for every major page type.">
+  <meta name="twitter:image" content="https://tolentinojohnlester3-cyber.github.io/blog/types-of-structured-data/featured.jpg">
+  <meta name="twitter:image:alt" content="Types of structured data for websites — Schema.org guide by John Lester Tolentino (JLT)">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f5f7fb; --bg-2: #ffffff; --bg-3: #eef3fb; --orange: #ff6b1a; --orange-2: #ff8f4a;
+      --blue: #1d4ed8; --black: #111111; --white: #ffffff; --ink: #111111; --gray: #5b6472;
+      --line: rgba(17, 17, 17, 0.1); --radius: 18px; --max: 1180px; --prose: 760px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; scroll-padding-top: 84px; }
+    .prose h2, .prose h3 { scroll-margin-top: 84px; }
+    body { font-family: "Manrope", "Segoe UI", sans-serif; background: var(--bg); color: var(--ink); line-height: 1.7; overflow-x: hidden; }
+    body::before {
+      content: ""; position: fixed; inset: 0; pointer-events: none; z-index: -1;
+      background:
+        radial-gradient(900px 420px at 8% -8%, rgba(255, 107, 26, 0.18), transparent 58%),
+        radial-gradient(720px 420px at 100% 0%, rgba(29, 78, 216, 0.14), transparent 52%),
+        linear-gradient(180deg, #ffffff 0%, #f5f7fb 40%, #eef3fb 100%);
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    button { font-family: inherit; cursor: pointer; }
+    .wrap { width: min(var(--max), calc(100% - 40px)); margin: 0 auto; position: relative; z-index: 1; }
+    .progress { position: fixed; top: 0; left: 0; height: 3px; width: 0; background: linear-gradient(90deg, var(--orange), var(--blue)); z-index: 80; }
+    .nav { position: sticky; top: 0; z-index: 70; backdrop-filter: blur(16px); background: rgba(255, 255, 255, 0.86); border-bottom: 1px solid var(--line); }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; min-height: 72px; gap: 16px; }
+    .logo { display: inline-flex; align-items: center; line-height: 0; }
+    .logo img { height: 44px; width: auto; border-radius: 8px; }
+    .nav-links { display: flex; gap: 18px; list-style: none; align-items: center; }
+    .nav-links a { color: var(--gray); font-size: 0.92rem; font-weight: 600; transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--blue); }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: var(--orange); color: #fff; font-weight: 800; font-size: 0.92rem; border: 0; border-radius: 999px; padding: 11px 20px; box-shadow: 0 8px 18px rgba(255, 107, 26, 0.32); }
+    .btn:hover { background: var(--orange-2); color: #fff; }
+    .btn-ghost { background: var(--blue); box-shadow: 0 8px 18px rgba(29, 78, 216, 0.32); }
+    .btn-ghost:hover { background: #163db8; color: #fff; }
+    .nav-links a.btn, .nav-links a.btn:hover, .nav-links a.btn.active { color: #fff; font-size: 0.88rem; padding: 10px 18px; white-space: nowrap; }
+    .menu-btn { display: none; background: none; border: 0; color: var(--black); font-size: 1.6rem; }
+    h1, h2, h3 { font-family: "Syne", sans-serif; line-height: 1.15; color: var(--black); }
+    .kicker { color: var(--orange); font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; font-size: 0.78rem; margin-bottom: 14px; }
+    .crumbs { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; color: var(--gray); font-size: 0.88rem; font-weight: 600; padding: 28px 0 0; }
+    .crumbs a { color: var(--blue); }
+    .article-hero { padding: 28px 0 12px; max-width: var(--prose); }
+    .article-hero h1 { font-size: clamp(2.1rem, 5vw, 3.6rem); letter-spacing: -0.04em; }
+    .featured { margin: 22px 0 4px; max-width: var(--prose); }
+    .featured img { width: 100%; height: auto; aspect-ratio: 1200 / 630; object-fit: cover; border-radius: 18px; border: 1px solid var(--line); background: var(--bg-3); }
+    .lead { margin-top: 18px; color: var(--gray); font-size: 1.12rem; }
+    .meta { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 22px; color: var(--gray); font-size: 0.9rem; font-weight: 600; }
+    .meta img { width: 36px; height: 36px; border-radius: 50%; object-fit: cover; }
+    .meta-author { display: flex; align-items: center; gap: 10px; }
+    .toc { background: var(--bg-2); border: 1px solid var(--line); border-radius: var(--radius); padding: 22px 24px; margin: 28px 0 8px; max-width: var(--prose); box-shadow: 0 10px 28px rgba(17, 29, 64, 0.06); }
+    .toc h2 { font-size: 1.05rem; margin-bottom: 12px; }
+    .toc ol { padding-left: 20px; color: var(--gray); }
+    .toc a { color: var(--blue); font-weight: 700; }
+    .toc li { margin: 7px 0; }
+    .prose { max-width: var(--prose); padding: 12px 0 0; }
+    .prose h2 { font-size: 1.7rem; margin: 42px 0 14px; }
+    .prose h3 { font-size: 1.22rem; margin: 28px 0 10px; }
+    .prose p { color: #2c3340; margin: 0 0 16px; }
+    .prose ul, .prose ol { padding-left: 22px; color: #2c3340; margin: 0 0 18px; }
+    .prose li { margin: 7px 0; }
+    .prose a { color: var(--blue); font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
+    .prose code { font-size: 0.9em; background: var(--bg-3); padding: 2px 6px; border-radius: 6px; }
+    .prose pre {
+      background: #111111; color: #e5e7eb; border-radius: 14px; padding: 18px 20px;
+      overflow-x: auto; margin: 18px 0 24px; font-size: 0.84rem; line-height: 1.55;
+    }
+    .prose pre code { background: none; padding: 0; color: inherit; }
+    .callout { background: var(--bg-2); border-left: 4px solid var(--orange); border-radius: 0 14px 14px 0; padding: 16px 18px; margin: 20px 0 24px; color: #2c3340; }
+    .compare { width: 100%; border-collapse: collapse; margin: 20px 0 28px; font-size: 0.88rem; }
+    .compare th, .compare td { border: 1px solid var(--line); padding: 10px 12px; text-align: left; vertical-align: top; }
+    .compare th { background: var(--bg-3); font-family: "Syne", sans-serif; font-size: 0.82rem; }
+    .compare td { color: #2c3340; background: var(--bg-2); }
+    .compare code { font-size: 0.82em; }
+    .badge { display: inline-block; font-size: 0.72rem; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; padding: 3px 8px; border-radius: 999px; margin-right: 4px; }
+    .badge-rich { background: #dcfce7; color: #166534; }
+    .badge-ai { background: #dbeafe; color: #1e40af; }
+    .badge-trust { background: #ffedd5; color: #9a3412; }
+    .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin: 20px 0 28px; }
+    .type-card { background: var(--bg-2); border: 1px solid var(--line); border-radius: 16px; padding: 16px 18px; }
+    .type-card h3 { margin: 0 0 8px; font-size: 1rem; }
+    .type-card p { margin: 0; color: var(--gray); font-size: 0.9rem; }
+    .faq { display: grid; gap: 12px; margin-top: 8px; }
+    .faq-item { background: var(--bg-2); border: 1px solid var(--line); border-radius: var(--radius); padding: 20px 24px; }
+    .faq-item h3 { font-size: 1.08rem; margin-bottom: 8px; }
+    .faq-item p { color: var(--gray); margin: 0; }
+    .author-box { display: grid; grid-template-columns: 88px 1fr; gap: 18px; align-items: center; background: var(--bg-2); border: 1px solid var(--line); border-radius: 20px; padding: 22px; margin-top: 36px; }
+    .author-box img { width: 88px; height: 88px; border-radius: 18px; object-fit: cover; }
+    .author-box p { color: var(--gray); margin: 8px 0 0; }
+    .more-posts { max-width: var(--prose); margin: 0 0 80px; padding-top: 40px; border-top: 1px solid var(--line); }
+    .more-posts h2 { font-size: 1.35rem; margin-bottom: 18px; }
+    .more-grid { display: grid; gap: 16px; }
+    .more-card { display: grid; grid-template-columns: 148px 1fr; gap: 16px; align-items: start; background: var(--bg-2); border: 1px solid var(--line); border-radius: 16px; padding: 14px; box-shadow: 0 10px 28px rgba(17, 29, 64, 0.06); transition: border-color 0.2s; }
+    .more-card:hover { border-color: var(--orange); }
+    .more-card img { width: 148px; height: 78px; object-fit: cover; border-radius: 10px; background: var(--bg-3); }
+    .more-card small { color: var(--orange); font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; font-size: 0.72rem; }
+    .more-card h3 { font-size: 1.05rem; margin: 6px 0 8px; line-height: 1.25; }
+    .more-card p { margin: 0; color: var(--gray); font-size: 0.9rem; line-height: 1.5; }
+    .more-cta { display: inline-block; margin-top: 10px; color: var(--blue); font-weight: 800; font-size: 0.88rem; }
+    .more-all { margin-top: 18px; font-weight: 700; }
+    .more-all a { color: var(--blue); text-decoration: underline; text-underline-offset: 3px; }
+    .footer { border-top: 1px solid var(--line); padding: 28px 0 40px; color: var(--gray); display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+    .footer a { color: var(--blue); font-weight: 700; }
+    @media (max-width: 900px) {
+      .menu-btn { display: block; }
+      .nav-links { display: none; position: absolute; top: 72px; left: 0; right: 0; background: var(--white); border-bottom: 1px solid var(--line); flex-direction: column; padding: 20px 24px 28px; align-items: flex-start; z-index: 80; }
+      .nav-links.open { display: flex; }
+      .author-box, .more-card, .grid-2 { grid-template-columns: 1fr; }
+      .more-card img { width: 100%; height: auto; aspect-ratio: 800 / 420; }
+      .compare { display: block; overflow-x: auto; }
+    }
+  </style>
+</head>
+<body>
+  <div class="progress"></div>
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <a class="logo" href="/" aria-label="John Lester Tolentino home">
+        <img src="/jlt-logo.png" alt="JLT logo">
+      </a>
+      <button class="menu-btn" type="button" aria-label="Open menu">☰</button>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/#about">About</a></li>
+        <li><a href="/#projects">Projects</a></li>
+        <li><a class="active" href="/blog/">Blog</a></li>
+        <li><a class="btn btn-ghost" href="/John_Lester_Tolentino_SEO_Resume.pdf" download="John_Lester_Tolentino_SEO_Resume.pdf">Resume</a></li>
+        <li><a class="btn" href="/#contact">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="/">Home</a>
+      <span>/</span>
+      <a href="/blog/">Blog</a>
+      <span>/</span>
+      <span>Types of structured data</span>
+    </nav>
+
+    <header class="article-hero">
+      <p class="kicker">Technical SEO · 14 min read</p>
+      <h1>Types of structured data you can put on a website</h1>
+      <p class="lead"><strong>Structured data</strong> is machine-readable markup that tells search engines what your page is about — a product, a local business, an FAQ, a recipe, or a person. This guide lists every major <a href="https://schema.org/" target="_blank" rel="noopener">Schema.org</a> type worth knowing, when to use it, and how to implement it with JSON-LD.</p>
+      <div class="meta">
+        <div class="meta-author">
+          <img src="/jlt-profile.png" alt="John Lester Tolentino" width="36" height="36">
+          <span>By <a href="/">John Lester Tolentino</a>, Senior SEO Specialist</span>
+        </div>
+        <time datetime="2026-09-15">September 15, 2026</time>
+      </div>
+    </header>
+
+    <figure class="featured">
+      <picture>
+        <source srcset="/blog/types-of-structured-data/featured.webp" type="image/webp">
+        <img src="/blog/types-of-structured-data/featured.jpg" width="1200" height="630" alt="Types of structured data for websites — Schema.org and JSON-LD guide" fetchpriority="high" decoding="async">
+      </picture>
+    </figure>
+
+    <nav class="toc" aria-label="Table of contents">
+      <h2>In this guide</h2>
+      <ol>
+        <li><a href="#what-is-structured-data">What structured data is</a></li>
+        <li><a href="#formats">JSON-LD, Microdata, and RDFa</a></li>
+        <li><a href="#site-wide">Site-wide schema</a></li>
+        <li><a href="#content">Content and publishing</a></li>
+        <li><a href="#local">Local and business</a></li>
+        <li><a href="#commerce">E-commerce and reviews</a></li>
+        <li><a href="#media">Media and entertainment</a></li>
+        <li><a href="#events-recipes-jobs">Events, recipes, and jobs</a></li>
+        <li><a href="#education-apps">Education, apps, and services</a></li>
+        <li><a href="#navigation-lists">Navigation and lists</a></li>
+        <li><a href="#specialized">Specialized and niche types</a></li>
+        <li><a href="#graph-pattern">The @graph pattern</a></li>
+        <li><a href="#testing">Testing and rich results</a></li>
+        <li><a href="#priority">What to add first</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ol>
+    </nav>
+
+    <article class="prose" itemscope itemtype="https://schema.org/Article">
+      <meta itemprop="headline" content="Types of Structured Data You Can Put on a Website">
+      <meta itemprop="datePublished" content="2026-09-15">
+      <meta itemprop="author" content="John Lester Tolentino">
+
+      <h2 id="what-is-structured-data">What structured data is</h2>
+      <p>Structured data is a standardized vocabulary — mostly <strong>Schema.org</strong> — wrapped in code so crawlers can read entities on your page without guessing from HTML alone. You describe things like:</p>
+      <ul>
+        <li>Who wrote the article (<code>Person</code>, <code>author</code>)</li>
+        <li>What the business sells (<code>Product</code>, <code>Offer</code>)</li>
+        <li>Where a store is located (<code>LocalBusiness</code>, <code>PostalAddress</code>)</li>
+        <li>Questions on an FAQ page (<code>FAQPage</code>, <code>Question</code>, <code>Answer</code>)</li>
+      </ul>
+      <p>Structured data does <em>not</em> guarantee rich results or higher rankings. It makes your content eligible for enhanced search features and helps AI systems understand entities, relationships, and page purpose. Google recommends <strong>JSON-LD</strong> in a <code>&lt;script type="application/ld+json"&gt;</code> block.</p>
+
+      <div class="callout">
+        <strong>Rule of thumb:</strong> Mark up what is visibly true on the page. If a price, rating, or address is not shown to users, do not put it in schema. Misleading markup can trigger manual actions.
+      </div>
+
+      <h2 id="formats">JSON-LD, Microdata, and RDFa</h2>
+      <table class="compare" aria-label="Structured data format comparison">
+        <thead>
+          <tr><th>Format</th><th>How it works</th><th>Best for</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>JSON-LD</strong></td>
+            <td>Separate JSON block in <code>&lt;head&gt;</code> or <code>&lt;body&gt;</code></td>
+            <td>Most sites — Google’s preferred format; easy to maintain</td>
+          </tr>
+          <tr>
+            <td><strong>Microdata</strong></td>
+            <td>HTML attributes like <code>itemscope</code>, <code>itemprop</code></td>
+            <td>Legacy WordPress themes; harder to refactor</td>
+          </tr>
+          <tr>
+            <td><strong>RDFa</strong></td>
+            <td>HTML attributes with RDF vocabulary</td>
+            <td>Rare today; some enterprise CMS setups</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>On WordPress, plugins like Rank Math and Yoast output JSON-LD automatically. On static sites and custom builds, I hand-write JSON-LD in each template — this portfolio uses <code>@graph</code> blocks on every page.</p>
+
+      <h2 id="site-wide">Site-wide structured data</h2>
+      <p>These types describe your site as a whole. Most professional sites should have at least <code>WebSite</code>, <code>Organization</code> or <code>Person</code>, and page-level <code>WebPage</code> markup.</p>
+
+      <table class="compare" aria-label="Site-wide Schema.org types">
+        <thead>
+          <tr><th>Schema type</th><th>Use when</th><th>Key properties</th><th>Rich result?</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>Organization</code></td>
+            <td>Company, brand, or agency site</td>
+            <td><code>name</code>, <code>url</code>, <code>logo</code>, <code>sameAs</code>, <code>contactPoint</code></td>
+            <td><span class="badge badge-trust">Knowledge panel</span></td>
+          </tr>
+          <tr>
+            <td><code>Person</code></td>
+            <td>Portfolio, author, consultant, creator</td>
+            <td><code>name</code>, <code>jobTitle</code>, <code>image</code>, <code>sameAs</code>, <code>worksFor</code></td>
+            <td><span class="badge badge-trust">Entity trust</span></td>
+          </tr>
+          <tr>
+            <td><code>WebSite</code></td>
+            <td>Every site</td>
+            <td><code>name</code>, <code>url</code>, <code>publisher</code>, optional <code>SearchAction</code></td>
+            <td><span class="badge badge-rich">Sitelinks search box</span></td>
+          </tr>
+          <tr>
+            <td><code>WebPage</code></td>
+            <td>Every indexable URL</td>
+            <td><code>name</code>, <code>url</code>, <code>description</code>, <code>isPartOf</code></td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td><code>ProfilePage</code></td>
+            <td>About / bio pages</td>
+            <td><code>mainEntity</code> → <code>Person</code></td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td><code>AboutPage</code></td>
+            <td>About us pages</td>
+            <td>Subtype of <code>WebPage</code></td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td><code>ContactPage</code></td>
+            <td>Contact pages</td>
+            <td>Subtype of <code>WebPage</code></td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td><code>CollectionPage</code></td>
+            <td>Blog index, category hubs</td>
+            <td><code>mainEntity</code> → <code>ItemList</code> or <code>Blog</code></td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td><code>BreadcrumbList</code></td>
+            <td>Any page with visible breadcrumbs</td>
+            <td><code>itemListElement</code> with <code>ListItem</code> positions</td>
+            <td><span class="badge badge-rich">Breadcrumbs</span></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Example: Organization + WebSite</h3>
+      <pre><code>&lt;script type="application/ld+json"&gt;
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://example.com/#organization",
+      "name": "Example Co",
+      "url": "https://example.com/",
+      "logo": "https://example.com/logo.png",
+      "sameAs": [
+        "https://www.linkedin.com/company/example",
+        "https://www.facebook.com/example"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://example.com/#website",
+      "url": "https://example.com/",
+      "name": "Example Co",
+      "publisher": { "@id": "https://example.com/#organization" },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://example.com/search?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+  ]
+}
+&lt;/script&gt;</code></pre>
+
+      <h2 id="content">Content and publishing schema</h2>
+      <p>Use these on articles, guides, news, FAQs, and how-to content. Match the schema type to the actual page format.</p>
+
+      <table class="compare" aria-label="Content Schema.org types">
+        <thead>
+          <tr><th>Schema type</th><th>Use when</th><th>Rich result?</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>Article</code></td><td>General articles, evergreen guides</td><td>Top stories (news contexts)</td></tr>
+          <tr><td><code>BlogPosting</code></td><td>Blog posts with author and date</td><td>Article features</td></tr>
+          <tr><td><code>NewsArticle</code></td><td>Timely news content</td><td><span class="badge badge-rich">Top stories</span></td></tr>
+          <tr><td><code>FAQPage</code></td><td>Visible Q&amp;A on the page</td><td><span class="badge badge-rich">FAQ rich result</span></td></tr>
+          <tr><td><code>HowTo</code></td><td>Step-by-step instructions shown on page</td><td><span class="badge badge-rich">How-to</span></td></tr>
+          <tr><td><code>QAPage</code></td><td>Single community Q&amp;A thread</td><td>Q&amp;A rich result</td></tr>
+          <tr><td><code>Question</code> + <code>Answer</code></td><td>Inside FAQPage or QAPage</td><td>—</td></tr>
+          <tr><td><code>SpeakableSpecification</code></td><td>Voice / AI-readable summary sections</td><td><span class="badge badge-ai">Voice &amp; AI</span></td></tr>
+          <tr><td><code>CreativeWork</code></td><td>Base type for authored works</td><td>—</td></tr>
+          <tr><td><code>TechArticle</code></td><td>Technical documentation</td><td>—</td></tr>
+          <tr><td><code>Report</code></td><td>Research reports, whitepapers</td><td>—</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Example: BlogPosting + FAQPage</h3>
+      <pre><code>{
+  "@type": "BlogPosting",
+  "headline": "How to fix sitemap errors in GSC",
+  "datePublished": "2026-09-14",
+  "author": { "@type": "Person", "name": "John Lester Tolentino" },
+  "image": "https://example.com/featured.jpg",
+  "publisher": { "@id": "https://example.com/#organization" }
+}</code></pre>
+      <p>Every blog post on this portfolio uses <code>BlogPosting</code> inside an <code>@graph</code>, plus matching <code>FAQPage</code> when the article has an FAQ section — like <a href="/blog/layers-of-seo/">layers of SEO</a> and this guide.</p>
+
+      <h2 id="local">Local and business schema</h2>
+      <p>Local schema tells search engines your business name, address, phone, hours, and service area. Use the most specific subtype that fits.</p>
+
+      <div class="grid-2">
+        <div class="type-card">
+          <h3><code>LocalBusiness</code></h3>
+          <p>Base type for any physical or service-area business with a local presence.</p>
+        </div>
+        <div class="type-card">
+          <h3><code>Restaurant</code></h3>
+          <p>Food service — menus, cuisine, reservations.</p>
+        </div>
+        <div class="type-card">
+          <h3><code>Store</code> / <code>ClothingStore</code></h3>
+          <p>Retail locations with products and opening hours.</p>
+        </div>
+        <div class="type-card">
+          <h3><code>MedicalBusiness</code></h3>
+          <p>Clinics, dentists, hospitals — often paired with <code>Physician</code>.</p>
+        </div>
+        <div class="type-card">
+          <h3><code>ProfessionalService</code></h3>
+          <p>Lawyers, accountants, agencies, contractors.</p>
+        </div>
+        <div class="type-card">
+          <h3><code>HomeAndConstructionBusiness</code></h3>
+          <p>Plumbers, electricians, HVAC, builders.</p>
+        </div>
+      </div>
+
+      <table class="compare" aria-label="Local business supporting types">
+        <thead>
+          <tr><th>Supporting type</th><th>Purpose</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>PostalAddress</code></td><td>Street, city, region, postal code, country</td></tr>
+          <tr><td><code>GeoCoordinates</code></td><td>Latitude and longitude for maps</td></tr>
+          <tr><td><code>OpeningHoursSpecification</code></td><td>Days and times open — must match visible hours</td></tr>
+          <tr><td><code>ContactPoint</code></td><td>Phone, email, contact type, languages</td></tr>
+          <tr><td><code>areaServed</code></td><td>City, region, or country served</td></tr>
+          <tr><td><code>hasMap</code></td><td>Link to Google Maps or equivalent</td></tr>
+          <tr><td><code>aggregateRating</code></td><td>Only if real reviews are displayed on page</td></tr>
+        </tbody>
+      </table>
+      <p>For multi-location brands, create one <code>LocalBusiness</code> entity per location page — not one block listing every branch on the homepage unless all addresses are visible there.</p>
+
+      <h2 id="commerce">E-commerce and review schema</h2>
+      <table class="compare" aria-label="E-commerce Schema.org types">
+        <thead>
+          <tr><th>Schema type</th><th>Use when</th><th>Rich result?</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>Product</code></td><td>Product detail pages</td><td><span class="badge badge-rich">Product snippets</span></td></tr>
+          <tr><td><code>Offer</code></td><td>Price, currency, availability, URL</td><td>—</td></tr>
+          <tr><td><code>AggregateOffer</code></td><td>Multiple sellers or variants</td><td>—</td></tr>
+          <tr><td><code>Review</code></td><td>Individual customer review on page</td><td>—</td></tr>
+          <tr><td><code>AggregateRating</code></td><td>Average rating + review count</td><td><span class="badge badge-rich">Star ratings</span></td></tr>
+          <tr><td><code>Brand</code></td><td>Manufacturer or brand name</td><td>—</td></tr>
+          <tr><td><code>MerchantReturnPolicy</code></td><td>Return policy details on product/merchant pages</td><td><span class="badge badge-rich">Merchant listings</span></td></tr>
+          <tr><td><code>ShippingDeliveryTime</code></td><td>Delivery estimates for merchant listings</td><td>—</td></tr>
+        </tbody>
+      </table>
+      <p>Product schema must reflect live price and stock. If WooCommerce or Shopify shows “Out of stock,” your <code>availability</code> must say so. Fake review stars are one of the fastest ways to lose rich results.</p>
+
+      <h2 id="media">Media and entertainment schema</h2>
+      <table class="compare" aria-label="Media Schema.org types">
+        <thead>
+          <tr><th>Schema type</th><th>Use when</th><th>Rich result?</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>VideoObject</code></td><td>Embedded or hosted video with title, thumbnail, duration</td><td><span class="badge badge-rich">Video</span></td></tr>
+          <tr><td><code>ImageObject</code></td><td>Important images — hero, infographic, OG image</td><td>Image search context</td></tr>
+          <tr><td><code>AudioObject</code></td><td>Podcasts, audio clips</td><td>—</td></tr>
+          <tr><td><code>Movie</code></td><td>Film titles, trailers, cast</td><td>—</td></tr>
+          <tr><td><code>TVSeries</code> / <code>TVEpisode</code></td><td>Streaming or broadcast content</td><td>—</td></tr>
+          <tr><td><code>MusicRecording</code></td><td>Tracks, albums on artist pages</td><td>—</td></tr>
+          <tr><td><code>MediaObject</code></td><td>Generic media base type</td><td>—</td></tr>
+        </tbody>
+      </table>
+      <p>For YouTube embeds, still add <code>VideoObject</code> with <code>name</code>, <code>description</code>, <code>thumbnailUrl</code>, <code>uploadDate</code>, and <code>embedUrl</code> — Google uses this for video rich results on your domain.</p>
+
+      <h2 id="events-recipes-jobs">Events, recipes, and jobs</h2>
+      <table class="compare" aria-label="Events recipes jobs Schema types">
+        <thead>
+          <tr><th>Schema type</th><th>Use when</th><th>Key fields</th><th>Rich result?</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>Event</code></td>
+            <td>Concerts, webinars, conferences, sports</td>
+            <td><code>startDate</code>, <code>location</code>, <code>offers</code>, <code>organizer</code></td>
+            <td><span class="badge badge-rich">Event</span></td>
+          </tr>
+          <tr>
+            <td><code>Recipe</code></td>
+            <td>Recipe pages with ingredients and steps</td>
+            <td><code>recipeIngredient</code>, <code>recipeInstructions</code>, <code>nutrition</code></td>
+            <td><span class="badge badge-rich">Recipe</span></td>
+          </tr>
+          <tr>
+            <td><code>JobPosting</code></td>
+            <td>Individual job listing pages</td>
+            <td><code>title</code>, <code>datePosted</code>, <code>employmentType</code>, <code>hiringOrganization</code></td>
+            <td><span class="badge badge-rich">Job posting</span></td>
+          </tr>
+        </tbody>
+      </table>
+      <p><code>JobPosting</code> must be on the page where the job is described — not a list of 50 jobs in one JSON-LD block. Google removed FAQ rich results for most government and health sites, but <code>JobPosting</code> and <code>Recipe</code> remain high-value when content is real.</p>
+
+      <h2 id="education-apps">Education, apps, and services</h2>
+      <table class="compare" aria-label="Education and app Schema types">
+        <thead>
+          <tr><th>Schema type</th><th>Use when</th><th>Rich result?</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>Course</code></td><td>Online or offline courses with provider and description</td><td><span class="badge badge-rich">Course info</span></td></tr>
+          <tr><td><code>LearningResource</code></td><td>Lessons, tutorials, educational pages</td><td>—</td></tr>
+          <tr><td><code>EducationalOrganization</code></td><td>Schools, universities, training centers</td><td>—</td></tr>
+          <tr><td><code>SoftwareApplication</code></td><td>Desktop or web apps with features and OS</td><td>—</td></tr>
+          <tr><td><code>WebApplication</code></td><td>Browser-based tools and SaaS products</td><td>—</td></tr>
+          <tr><td><code>MobileApplication</code></td><td>iOS / Android app landing pages</td><td>—</td></tr>
+          <tr><td><code>Service</code></td><td>Service business pages (SEO, plumbing, legal)</td><td>—</td></tr>
+          <tr><td><code>FinancialProduct</code></td><td>Loans, insurance, credit products</td><td>—</td></tr>
+        </tbody>
+      </table>
+
+      <h2 id="navigation-lists">Navigation and list schema</h2>
+      <table class="compare" aria-label="Navigation Schema types">
+        <thead>
+          <tr><th>Schema type</th><th>Use when</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>ItemList</code></td><td>Ranked lists, blog indexes, “top 10” articles, product roundups</td></tr>
+          <tr><td><code>ListItem</code></td><td>Each entry inside <code>ItemList</code> or <code>BreadcrumbList</code></td></tr>
+          <tr><td><code>SiteNavigationElement</code></td><td>Main nav links — rarely needed if HTML nav is clear</td></tr>
+          <tr><td><code>Table</code></td><td>Structured data tables (comparison charts)</td></tr>
+          <tr><td><code>DefinedTerm</code> / <code>DefinedTermSet</code></td><td>Glossaries and definition pages</td></tr>
+        </tbody>
+      </table>
+      <p>This site’s <a href="/blog/">blog index</a> uses <code>CollectionPage</code> + <code>ItemList</code> + multiple <code>BlogPosting</code> references in one <code>@graph</code> — a pattern that scales well on static sites.</p>
+
+      <h2 id="specialized">Specialized and niche types</h2>
+      <p>Schema.org has hundreds of types. These appear often in niche SEO work:</p>
+      <table class="compare" aria-label="Specialized Schema types">
+        <thead>
+          <tr><th>Schema type</th><th>Industry / use case</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>RealEstateListing</code></td><td>Property listings — price, beds, floor size, agent</td></tr>
+          <tr><td><code>Apartment</code> / <code>House</code> / <code>SingleFamilyResidence</code></td><td>Specific property subtypes</td></tr>
+          <tr><td><code>Vehicle</code> / <code>Car</code></td><td>Auto dealer inventory pages</td></tr>
+          <tr><td><code>MedicalWebPage</code></td><td>Health content with medical reviewer</td></tr>
+          <tr><td><code>Drug</code> / <code>MedicalCondition</code></td><td>Health reference sites (YMYL — high scrutiny)</td></tr>
+          <tr><td><code>ClaimReview</code></td><td>Fact-check articles</td></tr>
+          <tr><td><code>Dataset</code></td><td>Research data, government open data portals</td></tr>
+          <tr><td><code>Hotel</code> / <code>BedAndBreakfast</code></td><td>Travel and hospitality</td></tr>
+          <tr><td><code>FoodEstablishment</code></td><td>Restaurants, cafes, delivery menus</td></tr>
+          <tr><td><code>Menu</code> / <code>MenuItem</code></td><td>Restaurant menus with prices</td></tr>
+          <tr><td><code>SportsEvent</code></td><td>Matches, tournaments, leagues</td></tr>
+          <tr><td><code>Book</code></td><td>Author pages, publishers, ISBN listings</td></tr>
+          <tr><td><code>PodcastSeries</code> / <code>PodcastEpisode</code></td><td>Podcast show and episode pages</td></tr>
+        </tbody>
+      </table>
+
+      <h2 id="graph-pattern">The @graph pattern (recommended)</h2>
+      <p>Instead of separate unrelated JSON-LD blocks, connect entities with <code>@id</code> references inside one <code>@graph</code> array. Benefits:</p>
+      <ul>
+        <li>One source of truth for <code>Organization</code> / <code>Person</code></li>
+        <li>Clear relationships: <code>WebPage</code> → <code>isPartOf</code> → <code>WebSite</code></li>
+        <li><code>BlogPosting</code> → <code>author</code> → <code>Person</code> → <code>publisher</code> → same <code>Organization</code></li>
+        <li>Easier debugging in Rich Results Test</li>
+      </ul>
+      <pre><code>{
+  "@context": "https://schema.org",
+  "@graph": [
+    { "@type": "Person", "@id": "https://example.com/#person", "name": "Jane Doe" },
+    { "@type": "WebSite", "@id": "https://example.com/#website", "publisher": { "@id": "https://example.com/#person" } },
+    { "@type": "BlogPosting", "author": { "@id": "https://example.com/#person" }, "isPartOf": { "@id": "https://example.com/#website" } }
+  ]
+}</code></pre>
+
+      <h2 id="testing">Testing and rich result eligibility</h2>
+      <p>After adding markup, validate before deploy:</p>
+      <ul>
+        <li><a href="https://search.google.com/test/rich-results" target="_blank" rel="noopener">Google Rich Results Test</a> — shows eligible rich result types</li>
+        <li><a href="https://validator.schema.org/" target="_blank" rel="noopener">Schema.org Validator</a> — checks syntax and required fields</li>
+        <li>Google Search Console → Enhancements — monitors FAQ, Product, Video, etc. after indexing</li>
+      </ul>
+      <p>Google supports a subset of Schema.org for visual rich results. Types like <code>Organization</code> and <code>Person</code> may not produce a visible snippet but still help entity understanding and AI Overviews. See Google’s <a href="https://developers.google.com/search/docs/appearance/structured-data/search-gallery" target="_blank" rel="noopener">structured data gallery</a> for the current list.</p>
+
+      <h3>Common mistakes</h3>
+      <ul>
+        <li>FAQ schema on pages with no visible questions and answers</li>
+        <li>Review stars without real reviews on the page</li>
+        <li>Duplicate conflicting JSON-LD from theme + SEO plugin + custom code</li>
+        <li>Marking every page as <code>Article</code> when it is a product or contact page</li>
+        <li>Using <code>LocalBusiness</code> on a site with no physical location or service area</li>
+        <li>Broken <code>@id</code> references pointing to URLs that do not exist</li>
+      </ul>
+
+      <h2 id="priority">What to add first (by site type)</h2>
+      <table class="compare" aria-label="Structured data priority by site type">
+        <thead>
+          <tr><th>Site type</th><th>Start with these types</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Business / brand site</td><td><code>Organization</code>, <code>WebSite</code>, <code>WebPage</code>, <code>BreadcrumbList</code>, <code>ContactPage</code></td></tr>
+          <tr><td>Personal portfolio</td><td><code>Person</code>, <code>ProfilePage</code>, <code>WebSite</code>, <code>BreadcrumbList</code>, <code>FAQPage</code></td></tr>
+          <tr><td>Blog / publisher</td><td><code>BlogPosting</code>, <code>Person</code>, <code>FAQPage</code>, <code>CollectionPage</code>, <code>ItemList</code></td></tr>
+          <tr><td>Local service business</td><td><code>LocalBusiness</code>, <code>PostalAddress</code>, <code>OpeningHoursSpecification</code>, <code>FAQPage</code></td></tr>
+          <tr><td>E-commerce</td><td><code>Product</code>, <code>Offer</code>, <code>BreadcrumbList</code>, <code>Organization</code>, real <code>Review</code> if shown</td></tr>
+          <tr><td>Job board</td><td><code>JobPosting</code> per listing, <code>Organization</code> for hiring company</td></tr>
+          <tr><td>Recipe site</td><td><code>Recipe</code>, <code>Person</code> author, <code>VideoObject</code> if video embedded</td></tr>
+        </tbody>
+      </table>
+      <div class="callout">
+        Structured data is one layer of modern SEO — not a substitute for crawlable HTML, fast pages, and intent-matched content. For the full stack, read <a href="/blog/layers-of-seo/">layers of SEO</a> and <a href="/blog/what-is-seo/">what is SEO</a>.
+      </div>
+
+      <h2 id="faq">FAQ</h2>
+      <div class="faq">
+        <div class="faq-item">
+          <h3>What is the best format for structured data?</h3>
+          <p>Google recommends JSON-LD inside a <code>&lt;script type="application/ld+json"&gt;</code> block. It keeps markup separate from HTML and is easiest to maintain on WordPress, static sites, and SPAs.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Does structured data improve rankings?</h3>
+          <p>Not directly. It helps search engines understand your content and can unlock rich results, which may improve click-through rate. Quality content, crawlability, and links still drive rankings.</p>
+        </div>
+        <div class="faq-item">
+          <h3>How many schema types can one page have?</h3>
+          <p>Multiple types are fine when they describe different visible elements — for example <code>WebPage</code> + <code>BlogPosting</code> + <code>FAQPage</code> + <code>BreadcrumbList</code> on one article. Connect them with <code>@graph</code> and <code>@id</code>.</p>
+        </div>
+        <div class="faq-item">
+          <h3>What is the difference between FAQPage and QAPage?</h3>
+          <p><code>FAQPage</code> is for a list of questions you authored (like this section). <code>QAPage</code> is for a single user-generated question with one or more answers, such as a forum thread.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Do I need structured data if I use WordPress SEO plugins?</h3>
+          <p>Plugins like Rank Math and Yoast add baseline Article, Organization, and breadcrumb schema automatically. You may still need custom JSON-LD for FAQs, HowTo steps, products, events, or multi-entity <code>@graph</code> setups.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Where can I see all Schema.org types?</h3>
+          <p>The full list lives at <a href="https://schema.org/docs/full.html" target="_blank" rel="noopener">schema.org/docs/full.html</a>. For Google rich results, cross-check with the <a href="https://developers.google.com/search/docs/appearance/structured-data/search-gallery" target="_blank" rel="noopener">search gallery</a> — not every type produces a visual enhancement.</p>
+        </div>
+      </div>
+
+      <aside class="author-box">
+        <img src="/jlt-profile.png" alt="Portrait of John Lester Tolentino" width="88" height="88">
+        <div>
+          <h3>About the author</h3>
+          <p>John Lester Tolentino is a Senior SEO Specialist in Sta. Rosa, Laguna. He implements JSON-LD, FAQ schema, and local business markup across 67+ sites. <a href="/#contact">Get in touch</a> or browse the <a href="/blog/">SEO blog</a>.</p>
+        </div>
+      </aside>
+    </article>
+
+    <section class="more-posts" aria-label="More from the blog">
+      <h2>More from the blog</h2>
+      <div class="more-grid">
+        <a class="more-card" href="/blog/layers-of-seo/">
+          <img src="/blog/layers-of-seo/featured-card.jpg" width="148" height="78" alt="Layers of SEO" loading="lazy" decoding="async">
+          <div>
+            <small>SEO strategy · 10 min read</small>
+            <h3>Layers of SEO: From crawled to converted</h3>
+            <p>SEO, AEO, GEO, AIO, and SXO — the five layers of modern search visibility.</p>
+            <span class="more-cta">Read the guide →</span>
+          </div>
+        </a>
+        <a class="more-card" href="/blog/fix-sitemap-couldnt-fetch-gsc/">
+          <img src="/blog/fix-sitemap-couldnt-fetch-gsc/featured-card.jpg" width="148" height="78" alt="Fix sitemap couldn't fetch in GSC" loading="lazy" decoding="async">
+          <div>
+            <small>Technical SEO · 9 min read</small>
+            <h3>Fix sitemap &quot;Couldn't fetch&quot; in GSC</h3>
+            <p>Verify your live sitemap, match the GSC property, and resubmit.</p>
+            <span class="more-cta">Read the guide →</span>
+          </div>
+        </a>
+      </div>
+      <p class="more-all"><a href="/blog/">View all posts →</a></p>
+    </section>
+  </main>
+
+  <footer class="wrap footer">
+    <span>© 2026 John Lester Tolentino</span>
+    <a href="https://www.linkedin.com/in/john-lester-tolentino-8b376726b/" target="_blank" rel="noopener">LinkedIn profile</a>
+  </footer>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BlogPosting",
+        "@id": "https://tolentinojohnlester3-cyber.github.io/blog/types-of-structured-data/#article",
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://tolentinojohnlester3-cyber.github.io/blog/types-of-structured-data/"
+        },
+        "headline": "Types of Structured Data You Can Put on a Website",
+        "alternativeHeadline": "Complete Schema.org and JSON-LD guide",
+        "description": "Every major Schema.org type for websites — Organization, FAQPage, Product, LocalBusiness, Article, HowTo, JobPosting, and more — with JSON-LD examples and rich result notes.",
+        "image": {
+          "@type": "ImageObject",
+          "url": "https://tolentinojohnlester3-cyber.github.io/blog/types-of-structured-data/featured.jpg",
+          "contentUrl": "https://tolentinojohnlester3-cyber.github.io/blog/types-of-structured-data/featured.jpg",
+          "width": 1200,
+          "height": 630
+        },
+        "datePublished": "2026-09-15",
+        "dateModified": "2026-09-15",
+        "author": { "@id": "https://tolentinojohnlester3-cyber.github.io/#person" },
+        "publisher": { "@id": "https://tolentinojohnlester3-cyber.github.io/#person" },
+        "inLanguage": "en",
+        "articleSection": "SEO",
+        "keywords": ["structured data", "Schema.org", "JSON-LD", "FAQ schema", "LocalBusiness", "Product schema", "rich results"],
+        "wordCount": 2400,
+        "timeRequired": "PT14M",
+        "isPartOf": {
+          "@type": "Blog",
+          "@id": "https://tolentinojohnlester3-cyber.github.io/blog/#blog",
+          "name": "John Lester Tolentino SEO Blog"
+        }
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://tolentinojohnlester3-cyber.github.io/blog/types-of-structured-data/",
+        "url": "https://tolentinojohnlester3-cyber.github.io/blog/types-of-structured-data/",
+        "name": "Types of Structured Data for Websites",
+        "isPartOf": { "@id": "https://tolentinojohnlester3-cyber.github.io/#website" },
+        "breadcrumb": { "@id": "https://tolentinojohnlester3-cyber.github.io/blog/types-of-structured-data/#breadcrumb" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://tolentinojohnlester3-cyber.github.io/blog/types-of-structured-data/#breadcrumb",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://tolentinojohnlester3-cyber.github.io/" },
+          { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://tolentinojohnlester3-cyber.github.io/blog/" },
+          { "@type": "ListItem", "position": 3, "name": "Types of structured data", "item": "https://tolentinojohnlester3-cyber.github.io/blog/types-of-structured-data/" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://tolentinojohnlester3-cyber.github.io/blog/types-of-structured-data/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is the best format for structured data?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Google recommends JSON-LD inside a script type application/ld+json block. It keeps markup separate from HTML and is easiest to maintain."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does structured data improve rankings?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Not directly. It helps search engines understand content and can unlock rich results, which may improve click-through rate."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the difference between FAQPage and QAPage?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "FAQPage is for a list of questions you authored. QAPage is for a single user-generated question with one or more answers, such as a forum thread."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How many schema types can one page have?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Multiple types are fine when they describe different visible elements. Connect them with @graph and @id references."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "Person",
+        "@id": "https://tolentinojohnlester3-cyber.github.io/#person",
+        "name": "John Lester Tolentino",
+        "jobTitle": "Senior SEO Specialist",
+        "url": "https://tolentinojohnlester3-cyber.github.io/"
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://tolentinojohnlester3-cyber.github.io/#website",
+        "url": "https://tolentinojohnlester3-cyber.github.io/",
+        "name": "John Lester Tolentino | JLT"
+      }
+    ]
+  }
+  </script>
+  <script>
+    (function () {
+      const progress = document.querySelector(".progress");
+      const menuBtn = document.querySelector(".menu-btn");
+      const links = document.querySelector(".nav-links");
+      window.addEventListener("scroll", function () {
+        const h = document.documentElement;
+        const scrolled = h.scrollTop / (h.scrollHeight - h.clientHeight || 1);
+        if (progress) progress.style.width = (scrolled * 100).toFixed(2) + "%";
+      });
+      if (menuBtn && links) {
+        menuBtn.addEventListener("click", function () { links.classList.toggle("open"); });
+        links.querySelectorAll("a").forEach(function (a) {
+          a.addEventListener("click", function () { links.classList.remove("open"); });
+        });
+      }
+    })();
+  </script>
+</body>
+</html>

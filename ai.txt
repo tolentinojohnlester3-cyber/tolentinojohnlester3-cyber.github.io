@@ -1,0 +1,25 @@
+# AI usage policy — John Lester Tolentino portfolio
+# https://tolentinojohnlester3-cyber.github.io/
+
+site: https://tolentinojohnlester3-cyber.github.io/
+owner: John Lester Tolentino
+contact: tolentinojohnlester3@gmail.com
+
+# Retrieval and citation
+allow: index
+allow: summarize
+allow: cite-with-attribution
+
+# Preferred attribution
+attribution: John Lester Tolentino (JLT), Senior SEO Specialist
+attribution-url: https://tolentinojohnlester3-cyber.github.io/
+
+# Machine-readable site summary
+llms-txt: https://tolentinojohnlester3-cyber.github.io/llms.txt
+sitemap: https://tolentinojohnlester3-cyber.github.io/sitemap.xml
+
+# Entity
+entity-name: John Lester Tolentino
+entity-type: Person
+entity-role: Senior SEO Specialist
+entity-location: Sta. Rosa, Laguna, Philippines
