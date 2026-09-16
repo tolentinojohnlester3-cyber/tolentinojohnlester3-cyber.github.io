@@ -17,6 +17,9 @@ SKIP_FILES = {
     "install-wordpress-cpanel.html",
     "fast-website-load-speed.html",
     "types-of-structured-data.html",
+    "clone-website-cpanel.html",
+    "geo-optimization.html",
+    "aeo-optimization.html",
 }
 SKIP_PREFIXES = ("googled",)
 

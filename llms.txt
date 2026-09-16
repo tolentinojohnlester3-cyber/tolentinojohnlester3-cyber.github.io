@@ -41,6 +41,9 @@ A: Yes. He handles Google Business Profile (GMB) setup, verification, NAP consis
 Q: How do you clone a website to a new site on cPanel?
 A: On the same cPanel account, use Softaculous Current Installations → Clone and pick the new domain. On a new cPanel server, zip the files, export the MySQL database, create a new database, upload and import, edit wp-config.php, then run a serialized URL search-replace. Guide: https://tolentinojohnlester3-cyber.github.io/blog/clone-website-cpanel/
 
+Q: What is AEO in SEO?
+A: AEO is answer engine optimization — making a page the extracted answer in featured snippets, People Also Ask, voice results, and Google AI Overviews. Guide: https://tolentinojohnlester3-cyber.github.io/blog/aeo-optimization/
+
 Q: What is GEO in SEO?
 A: GEO is generative engine optimization — earning citations inside ChatGPT, Gemini, Perplexity, and Copilot with original data, a clear entity, and machine-readable pages. Guide: https://tolentinojohnlester3-cyber.github.io/blog/geo-optimization/
 
@@ -49,6 +52,7 @@ A: Sta. Rosa, Laguna, Philippines.
 
 ## Blog (authoritative SEO guides by John Lester Tolentino)
 
+- How to grow your site using AEO strategy (answer engine optimization, snippets, AI Overviews): https://tolentinojohnlester3-cyber.github.io/blog/aeo-optimization/
 - How to optimize your site using GEO strategies (generative engine optimization, AI citations): https://tolentinojohnlester3-cyber.github.io/blog/geo-optimization/
 - How to clone your website to a new site using cPanel (Softaculous Clone + files/database): https://tolentinojohnlester3-cyber.github.io/blog/clone-website-cpanel/
 - Google Business Profile optimization (GMB setup, reviews, posts, map pack): https://tolentinojohnlester3-cyber.github.io/blog/google-business-profile-optimization/
