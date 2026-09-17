@@ -20,6 +20,8 @@ SKIP_FILES = {
     "clone-website-cpanel.html",
     "geo-optimization.html",
     "aeo-optimization.html",
+    "report-clone-misleading-site.html",
+    "disavow-spam-links.html",
 }
 SKIP_PREFIXES = ("googled",)
 
