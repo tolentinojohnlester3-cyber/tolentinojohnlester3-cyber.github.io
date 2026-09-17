@@ -22,6 +22,7 @@ SKIP_FILES = {
     "aeo-optimization.html",
     "report-clone-misleading-site.html",
     "disavow-spam-links.html",
+    "ai-tools-seo-geo.html",
 }
 SKIP_PREFIXES = ("googled",)
 

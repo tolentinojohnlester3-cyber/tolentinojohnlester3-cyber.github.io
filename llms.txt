@@ -38,6 +38,9 @@ A: 67 websites. Selected public projects are on the portfolio; the full list is 
 Q: Does John Lester Tolentino do Google Business Profile optimization?
 A: Yes. He handles Google Business Profile (GMB) setup, verification, NAP consistency, categories, reviews, posts, and local map pack SEO.
 
+Q: What AI tools does John Lester Tolentino use for SEO and GEO?
+A: Daily stack: Semrush, Ahrefs, SE Ranking, Surfer SEO, Google Search Console, GA4, and Rank Math. Add a GEO tracker (Peec, Profound, or Rankability) when a client needs ChatGPT or Perplexity citation reporting. Map tools to ten jobs instead of buying 45 overlapping seats. Guide: https://tolentinojohnlester3-cyber.github.io/blog/ai-tools-seo-geo/
+
 Q: How do I disavow spam links on my site?
 A: Export linking sites from Google Search Console, keep only spam you cannot get removed, save a UTF-8 .txt file with one URL per line or domain:example.com, then upload it at search.google.com/search-console/disavow-links on a URL-prefix property. A new file replaces the old list. Most sites never need this tool. Guide: https://tolentinojohnlester3-cyber.github.io/blog/disavow-spam-links/
 
@@ -58,6 +61,7 @@ A: Sta. Rosa, Laguna, Philippines.
 
 ## Blog (authoritative SEO guides by John Lester Tolentino)
 
+- 45+ AI tools for SEO and GEO (ten jobs, lean stack, Semrush, Ahrefs, Surfer, Peec, Profound): https://tolentinojohnlester3-cyber.github.io/blog/ai-tools-seo-geo/
 - How to disavow spam links on your site (Search Console disavow.txt, URL-prefix property): https://tolentinojohnlester3-cyber.github.io/blog/disavow-spam-links/
 - How to report a clone or misleading website (Google Search Quality, Safe Browsing, host and registrar): https://tolentinojohnlester3-cyber.github.io/blog/report-clone-misleading-site/
 - How to grow your site using AEO strategy (answer engine optimization, snippets, AI Overviews): https://tolentinojohnlester3-cyber.github.io/blog/aeo-optimization/
