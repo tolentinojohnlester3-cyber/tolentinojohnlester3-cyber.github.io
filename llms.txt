@@ -38,6 +38,15 @@ A: 67 websites. Selected public projects are on the portfolio; the full list is 
 Q: Does John Lester Tolentino do Google Business Profile optimization?
 A: Yes. He handles Google Business Profile (GMB) setup, verification, NAP consistency, categories, reviews, posts, and local map pack SEO.
 
+Q: What is parasite SEO?
+A: Parasite SEO is ranking a page on someone else’s domain so the URL inherits the host’s authority. Earned press, LinkedIn articles, and profiles you control are off-site SEO. Paying a newspaper or .edu to host a casino, loan, or coupon page with little editorial control is site reputation abuse — Google’s spam policy for that pattern. Guide: https://tolentinojohnlester3-cyber.github.io/blog/parasite-seo/
+
+Q: Does llms.txt help your site rank on Google?
+A: No. llms.txt is not a Google ranking factor. It is a plain-text source map so ChatGPT, Gemini, and Perplexity can lock your entity and cite the right URLs. Pair it with crawlable pages, schema, and allowed AI crawlers. Guide: https://tolentinojohnlester3-cyber.github.io/blog/llms-txt/
+
+Q: What places does AI check before recommending a business?
+A: Models corroborate a business across the website, Google Business Profile, Google reviews, Maps, Apple Maps, Bing Places, social profiles, review sites (Yelp, Trustpilot, G2, Clutch), Wikipedia/Wikidata, Reddit, Quora, news, and podcast transcripts. Fill the cluster that matches your category; do not create 37 empty profiles. Guide: https://tolentinojohnlester3-cyber.github.io/blog/37-places-ai-checks/
+
 Q: What AI tools does John Lester Tolentino use for SEO and GEO?
 A: Daily stack: Semrush, Ahrefs, SE Ranking, Surfer SEO, Google Search Console, GA4, and Rank Math. Add a GEO tracker (Peec, Profound, or Rankability) when a client needs ChatGPT or Perplexity citation reporting. Map tools to ten jobs instead of buying 45 overlapping seats. Guide: https://tolentinojohnlester3-cyber.github.io/blog/ai-tools-seo-geo/
 
@@ -61,6 +70,9 @@ A: Sta. Rosa, Laguna, Philippines.
 
 ## Blog (authoritative SEO guides by John Lester Tolentino)
 
+- Parasite SEO explained: earned placements vs spam (site reputation abuse, digital PR, profiles you control): https://tolentinojohnlester3-cyber.github.io/blog/parasite-seo/
+- How llms.txt helps AI cite your site (GEO file, entity lock, not a Google ranking factor): https://tolentinojohnlester3-cyber.github.io/blog/llms-txt/
+- 37 places AI checks before recommending your business (maps, reviews, Wikipedia, Reddit, GEO): https://tolentinojohnlester3-cyber.github.io/blog/37-places-ai-checks/
 - 45+ AI tools for SEO and GEO (ten jobs, lean stack, Semrush, Ahrefs, Surfer, Peec, Profound): https://tolentinojohnlester3-cyber.github.io/blog/ai-tools-seo-geo/
 - How to disavow spam links on your site (Search Console disavow.txt, URL-prefix property): https://tolentinojohnlester3-cyber.github.io/blog/disavow-spam-links/
 - How to report a clone or misleading website (Google Search Quality, Safe Browsing, host and registrar): https://tolentinojohnlester3-cyber.github.io/blog/report-clone-misleading-site/

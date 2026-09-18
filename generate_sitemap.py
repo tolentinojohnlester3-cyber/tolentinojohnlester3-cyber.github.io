@@ -23,6 +23,9 @@ SKIP_FILES = {
     "report-clone-misleading-site.html",
     "disavow-spam-links.html",
     "ai-tools-seo-geo.html",
+    "37-places-ai-checks.html",
+    "llms-txt.html",
+    "parasite-seo.html",
 }
 SKIP_PREFIXES = ("googled",)
 
