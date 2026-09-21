@@ -26,6 +26,9 @@ SKIP_FILES = {
     "37-places-ai-checks.html",
     "llms-txt.html",
     "parasite-seo.html",
+    "geo-by-engine.html",
+    "landing-page-that-converts.html",
+    "google-blocking-scrapers-tracking-tools.html",
 }
 SKIP_PREFIXES = ("googled",)
 

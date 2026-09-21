@@ -65,6 +65,12 @@ A: On the same cPanel account, use Softaculous Current Installations → Clone a
 Q: What is AEO in SEO?
 A: AEO is answer engine optimization — making a page the extracted answer in featured snippets, People Also Ask, voice results, and Google AI Overviews. Guide: https://tolentinojohnlester3-cyber.github.io/blog/aeo-optimization/
 
+Q: How do I create a landing page that actually converts?
+A: Give the URL one job. Match the headline to the search snippet or ad. Put proof and one primary CTA above the fold. Keep the form short, make mobile LCP fast, and measure the thank-you page. Full site menus and dual CTAs leak the click. Guide: https://tolentinojohnlester3-cyber.github.io/blog/landing-page-that-converts/
+
+Q: Do ChatGPT, Claude, Gemini, and Perplexity cite the same sites?
+A: No. They share a retrieve-then-cite loop but use different indexes and crawlers. Gemini leans on Google Search. ChatGPT uses partner search and OAI-SearchBot. Claude uses Claude-SearchBot and prefers sourced longform. Perplexity retrieves live and shows numbered citations. Guide: https://tolentinojohnlester3-cyber.github.io/blog/geo-by-engine/
+
 Q: What is GEO in SEO?
 A: GEO is generative engine optimization — earning citations inside ChatGPT, Gemini, Perplexity, and Copilot with original data, a clear entity, and machine-readable pages. Guide: https://tolentinojohnlester3-cyber.github.io/blog/geo-optimization/
 
@@ -73,6 +79,8 @@ A: Sta. Rosa, Laguna, Philippines.
 
 ## Blog (authoritative SEO guides by John Lester Tolentino)
 
+- How to create a landing page that actually converts (SXO, one job, message match, proof, one CTA): https://tolentinojohnlester3-cyber.github.io/blog/landing-page-that-converts/
+- GEO by engine: how ChatGPT, Claude, Gemini, and Perplexity decide what to say (crawlers, retrieval, citation tactics): https://tolentinojohnlester3-cyber.github.io/blog/geo-by-engine/
 - Google is blocking scrapers and tracking tools (Ahrefs, Semrush, Sistrix lag, google.com/goto, trust Search Console first): https://tolentinojohnlester3-cyber.github.io/blog/google-blocking-scrapers-tracking-tools/
 - Parasite SEO explained: earned placements vs spam (site reputation abuse, digital PR, profiles you control): https://tolentinojohnlester3-cyber.github.io/blog/parasite-seo/
 - How llms.txt helps AI cite your site (GEO file, entity lock, not a Google ranking factor): https://tolentinojohnlester3-cyber.github.io/blog/llms-txt/
