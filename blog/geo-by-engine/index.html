@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <title>GEO by Engine: How ChatGPT, Claude, Gemini, and Perplexity Decide What to Say | John Lester Tolentino (JLT)</title>
+  <meta name="description" content="GEO by engine: how ChatGPT, Claude, Gemini, and Perplexity retrieve, rank, extract, and cite sources — plus the crawlers and page tactics each one actually uses.">
+  <meta name="keywords" content="GEO by engine, ChatGPT citations, Claude GEO, Gemini grounding, Perplexity citations, generative engine optimization, OAI-SearchBot, Claude-SearchBot, PerplexityBot, John Lester Tolentino, JLT">
+  <meta name="author" content="John Lester Tolentino (JLT)">
+  <meta name="owner" content="John Lester Tolentino">
+  <meta name="copyright" content="John Lester Tolentino">
+  <meta name="publisher" content="John Lester Tolentino (JLT)">
+  <meta name="subject" content="GEO by engine: ChatGPT Claude Gemini Perplexity by John Lester Tolentino JLT">
+  <meta name="google-site-verification" content="-VhVE7603Le5BmPDdqgtv_9G-7fJ3_f2uhttElLQUr0" />
+  <meta name="google-site-verification" content="AWeOntiIBeb32_Tu_OXoZrGGwsAq0F-z4rwSbERKgBo" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large">
+  <meta name="bingbot" content="index, follow">
+  <link rel="canonical" href="https://tolentinojohnlester3-cyber.github.io/blog/geo-by-engine/">
+  <link rel="sitemap" type="application/xml" href="/sitemap.xml">
+  <link rel="alternate" type="text/plain" href="/llms.txt" title="LLMs site summary">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="John Lester Tolentino | JLT">
+  <meta property="og:title" content="GEO by Engine: How ChatGPT, Claude, Gemini, and Perplexity Decide What to Say | JLT">
+  <meta property="og:description" content="One question, four retrieval stacks. How each assistant decides what to say — and how to get cited in all four.">
+  <meta property="og:url" content="https://tolentinojohnlester3-cyber.github.io/blog/geo-by-engine/">
+  <link rel="preload" as="image" href="/blog/geo-by-engine/featured.webp" type="image/webp">
+  <meta property="og:image" content="https://tolentinojohnlester3-cyber.github.io/blog/geo-by-engine/featured.webp">
+  <meta property="og:image:type" content="image/webp">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="GEO by engine — how ChatGPT, Claude, Gemini, and Perplexity decide what to say, by John Lester Tolentino (JLT)">
+  <meta property="article:published_time" content="2026-09-21">
+  <meta property="article:modified_time" content="2026-09-21">
+  <meta property="article:author" content="John Lester Tolentino">
+  <meta property="article:section" content="SEO">
+  <meta property="article:tag" content="GEO">
+  <meta property="article:tag" content="ChatGPT">
+  <meta property="article:tag" content="Claude">
+  <meta property="article:tag" content="Gemini">
+  <meta property="article:tag" content="Perplexity">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="GEO by engine: ChatGPT, Claude, Gemini, Perplexity | JLT">
+  <meta name="twitter:description" content="How four AI tools retrieve, rank, extract, and cite — and the page work each one rewards.">
+  <meta name="twitter:image" content="https://tolentinojohnlester3-cyber.github.io/blog/geo-by-engine/featured.webp">
+  <meta name="twitter:image:alt" content="GEO by engine — how ChatGPT, Claude, Gemini, and Perplexity decide what to say">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f5f7fb; --bg-2: #ffffff; --bg-3: #eef3fb; --orange: #ff6b1a; --orange-2: #ff8f4a;
+      --blue: #1d4ed8; --black: #111111; --white: #ffffff; --ink: #111111; --gray: #5b6472;
+      --line: rgba(17, 17, 17, 0.1); --radius: 18px; --max: 1180px; --prose: 760px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; scroll-padding-top: 84px; }
+    .prose h2, .prose h3 { scroll-margin-top: 84px; }
+    body { font-family: "Manrope", "Segoe UI", sans-serif; background: var(--bg); color: var(--ink); line-height: 1.7; overflow-x: hidden; }
+    body::before {
+      content: ""; position: fixed; inset: 0; pointer-events: none; z-index: -1;
+      background:
+        radial-gradient(900px 420px at 8% -8%, rgba(255, 107, 26, 0.18), transparent 58%),
+        radial-gradient(720px 420px at 100% 0%, rgba(29, 78, 216, 0.14), transparent 52%),
+        linear-gradient(180deg, #ffffff 0%, #f5f7fb 40%, #eef3fb 100%);
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    button { font-family: inherit; cursor: pointer; }
+    .wrap { width: min(var(--max), calc(100% - 40px)); margin: 0 auto; position: relative; z-index: 1; }
+    .progress { position: fixed; top: 0; left: 0; height: 3px; width: 0; background: linear-gradient(90deg, var(--orange), var(--blue)); z-index: 80; }
+    .nav { position: sticky; top: 0; z-index: 70; backdrop-filter: blur(16px); background: rgba(255, 255, 255, 0.86); border-bottom: 1px solid var(--line); }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; min-height: 72px; gap: 16px; }
+    .logo { display: inline-flex; align-items: center; line-height: 0; }
+    .logo img { height: 44px; width: auto; border-radius: 8px; }
+    .nav-links { display: flex; gap: 18px; list-style: none; align-items: center; }
+    .nav-links a { color: var(--gray); font-size: 0.92rem; font-weight: 600; transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--blue); }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: var(--orange); color: #fff; font-weight: 800; font-size: 0.92rem; border: 0; border-radius: 999px; padding: 11px 20px; box-shadow: 0 8px 18px rgba(255, 107, 26, 0.32); }
+    .btn:hover { background: var(--orange-2); color: #fff; }
+    .btn-ghost { background: var(--blue); box-shadow: 0 8px 18px rgba(29, 78, 216, 0.32); }
+    .btn-ghost:hover { background: #163db8; color: #fff; }
+    .nav-links a.btn, .nav-links a.btn:hover, .nav-links a.btn.active { color: #fff; font-size: 0.88rem; padding: 10px 18px; white-space: nowrap; }
+    .menu-btn { display: none; background: none; border: 0; color: var(--black); font-size: 1.6rem; }
+    h1, h2, h3 { font-family: "Syne", sans-serif; line-height: 1.15; color: var(--black); }
+    .kicker { color: var(--orange); font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; font-size: 0.78rem; margin-bottom: 14px; }
+    .crumbs { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; color: var(--gray); font-size: 0.88rem; font-weight: 600; padding: 28px 0 0; }
+    .crumbs a { color: var(--blue); }
+    .article-hero { padding: 28px 0 12px; max-width: var(--prose); }
+    .article-hero h1 { font-size: clamp(2.1rem, 5vw, 3.6rem); letter-spacing: -0.04em; }
+    .featured { margin: 22px 0 4px; max-width: var(--prose); }
+    .featured img { width: 100%; height: auto; aspect-ratio: 1200 / 630; object-fit: cover; border-radius: 18px; border: 1px solid var(--line); background: var(--bg-3); }
+    .lead { margin-top: 18px; color: var(--gray); font-size: 1.12rem; }
+    .meta { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 22px; color: var(--gray); font-size: 0.9rem; font-weight: 600; }
+    .meta img { width: 36px; height: 36px; border-radius: 50%; object-fit: cover; }
+    .meta-author { display: flex; align-items: center; gap: 10px; }
+    .toc { background: var(--bg-2); border: 1px solid var(--line); border-radius: var(--radius); padding: 22px 24px; margin: 28px 0 8px; max-width: var(--prose); box-shadow: 0 10px 28px rgba(17, 29, 64, 0.06); }
+    .toc h2 { font-size: 1.05rem; margin-bottom: 12px; }
+    .toc ol { padding-left: 20px; color: var(--gray); }
+    .toc a { color: var(--blue); font-weight: 700; }
+    .toc li { margin: 7px 0; }
+    .prose { max-width: var(--prose); padding: 12px 0 0; }
+    .prose h2 { font-size: 1.7rem; margin: 42px 0 14px; }
+    .prose h3 { font-size: 1.22rem; margin: 28px 0 10px; }
+    .prose p { color: #2c3340; margin: 0 0 16px; }
+    .prose ul, .prose ol { padding-left: 22px; color: #2c3340; margin: 0 0 18px; }
+    .prose li { margin: 7px 0; }
+    .prose a { color: var(--blue); font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
+    .prose code { background: var(--bg-3); padding: 2px 7px; border-radius: 6px; font-size: 0.9em; }
+    .prose pre { background: #111827; color: #e5e7eb; border-radius: 14px; padding: 16px 18px; overflow-x: auto; margin: 0 0 20px; font-size: 0.88rem; line-height: 1.55; }
+    .prose pre code { background: none; padding: 0; color: inherit; }
+    .callout { background: var(--bg-2); border-left: 4px solid var(--orange); border-radius: 0 14px 14px 0; padding: 16px 18px; margin: 20px 0 24px; color: #2c3340; }
+    .step-figure { margin: 24px 0 28px; background: var(--bg-2); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; box-shadow: 0 10px 28px rgba(17, 29, 64, 0.06); }
+    .step-figure img { width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; background: var(--bg-3); }
+    .step-caption { padding: 14px 18px; font-size: 0.9rem; color: var(--gray); border-top: 1px solid var(--line); }
+    .step-caption strong { color: var(--black); }
+    .compare { width: 100%; border-collapse: collapse; margin: 20px 0 28px; font-size: 0.92rem; }
+    .compare th, .compare td { border: 1px solid var(--line); padding: 12px 14px; text-align: left; vertical-align: top; }
+    .compare th { background: var(--bg-3); font-family: "Syne", sans-serif; }
+    .compare td { color: #2c3340; background: var(--bg-2); }
+    .faq { display: grid; gap: 12px; margin-top: 8px; }
+    .faq-item { background: var(--bg-2); border: 1px solid var(--line); border-radius: var(--radius); padding: 20px 24px; }
+    .faq-item h3 { font-size: 1.08rem; margin-bottom: 8px; }
+    .faq-item p { color: var(--gray); margin: 0; }
+    .author-box { display: grid; grid-template-columns: 88px 1fr; gap: 18px; align-items: center; background: var(--bg-2); border: 1px solid var(--line); border-radius: 20px; padding: 22px; margin-top: 36px; }
+    .author-box img { width: 88px; height: 88px; border-radius: 18px; object-fit: cover; }
+    .author-box p { color: var(--gray); margin: 8px 0 0; }
+    .more-posts { max-width: var(--prose); margin: 0 0 80px; padding-top: 40px; border-top: 1px solid var(--line); }
+    .more-posts h2 { font-size: 1.35rem; margin-bottom: 18px; }
+    .more-grid { display: grid; gap: 16px; }
+    .more-card { display: grid; grid-template-columns: 148px 1fr; gap: 16px; align-items: start; background: var(--bg-2); border: 1px solid var(--line); border-radius: 16px; padding: 14px; box-shadow: 0 10px 28px rgba(17, 29, 64, 0.06); transition: border-color 0.2s; }
+    .more-card:hover { border-color: var(--orange); }
+    .more-card img { width: 148px; height: 78px; object-fit: cover; border-radius: 10px; background: var(--bg-3); }
+    .more-card small { color: var(--orange); font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; font-size: 0.72rem; }
+    .more-card h3 { font-size: 1.05rem; margin: 6px 0 8px; line-height: 1.25; }
+    .more-card p { margin: 0; color: var(--gray); font-size: 0.9rem; line-height: 1.5; }
+    .more-cta { display: inline-block; margin-top: 10px; color: var(--blue); font-weight: 800; font-size: 0.88rem; }
+    .more-all { margin-top: 18px; font-weight: 700; }
+    .more-all a { color: var(--blue); text-decoration: underline; text-underline-offset: 3px; }
+    .footer { border-top: 1px solid var(--line); padding: 28px 0 40px; color: var(--gray); display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+    .footer a { color: var(--blue); font-weight: 700; }
+
+    .key-takeaway {
+      max-width: var(--prose, 760px);
+      margin: 22px 0 12px;
+      scroll-margin-top: 84px;
+      background: var(--bg-2);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 10px 28px rgba(17, 29, 64, 0.06);
+    }
+    .key-takeaway-bar {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 20px 0;
+      color: var(--orange);
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-size: 0.72rem;
+    }
+    .key-takeaway-bar span {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--orange), var(--blue));
+    }
+    .key-takeaway > p:not(.key-takeaway-bar) {
+      margin: 8px 20px 18px;
+      color: #2c3340;
+      font-size: 1.02rem;
+      line-height: 1.65;
+    }
+    .key-takeaway strong { color: var(--black); }
+    @media (max-width: 900px) {
+      .wrap { width: min(var(--max), calc(100% - 24px)); }
+      .menu-btn { display: grid; place-items: center; min-width: 44px; min-height: 44px; }
+      .nav-inner { min-height: 60px; }
+      .logo img { height: 36px; }
+      .nav-links { display: none; position: absolute; top: 60px; left: 0; right: 0; background: var(--white); border-bottom: 1px solid var(--line); flex-direction: column; padding: 12px 20px 24px; align-items: stretch; z-index: 80; max-height: calc(100dvh - 60px); overflow-y: auto; }
+      .nav-links.open { display: flex; }
+      .nav-links a { min-height: 44px; display: flex; align-items: center; }
+      .nav-links a.btn { justify-content: center; }
+      .article-hero h1 { font-size: clamp(1.8rem, 9vw, 2.6rem); }
+      .author-box, .more-card { grid-template-columns: 1fr; }
+      .more-card img { width: 100%; height: auto; aspect-ratio: 800 / 420; }
+      .compare { display: block; overflow-x: auto; }
+      .footer { padding: 22px 0 calc(28px + env(safe-area-inset-bottom)); }
+    }
+  </style>
+</head>
+<body>
+  <div class="progress"></div>
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <a class="logo" href="/" aria-label="John Lester Tolentino home">
+        <img src="/jlt-logo.webp" alt="JLT logo">
+      </a>
+      <button class="menu-btn" type="button" aria-label="Open menu">☰</button>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/#about">About</a></li>
+        <li><a href="/#projects">Projects</a></li>
+        <li><a class="active" href="/blog/">Blog</a></li>
+        <li><a class="btn btn-ghost" href="/John_Lester_Tolentino_SEO_Resume.pdf" download="John_Lester_Tolentino_SEO_Resume.pdf">Resume</a></li>
+        <li><a class="btn" href="/#contact">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="/">Home</a>
+      <span>/</span>
+      <a href="/blog/">Blog</a>
+      <span>/</span>
+      <span>GEO by engine</span>
+    </nav>
+
+    <header class="article-hero">
+      <p class="kicker">GEO · 14 min read</p>
+      <h1>GEO by engine: how ChatGPT, Claude, Gemini, and Perplexity decide what to say</h1>
+      <p class="lead">Generative engine optimization is not one ranking system. ChatGPT, Claude, Gemini, and Perplexity share a retrieve-then-cite loop, then split on <strong>index, crawler, and trust score</strong>. A page that wins Gemini can miss ChatGPT. Here is how each tool actually decides — and what I change on a site for each one.</p>
+      <div class="meta">
+        <div class="meta-author">
+          <img src="/jlt-profile.webp" alt="John Lester Tolentino" width="36" height="36">
+          <span>By <a href="/">John Lester Tolentino</a>, Senior SEO Specialist</span>
+        </div>
+        <time datetime="2026-09-21">September 21, 2026</time>
+        <span>Sta. Rosa, Laguna</span>
+      </div>
+    </header>
+
+    <figure class="featured">
+      <img src="/blog/geo-by-engine/featured.webp" width="1200" height="630" alt="GEO by engine: ChatGPT, Claude, Gemini, and Perplexity feeding one decision loop" fetchpriority="high" decoding="async">
+    </figure>
+
+    <nav class="toc" aria-label="Table of contents">
+      <h2>In this article</h2>
+      <ol>
+        <li><a href="#key-takeaway">Key takeaway</a></li>
+        <li><a href="#one-question">One question, four answers</a></li>
+        <li><a href="#shared-loop">The shared decision loop</a></li>
+        <li><a href="#chatgpt">ChatGPT</a></li>
+        <li><a href="#claude">Claude</a></li>
+        <li><a href="#gemini">Gemini</a></li>
+        <li><a href="#perplexity">Perplexity</a></li>
+        <li><a href="#compare">Side-by-side comparison</a></li>
+        <li><a href="#playbook">GEO playbook by engine</a></li>
+        <li><a href="#test">How I test citations</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ol>
+    </nav>
+
+    <aside class="key-takeaway" id="key-takeaway">
+      <p class="key-takeaway-bar"><span aria-hidden="true"></span>Key takeaway</p>
+      <p>ChatGPT, Claude, Gemini, and Perplexity share a retrieve-then-cite loop, then split on <strong>index, crawler, and trust</strong>. Allow the search bots, write extractable facts, and test citations in all four — a Gemini win can still miss ChatGPT.</p>
+    </aside>
+
+    <article class="prose" itemscope itemtype="https://schema.org/BlogPosting">
+      <meta itemprop="headline" content="GEO by Engine: How ChatGPT, Claude, Gemini, and Perplexity Decide What to Say">
+      <meta itemprop="datePublished" content="2026-09-21">
+      <meta itemprop="dateModified" content="2026-09-21">
+
+      <h2 id="one-question">One question, four answers</h2>
+      <p>Ask the same commercial question in four chat tools and you rarely get the same brands. That is not a glitch. Each assistant searches a different index, scores trust differently, and cites a different slice of the web.</p>
+      <p>The <a href="https://machinerelations.ai/research/ai-search-citation-decision-factors-comparison-2026" target="_blank" rel="noopener">Machine Relations Index</a> (82-day window ending 4 August 2026) measured 10,661 answer runs. Among the top 100 most-cited domains, 29 had engine gaps — cited by some tools, missing in others. Reddit sat at a 12.6% overall citation rate, almost entirely from Gemini and Perplexity. ChatGPT and Claude did not cite it at a measurable rate. Pairwise source overlap between engines has been measured as low as the teens. ChatGPT and Perplexity have shown about <strong>11% domain overlap</strong> in some public citation studies.</p>
+      <p>That is why a single “GEO score” is a trap. The site-wide base still matters — original data, a locked entity, answer-first pages, schema, and <a href="/blog/llms-txt/">llms.txt</a>. After that, you optimize <em>by engine</em>. For the shared playbook, start with <a href="/blog/geo-optimization/">GEO strategies</a>. This post is the split: how each model decides what to say.</p>
+
+      <div class="callout">
+        GEO by engine means: keep one crawlable source of truth, then match the crawler, index, and extract style of each assistant. You do not write four sites. You write one site that four pipelines can parse.
+      </div>
+
+      <h2 id="shared-loop">The shared decision loop</h2>
+      <p>Under the logos, the four tools run the same six steps. Differences live inside each step, not in a secret ranking formula.</p>
+      <figure class="step-figure">
+        <img src="/blog/geo-by-engine/diagram-pipeline.webp" width="1200" height="675" alt="Prompt, retrieve, rank, extract, generate, cite — the shared AI answer loop" loading="lazy" decoding="async">
+        <figcaption class="step-caption"><strong>Every assistant:</strong> rewrite the question, fetch pages, score them, pull extractable facts, write an answer, attach a few URLs.</figcaption>
+      </figure>
+      <ol>
+        <li><strong>Prompt.</strong> The model rewrites your question into search queries. It almost never runs the raw string you typed.</li>
+        <li><strong>Retrieve.</strong> It pulls candidates from a partner index, its own crawl, Google Search, or a live fetch. Block the search crawler and you drop out here.</li>
+        <li><strong>Rank.</strong> Relevance, freshness, domain trust, and “can I parse this HTML?” beat classic domain authority. One study found traditional DA explained about 5% of citation behavior.</li>
+        <li><strong>Extract.</strong> Models prefer the first third of a page, short definition paragraphs, tables, and named stats. Semantic HTML tables have been associated with roughly <strong>2.5×</strong> more citations than the same facts in prose.</li>
+        <li><strong>Generate.</strong> The model writes an answer from the extracts plus training memory. Vague pages get merged into a generic paragraph with no URL.</li>
+        <li><strong>Cite.</strong> Only a few sources make the footnote. ChatGPT is stingy. Perplexity shows numbered sources by default.</li>
+      </ol>
+      <p>Most citation failures are retrieval or extract failures — the bot never saw you, or it saw a wall of marketing copy with no sentence it could quote. That sits on the same stack as <a href="/blog/layers-of-seo/">SEO → AEO → GEO</a>: if Google cannot crawl the URL, most AI pipelines will not either.</p>
+
+      <h2 id="chatgpt">ChatGPT: search when it needs to</h2>
+      <p>ChatGPT answers from training data until the question looks fresh, local, or comparative. Then it turns search on. OpenAI has said ChatGPT Search uses partner indexes (Bing is one) plus trusted feeds for weather, sports, stocks, and news. The model rewrites your prompt into targeted queries. It does not paste your sentence into a search box.</p>
+      <p>Three crawlers matter, and they are not interchangeable:</p>
+      <ul>
+        <li><strong>GPTBot</strong> — training. Disallow it if you do not want content in future models. That is a policy choice, not a ranking lever.</li>
+        <li><strong>OAI-SearchBot</strong> — the index behind ChatGPT Search. OpenAI is explicit: sites that opt out will not appear in ChatGPT search answers.</li>
+        <li><strong>ChatGPT-User</strong> — a live fetch when a person asks ChatGPT to read a URL right now.</li>
+      </ul>
+      <p>ChatGPT cites less often than the other three. When it does cite, it leans on consensus pages: official sites, Wikipedia-style entity facts, news, and documentation that several sources already agree on. It is weak on Reddit. It is stronger when your name, city, and canonical URL match across the homepage, About, schema, and LinkedIn — the entity lock I cover in <a href="/blog/37-places-ai-checks/">37 places AI checks</a>.</p>
+      <p><strong>What I ship for ChatGPT:</strong> allow <code>OAI-SearchBot</code> and <code>ChatGPT-User</code>. Put a 40–60 word definition under the H2. Repeat the same bio facts in <code>llms.txt</code>. Do not hide the claim in a hero image. ChatGPT reads HTML, not pixels.</p>
+
+      <h2 id="claude">Claude: a tool it can refuse to call</h2>
+      <p>Claude treats the web as a tool, not a default. With web search enabled, it decides each turn whether to search or answer from context. Anthropic’s search runs server-side, can loop for more queries, and returns automatic citations for pages it used. Claude also has a long context window, so when it <em>does</em> fetch you, it can read more of the page than a snippet-first engine.</p>
+      <p>Crawlers: <strong>ClaudeBot</strong> (training) and <strong>Claude-SearchBot</strong> (retrieval). Allow the search bot if you want to be citable. Claude’s public citation pattern favors long, well-structured documents with named evidence — docs, policy pages, research summaries, and editorial explainers — over forum threads. In the MRI data, Substack showed up for Claude; Reddit did not at a measurable rate.</p>
+      <p>Claude is the most likely of the four to hedge. That is a feature of how it is trained, not a bug in your page. If the claim is unsourced, Claude will often skip the brand instead of inventing a confident recommendation.</p>
+      <p><strong>What I ship for Claude:</strong> allow <code>Claude-SearchBot</code>. Write the full argument on one URL (not a 300-word teaser). Name the author, date, and source of every number. Use descriptive H2s and tables. Claude rewards documents that look like a primary source, not a listicle remix.</p>
+
+      <h2 id="gemini">Gemini: Google Search with extra steps</h2>
+      <p>Gemini is the engine that still behaves most like SEO. <a href="https://ai.google.dev/gemini-api/docs/google-search" target="_blank" rel="noopener">Grounding with Google Search</a> lets the model fan a question into several sub-queries, run them on Google’s index, then write an answer with URL citations. Google AI Mode uses the same idea. If you already rank for the query cluster, you are in the candidate set. If you do not, Gemini has little reason to invent you.</p>
+      <p><code>Google-Extended</code> is a robots.txt token for Gemini training and grounding. It is <em>not</em> Googlebot. Disallowing Google-Extended does not remove you from classic Search. Allowing it is the GEO choice if you want Gemini to use the page as a source. Googlebot still handles rankings, AI Overviews, and AI Mode retrieval from the Search index.</p>
+      <p>Gemini and Google’s answer surfaces pull Reddit, YouTube, Maps, and reviews more than ChatGPT or Claude. Local businesses get a second door: a complete <a href="/blog/google-business-profile-optimization/">Google Business Profile</a>. Schema you already ship for rich results — Organization, Person, FAQPage, LocalBusiness — is parsed by the same company that grounds Gemini. See <a href="/blog/types-of-structured-data/">types of structured data</a>.</p>
+      <p><strong>What I ship for Gemini:</strong> keep ranking in Google. Allow Google-Extended if Gemini visibility is the goal. Match NAP. Add FAQ and Article JSON-LD that repeats visible text. Treat AI Overviews and Gemini chat as cousins of <a href="/blog/aeo-optimization/">AEO</a>, not a separate website.</p>
+
+      <h2 id="perplexity">Perplexity: retrieve first, cite in public</h2>
+      <p>Perplexity is a search product with a chat UI. It almost always retrieves. It shows numbered citations by default — often three or four pages. That makes it the easiest engine to <em>see</em> whether you won, and the noisiest competitor set, because forums, news, and fresh posts sit next to your money page.</p>
+      <p><strong>PerplexityBot</strong> builds the answer index. <strong>Perplexity-User</strong> fetches a page when a person asks. Perplexity has said the user agent is not a training crawler. Blocking PerplexityBot is a direct citation cut. Freshness, extractable answers, and a clear H2 that matches the query matter more here than a 2023 cornerstone guide with no update date.</p>
+      <p>Perplexity overlaps Gemini on community sources (Reddit shows up) and overlaps classic SEO on domain trust. It is less consensus-driven than ChatGPT and less “Google rank first” than Gemini. A dated table with a short answer under the question heading is the page shape it extracts cleanly.</p>
+      <p><strong>What I ship for Perplexity:</strong> allow <code>PerplexityBot</code>. Put <code>dateModified</code> on the page and in schema. Lead with the answer, then the table. Refresh stats when they age. Do not rely on a PDF or an image of a chart.</p>
+
+      <h2 id="compare">Side-by-side comparison</h2>
+      <figure class="step-figure">
+        <img src="/blog/geo-by-engine/diagram-four-engines.webp" width="1200" height="675" alt="ChatGPT, Claude, Gemini, and Perplexity compared by retrieval job and crawler" loading="lazy" decoding="async">
+        <figcaption class="step-caption">Same user question. Four retrieval stacks. Optimize the crawler and the extract, not a fake “ChatGPT ranking.”</figcaption>
+      </figure>
+      <table class="compare" aria-label="How ChatGPT Claude Gemini and Perplexity decide what to say">
+        <thead>
+          <tr>
+            <th></th>
+            <th>ChatGPT</th>
+            <th>Claude</th>
+            <th>Gemini</th>
+            <th>Perplexity</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>When it searches</td>
+            <td>When the question looks fresh or local</td>
+            <td>When the web tool is enabled and needed</td>
+            <td>Grounding / query fan-out on Google</td>
+            <td>Almost always</td>
+          </tr>
+          <tr>
+            <td>Index</td>
+            <td>Partner search + own index</td>
+            <td>Own retrieval pipeline</td>
+            <td>Google Search + Knowledge Graph</td>
+            <td>Own crawl + live web</td>
+          </tr>
+          <tr>
+            <td>Search crawler</td>
+            <td>OAI-SearchBot</td>
+            <td>Claude-SearchBot</td>
+            <td>Googlebot; Google-Extended for Gemini use</td>
+            <td>PerplexityBot</td>
+          </tr>
+          <tr>
+            <td>Citation style</td>
+            <td>Selective; often none</td>
+            <td>Cites pages it fetched</td>
+            <td>Inline grounded URLs</td>
+            <td>Numbered sources, always visible</td>
+          </tr>
+          <tr>
+            <td>Prefers</td>
+            <td>Consensus, official, entity-clear pages</td>
+            <td>Long sourced documents</td>
+            <td>Pages that already rank + GBP / schema</td>
+            <td>Fresh, extractable answers</td>
+          </tr>
+          <tr>
+            <td>Weak on</td>
+            <td>Reddit, thin listicles</td>
+            <td>Unsourced brand claims</td>
+            <td>Pages Google cannot crawl</td>
+            <td>Stale cornerstone posts</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2 id="playbook">GEO playbook by engine</h2>
+      <figure class="step-figure">
+        <img src="/blog/geo-by-engine/diagram-playbook.webp" width="1200" height="675" alt="GEO playbook cards for ChatGPT, Claude, Gemini, and Perplexity" loading="lazy" decoding="async">
+        <figcaption class="step-caption">One site. Four allowances in robots.txt. Four extract styles on the same URL.</figcaption>
+      </figure>
+      <p>Do this once on every money page, then layer engine-specific checks.</p>
+      <h3>Shared (all four)</h3>
+      <ul>
+        <li>One canonical name, title, city, and official URL on the page, in schema, and in <a href="/blog/llms-txt/">llms.txt</a></li>
+        <li>A 40–60 word answer under the question H2</li>
+        <li>At least one dated, first-party stat or process count</li>
+        <li>Person + Article + FAQ JSON-LD that matches visible text</li>
+        <li>AI search crawlers allowed — not only the training bots</li>
+      </ul>
+      <pre><code># Search / retrieval crawlers (GEO visibility)
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /</code></pre>
+      <h3>Then specialize</h3>
+      <ul>
+        <li><strong>ChatGPT</strong> — entity lock and consensus facts other sites already repeat about you.</li>
+        <li><strong>Claude</strong> — the long version of the argument, with named sources, on one crawlable URL.</li>
+        <li><strong>Gemini</strong> — rankings, schema, Knowledge Graph consistency, and Google Business Profile if you are local.</li>
+        <li><strong>Perplexity</strong> — freshness, tables, and an H2 that matches the live query.</li>
+      </ul>
+      <p>For the tracker stack I use when a client wants citation reporting, see <a href="/blog/ai-tools-seo-geo/">AI tools for SEO and GEO</a>. Search Console still does not report “ChatGPT clicks.” Prompt tests do.</p>
+
+      <div class="callout">
+        Training crawlers (GPTBot, ClaudeBot) and search crawlers (OAI-SearchBot, Claude-SearchBot, PerplexityBot) are different jobs. Blocking training does not have to block citations. Blocking the search bot does.
+      </div>
+
+      <h2 id="test">How I test citations</h2>
+      <p>I do not chase a fake #1 in ChatGPT. I keep a prompt set of 10 questions a customer would actually ask, then run them weekly in all four tools with search/browse on.</p>
+      <ol>
+        <li>Score each run: cited with URL / mentioned without URL / absent / competitor cited.</li>
+        <li>Note which engine missed you. A Gemini miss is usually a ranking or GBP gap. A ChatGPT miss is often entity split or OAI-SearchBot blocked. A Perplexity miss is often a stale page. A Claude miss is often a thin, unsourced page.</li>
+        <li>Fix that surface. Re-run the same prompt seven days later. Models refresh sources; one lucky cite is not a strategy.</li>
+      </ol>
+      <p>This is the measurement loop from the <a href="/blog/geo-optimization/">GEO strategies guide</a>, split by engine so the fix matches the failure.</p>
+
+      <h2 id="faq">GEO by engine FAQ</h2>
+      <div class="faq">
+        <article class="faq-item">
+          <h3>Do ChatGPT, Claude, Gemini, and Perplexity cite the same sites?</h3>
+          <p>No. Overlap is limited. Reddit is a clear split: Gemini and Perplexity cite it heavily; ChatGPT and Claude largely do not. Optimize the shared page, then verify each engine separately.</p>
+        </article>
+        <article class="faq-item">
+          <h3>Is ranking in Google enough for GEO?</h3>
+          <p>It is the strongest input for Gemini and a useful prior for the others. It is not enough for ChatGPT Search if OAI-SearchBot is blocked, or for Perplexity if the page is stale and hard to extract.</p>
+        </article>
+        <article class="faq-item">
+          <h3>Which crawler should I allow first?</h3>
+          <p>If the goal is citations, allow the search agents: OAI-SearchBot, Claude-SearchBot, PerplexityBot, and keep Googlebot. Decide GPTBot, ClaudeBot, and Google-Extended as a training-policy choice.</p>
+        </article>
+        <article class="faq-item">
+          <h3>Why does ChatGPT answer without a link?</h3>
+          <p>It often answers from training memory and only cites when search ran and a page was clean enough to quote. Consensus entity pages get named; thin rewrites do not.</p>
+        </article>
+        <article class="faq-item">
+          <h3>Does llms.txt make all four engines cite me?</h3>
+          <p>No. It is a source map, not a ranking factor in Google and not a citation guarantee in chat tools. Pair it with crawlable pages, schema, and allowed search crawlers.</p>
+        </article>
+        <article class="faq-item">
+          <h3>Should I write four different articles?</h3>
+          <p>No. Write one canonical guide. Change extractability (definition, table, date, entity) so four pipelines can use it. Duplicate posts for each brand of chatbot waste crawl budget.</p>
+        </article>
+      </div>
+
+      <aside class="author-box">
+        <img src="/jlt-profile.webp" alt="Portrait of John Lester Tolentino" width="88" height="88">
+        <div>
+          <h3>About the author</h3>
+          <p>John Lester Tolentino is a Senior SEO Specialist in Sta. Rosa, Laguna. He builds visibility stacks — SEO, AEO, GEO, and SXO — across 67 websites. <a href="/#contact">Get in touch</a> or browse the <a href="/blog/">SEO blog</a>.</p>
+        </div>
+      </aside>
+    </article>
+
+    <section class="more-posts" aria-label="More from the blog">
+      <h2>More from the blog</h2>
+      <div class="more-grid">
+        <a class="more-card" href="/blog/geo-optimization/">
+          <img src="/blog/geo-optimization/featured-card.webp" width="148" height="78" alt="GEO strategies" loading="lazy" decoding="async">
+          <div>
+            <small>GEO · 13 min read</small>
+            <h3>How to optimize your site using GEO strategies</h3>
+            <p>The shared playbook this engine split sits on — data, entity, schema, llms.txt.</p>
+            <span class="more-cta">Read the guide →</span>
+          </div>
+        </a>
+        <a class="more-card" href="/blog/llms-txt/">
+          <img src="/blog/llms-txt/featured-card.webp" width="148" height="78" alt="How llms.txt helps AI cite your site" loading="lazy" decoding="async">
+          <div>
+            <small>GEO · 11 min read</small>
+            <h3>How llms.txt helps AI cite your site</h3>
+            <p>The root file that locks your entity for ChatGPT and Perplexity.</p>
+            <span class="more-cta">Read the guide →</span>
+          </div>
+        </a>
+        <a class="more-card" href="/blog/37-places-ai-checks/">
+          <img src="/blog/37-places-ai-checks/featured-card.webp" width="148" height="78" alt="37 places AI checks" loading="lazy" decoding="async">
+          <div>
+            <small>GEO · 13 min read</small>
+            <h3>37 places AI checks before recommending you</h3>
+            <p>The off-site sources models use to decide if you are real enough to name.</p>
+            <span class="more-cta">Read the guide →</span>
+          </div>
+        </a>
+      </div>
+      <p class="more-all"><a href="/blog/">View all posts →</a></p>
+    </section>
+  </main>
+
+  <footer class="wrap footer">
+    <span>© 2026 John Lester Tolentino</span>
+    <a href="https://www.linkedin.com/in/john-lester-tolentino-8b376726b/" target="_blank" rel="noopener">LinkedIn profile</a>
+  </footer>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BlogPosting",
+        "@id": "https://tolentinojohnlester3-cyber.github.io/blog/geo-by-engine/#article",
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://tolentinojohnlester3-cyber.github.io/blog/geo-by-engine/"
+        },
+        "headline": "GEO by Engine: How ChatGPT, Claude, Gemini, and Perplexity Decide What to Say",
+        "alternativeHeadline": "Generative engine optimization split by ChatGPT, Claude, Gemini, and Perplexity",
+        "description": "How ChatGPT, Claude, Gemini, and Perplexity retrieve, rank, extract, and cite sources — plus crawlers and page tactics for each engine.",
+        "image": {
+          "@type": "ImageObject",
+          "url": "https://tolentinojohnlester3-cyber.github.io/blog/geo-by-engine/featured.webp",
+          "contentUrl": "https://tolentinojohnlester3-cyber.github.io/blog/geo-by-engine/featured.webp",
+          "width": 1200,
+          "height": 630
+        },
+        "datePublished": "2026-09-21",
+        "dateModified": "2026-09-21",
+        "author": { "@id": "https://tolentinojohnlester3-cyber.github.io/#person" },
+        "publisher": { "@id": "https://tolentinojohnlester3-cyber.github.io/#person" },
+        "inLanguage": "en",
+        "articleSection": "SEO",
+        "keywords": ["GEO by engine", "ChatGPT citations", "Claude GEO", "Gemini grounding", "Perplexity citations", "OAI-SearchBot"],
+        "wordCount": 2280,
+        "timeRequired": "PT14M",
+        "isPartOf": {
+          "@type": "Blog",
+          "@id": "https://tolentinojohnlester3-cyber.github.io/blog/#blog",
+          "name": "John Lester Tolentino SEO Blog"
+        }
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://tolentinojohnlester3-cyber.github.io/blog/geo-by-engine/",
+        "url": "https://tolentinojohnlester3-cyber.github.io/blog/geo-by-engine/",
+        "name": "GEO by Engine: How ChatGPT, Claude, Gemini, and Perplexity Decide What to Say",
+        "isPartOf": { "@id": "https://tolentinojohnlester3-cyber.github.io/#website" },
+        "breadcrumb": { "@id": "https://tolentinojohnlester3-cyber.github.io/blog/geo-by-engine/#breadcrumb" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://tolentinojohnlester3-cyber.github.io/blog/geo-by-engine/#breadcrumb",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://tolentinojohnlester3-cyber.github.io/" },
+          { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://tolentinojohnlester3-cyber.github.io/blog/" },
+          { "@type": "ListItem", "position": 3, "name": "GEO by engine", "item": "https://tolentinojohnlester3-cyber.github.io/blog/geo-by-engine/" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://tolentinojohnlester3-cyber.github.io/blog/geo-by-engine/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Do ChatGPT, Claude, Gemini, and Perplexity cite the same sites?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. Overlap is limited. Reddit is a clear split: Gemini and Perplexity cite it heavily; ChatGPT and Claude largely do not. Optimize one shared page, then verify each engine separately."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is ranking in Google enough for GEO?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "It is the strongest input for Gemini and a useful prior for the others. It is not enough for ChatGPT Search if OAI-SearchBot is blocked, or for Perplexity if the page is stale and hard to extract."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Which crawler should I allow first?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "If the goal is citations, allow the search agents: OAI-SearchBot, Claude-SearchBot, PerplexityBot, and keep Googlebot. Decide GPTBot, ClaudeBot, and Google-Extended as a training-policy choice."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Why does ChatGPT answer without a link?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "It often answers from training memory and only cites when search ran and a page was clean enough to quote. Consensus entity pages get named; thin rewrites do not."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does llms.txt make all four engines cite me?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. llms.txt is a source map, not a Google ranking factor and not a citation guarantee. Pair it with crawlable pages, schema, and allowed search crawlers."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Should I write four different articles?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. Write one canonical guide. Change extractability so four pipelines can use it. Duplicate posts for each chatbot waste crawl budget."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "Person",
+        "@id": "https://tolentinojohnlester3-cyber.github.io/#person",
+        "name": "John Lester Tolentino",
+        "jobTitle": "Senior SEO Specialist",
+        "url": "https://tolentinojohnlester3-cyber.github.io/"
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://tolentinojohnlester3-cyber.github.io/#website",
+        "url": "https://tolentinojohnlester3-cyber.github.io/",
+        "name": "John Lester Tolentino | JLT"
+      }
+    ]
+  }
+  </script>
+  <script>
+    (function () {
+      const progress = document.querySelector(".progress");
+      const menuBtn = document.querySelector(".menu-btn");
+      const links = document.querySelector(".nav-links");
+      window.addEventListener("scroll", function () {
+        const h = document.documentElement;
+        const scrolled = h.scrollTop / (h.scrollHeight - h.clientHeight || 1);
+        if (progress) progress.style.width = (scrolled * 100).toFixed(2) + "%";
+      });
+      if (menuBtn && links) {
+        menuBtn.addEventListener("click", function () { links.classList.toggle("open"); });
+        links.querySelectorAll("a").forEach(function (a) {
+          a.addEventListener("click", function () { links.classList.remove("open"); });
+        });
+      }
+    })();
+  </script>
+</body>
+</html>

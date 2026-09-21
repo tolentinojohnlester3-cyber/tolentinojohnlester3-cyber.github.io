@@ -132,6 +132,42 @@
     .more-all a { color: var(--blue); text-decoration: underline; text-underline-offset: 3px; }
     .footer { border-top: 1px solid var(--line); padding: 28px 0 40px; color: var(--gray); display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
     .footer a { color: var(--blue); font-weight: 700; }
+
+    .key-takeaway {
+      max-width: var(--prose, 760px);
+      margin: 22px 0 12px;
+      scroll-margin-top: 84px;
+      background: var(--bg-2);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 10px 28px rgba(17, 29, 64, 0.06);
+    }
+    .key-takeaway-bar {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 20px 0;
+      color: var(--orange);
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-size: 0.72rem;
+    }
+    .key-takeaway-bar span {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--orange), var(--blue));
+    }
+    .key-takeaway > p:not(.key-takeaway-bar) {
+      margin: 8px 20px 18px;
+      color: #2c3340;
+      font-size: 1.02rem;
+      line-height: 1.65;
+    }
+    .key-takeaway strong { color: var(--black); }
     @media (max-width: 900px) {
       .wrap { width: min(var(--max), calc(100% - 24px)); }
       .menu-btn { display: grid; place-items: center; min-width: 44px; min-height: 44px; }
@@ -198,6 +234,7 @@
     <nav class="toc" aria-label="Table of contents">
       <h2>In this article</h2>
       <ol>
+        <li><a href="#key-takeaway">Key takeaway</a></li>
         <li><a href="#what-happened">What happened</a></li>
         <li><a href="#not-a-ranking-update">This is not a ranking update</a></li>
         <li><a href="#goto-links">Why google.com/goto matters</a></li>
@@ -207,6 +244,11 @@
         <li><a href="#faq">FAQ</a></li>
       </ol>
     </nav>
+
+    <aside class="key-takeaway" id="key-takeaway">
+      <p class="key-takeaway-bar"><span aria-hidden="true"></span>Key takeaway</p>
+      <p>Google blocking scrapers is a <strong>data-access problem</strong>, not a ranking update. Trust Search Console and a live search first. Ahrefs, Semrush, or Sistrix going blank is not proof you fell off page 1.</p>
+    </aside>
 
     <article class="prose" itemscope itemtype="https://schema.org/BlogPosting">
       <meta itemprop="headline" content="Google Is Blocking Scrapers and Tracking Tools">
