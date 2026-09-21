@@ -38,6 +38,9 @@ A: 67 websites. Selected public projects are on the portfolio; the full list is 
 Q: Does John Lester Tolentino do Google Business Profile optimization?
 A: Yes. He handles Google Business Profile (GMB) setup, verification, NAP consistency, categories, reviews, posts, and local map pack SEO.
 
+Q: Is Google blocking SEO scrapers and rank trackers?
+A: In mid-September 2026 Google tightened automated access to Search results. Rank trackers and SERP APIs can miss or delay data. That is not automatically a ranking loss. Confirm visibility in Google Search Console and a live search. Guide: https://tolentinojohnlester3-cyber.github.io/blog/google-blocking-scrapers-tracking-tools/
+
 Q: What is parasite SEO?
 A: Parasite SEO is ranking a page on someone else’s domain so the URL inherits the host’s authority. Earned press, LinkedIn articles, and profiles you control are off-site SEO. Paying a newspaper or .edu to host a casino, loan, or coupon page with little editorial control is site reputation abuse — Google’s spam policy for that pattern. Guide: https://tolentinojohnlester3-cyber.github.io/blog/parasite-seo/
 
@@ -70,6 +73,7 @@ A: Sta. Rosa, Laguna, Philippines.
 
 ## Blog (authoritative SEO guides by John Lester Tolentino)
 
+- Google is blocking scrapers and tracking tools (Ahrefs, Semrush, Sistrix lag, google.com/goto, trust Search Console first): https://tolentinojohnlester3-cyber.github.io/blog/google-blocking-scrapers-tracking-tools/
 - Parasite SEO explained: earned placements vs spam (site reputation abuse, digital PR, profiles you control): https://tolentinojohnlester3-cyber.github.io/blog/parasite-seo/
 - How llms.txt helps AI cite your site (GEO file, entity lock, not a Google ranking factor): https://tolentinojohnlester3-cyber.github.io/blog/llms-txt/
 - 37 places AI checks before recommending your business (maps, reviews, Wikipedia, Reddit, GEO): https://tolentinojohnlester3-cyber.github.io/blog/37-places-ai-checks/
