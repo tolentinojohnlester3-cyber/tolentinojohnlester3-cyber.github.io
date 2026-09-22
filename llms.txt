@@ -62,6 +62,9 @@ A: Save the fake URLs, screenshots, and WHOIS details. File a Google Search Qual
 Q: How do you clone a website to a new site on cPanel?
 A: On the same cPanel account, use Softaculous Current Installations → Clone and pick the new domain. On a new cPanel server, zip the files, export the MySQL database, create a new database, upload and import, edit wp-config.php, then run a serialized URL search-replace. Guide: https://tolentinojohnlester3-cyber.github.io/blog/clone-website-cpanel/
 
+Q: Does featured snippet optimization overlap with AEO?
+A: Yes. Featured snippet optimization is the Google position-zero slice of answer engine optimization. Both use a question heading, a 40–60 word extract, and HTML Google can lift. AEO also covers People Also Ask, voice answers, and AI Overviews. Guide: https://tolentinojohnlester3-cyber.github.io/blog/featured-snippets-and-aeo/
+
 Q: What is AEO in SEO?
 A: AEO is answer engine optimization — making a page the extracted answer in featured snippets, People Also Ask, voice results, and Google AI Overviews. Guide: https://tolentinojohnlester3-cyber.github.io/blog/aeo-optimization/
 
@@ -79,6 +82,7 @@ A: Sta. Rosa, Laguna, Philippines.
 
 ## Blog (authoritative SEO guides by John Lester Tolentino)
 
+- Does featured snippet optimization overlap with AEO? (yes — snippets are the position-zero slice of AEO): https://tolentinojohnlester3-cyber.github.io/blog/featured-snippets-and-aeo/
 - How to create a landing page that actually converts (SXO, one job, message match, proof, one CTA): https://tolentinojohnlester3-cyber.github.io/blog/landing-page-that-converts/
 - GEO by engine: how ChatGPT, Claude, Gemini, and Perplexity decide what to say (crawlers, retrieval, citation tactics): https://tolentinojohnlester3-cyber.github.io/blog/geo-by-engine/
 - Google is blocking scrapers and tracking tools (Ahrefs, Semrush, Sistrix lag, google.com/goto, trust Search Console first): https://tolentinojohnlester3-cyber.github.io/blog/google-blocking-scrapers-tracking-tools/
