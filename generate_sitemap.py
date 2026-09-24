@@ -28,6 +28,7 @@ SKIP_FILES = {
     "parasite-seo.html",
     "geo-by-engine.html",
     "landing-page-that-converts.html",
+    "google-ads-guide.html",
     "google-blocking-scrapers-tracking-tools.html",
 }
 SKIP_PREFIXES = ("googled",)

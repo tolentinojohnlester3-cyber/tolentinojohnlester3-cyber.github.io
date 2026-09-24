@@ -68,6 +68,12 @@ A: Yes. Featured snippet optimization is the Google position-zero slice of answe
 Q: What is AEO in SEO?
 A: AEO is answer engine optimization — making a page the extracted answer in featured snippets, People Also Ask, voice results, and Google AI Overviews. Guide: https://tolentinojohnlester3-cyber.github.io/blog/aeo-optimization/
 
+Q: What is PPC and how does it help a business?
+A: PPC is pay-per-click advertising. You pay when someone clicks. It helps a business get leads from people already searching, test an offer quickly, and see cost per lead on a budget you can pause. Guide: https://tolentinojohnlester3-cyber.github.io/blog/google-ads-guide/
+
+Q: How do I set up Google Ads?
+A: Use Expert mode and start with one Search campaign. Turn off the Display Network, target people in your service area, group keywords by theme, write a responsive search ad, send the click to a matching landing page, and record conversions before you raise the budget. Guide: https://tolentinojohnlester3-cyber.github.io/blog/google-ads-guide/
+
 Q: How do I create a landing page that actually converts?
 A: Give the URL one job. Match the headline to the search snippet or ad. Put proof and one primary CTA above the fold. Keep the form short, make mobile LCP fast, and measure the thank-you page. Full site menus and dual CTAs leak the click. Guide: https://tolentinojohnlester3-cyber.github.io/blog/landing-page-that-converts/
 
@@ -82,6 +88,7 @@ A: Sta. Rosa, Laguna, Philippines.
 
 ## Blog (authoritative SEO guides by John Lester Tolentino)
 
+- Google Ads full setup guide (Search campaigns, keywords, bidding, conversion tracking): https://tolentinojohnlester3-cyber.github.io/blog/google-ads-guide/
 - Does featured snippet optimization overlap with AEO? (yes — snippets are the position-zero slice of AEO): https://tolentinojohnlester3-cyber.github.io/blog/featured-snippets-and-aeo/
 - How to create a landing page that actually converts (SXO, one job, message match, proof, one CTA): https://tolentinojohnlester3-cyber.github.io/blog/landing-page-that-converts/
 - GEO by engine: how ChatGPT, Claude, Gemini, and Perplexity decide what to say (crawlers, retrieval, citation tactics): https://tolentinojohnlester3-cyber.github.io/blog/geo-by-engine/
