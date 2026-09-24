@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <title>Google Ads Guide: How to Set Up and Run Campaigns | John Lester Tolentino (JLT)</title>
+  <meta name="description" content="Full Google Ads and PPC guide: how pay-per-click works, how it helps a business, Search campaign setup, keywords, bidding, conversion tracking, and a launch checklist. By John Lester Tolentino (JLT).">
+  <meta name="keywords" content="Google Ads guide, how to do Google Ads, PPC guide, Search campaigns, keywords, Quality Score, conversion tracking, John Lester Tolentino, JLT">
+  <meta name="author" content="John Lester Tolentino (JLT)">
+  <meta name="owner" content="John Lester Tolentino">
+  <meta name="copyright" content="John Lester Tolentino">
+  <meta name="publisher" content="John Lester Tolentino (JLT)">
+  <meta name="subject" content="Google Ads full setup guide by John Lester Tolentino JLT">
+  <meta name="google-site-verification" content="-VhVE7603Le5BmPDdqgtv_9G-7fJ3_f2uhttElLQUr0" />
+  <meta name="google-site-verification" content="AWeOntiIBeb32_Tu_OXoZrGGwsAq0F-z4rwSbERKgBo" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large">
+  <meta name="bingbot" content="index, follow">
+  <link rel="canonical" href="https://tolentinojohnlester3-cyber.github.io/blog/google-ads-guide/">
+  <link rel="sitemap" type="application/xml" href="/sitemap.xml">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="John Lester Tolentino | JLT">
+  <meta property="og:title" content="Google Ads Guide: How to Set Up and Run Campaigns | JLT">
+  <meta property="og:description" content="Step-by-step Google Ads: Search campaigns, keywords, ads, bidding, tracking, and weekly optimization.">
+  <meta property="og:url" content="https://tolentinojohnlester3-cyber.github.io/blog/google-ads-guide/">
+  <link rel="preload" as="image" href="/blog/google-ads-guide/featured.webp" type="image/webp">
+  <meta property="og:image" content="https://tolentinojohnlester3-cyber.github.io/blog/google-ads-guide/featured.webp">
+  <meta property="og:image:type" content="image/webp">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Google Ads full setup guide by John Lester Tolentino (JLT)">
+  <meta property="article:published_time" content="2026-09-24">
+  <meta property="article:modified_time" content="2026-09-24">
+  <meta property="article:author" content="John Lester Tolentino">
+  <meta property="article:section" content="Paid search">
+  <meta property="article:tag" content="Google Ads">
+  <meta property="article:tag" content="PPC">
+  <meta property="article:tag" content="Search campaigns">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Google Ads Guide: How to Set Up and Run Campaigns | JLT">
+  <meta name="twitter:description" content="Full Google Ads setup: structure, keywords, ads, bidding, and conversion tracking.">
+  <meta name="twitter:image" content="https://tolentinojohnlester3-cyber.github.io/blog/google-ads-guide/featured.webp">
+  <meta name="twitter:image:alt" content="Google Ads full setup guide by John Lester Tolentino (JLT)">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f5f7fb; --bg-2: #ffffff; --bg-3: #eef3fb; --orange: #ff6b1a; --orange-2: #ff8f4a;
+      --blue: #1d4ed8; --black: #111111; --white: #ffffff; --ink: #111111; --gray: #5b6472;
+      --line: rgba(17, 17, 17, 0.1); --radius: 18px; --max: 1180px; --prose: 760px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; scroll-padding-top: 84px; }
+    .prose h2, .prose h3 { scroll-margin-top: 84px; }
+    body { font-family: "Manrope", "Segoe UI", sans-serif; background: var(--bg); color: var(--ink); line-height: 1.7; overflow-x: hidden; }
+    body::before {
+      content: ""; position: fixed; inset: 0; pointer-events: none; z-index: -1;
+      background:
+        radial-gradient(900px 420px at 8% -8%, rgba(255, 107, 26, 0.18), transparent 58%),
+        radial-gradient(720px 420px at 100% 0%, rgba(29, 78, 216, 0.14), transparent 52%),
+        linear-gradient(180deg, #ffffff 0%, #f5f7fb 40%, #eef3fb 100%);
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    button { font-family: inherit; cursor: pointer; }
+    .wrap { width: min(var(--max), calc(100% - 40px)); margin: 0 auto; position: relative; z-index: 1; }
+    .progress { position: fixed; top: 0; left: 0; height: 3px; width: 0; background: linear-gradient(90deg, var(--orange), var(--blue)); z-index: 80; }
+    .nav { position: sticky; top: 0; z-index: 70; backdrop-filter: blur(16px); background: rgba(255, 255, 255, 0.86); border-bottom: 1px solid var(--line); }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; min-height: 72px; gap: 16px; }
+    .logo { display: inline-flex; align-items: center; line-height: 0; }
+    .logo img { height: 44px; width: auto; border-radius: 8px; }
+    .nav-links { display: flex; gap: 18px; list-style: none; align-items: center; }
+    .nav-links a { color: var(--gray); font-size: 0.92rem; font-weight: 600; transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--blue); }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: var(--orange); color: #fff; font-weight: 800; font-size: 0.92rem; border: 0; border-radius: 999px; padding: 11px 20px; box-shadow: 0 8px 18px rgba(255, 107, 26, 0.32); }
+    .btn:hover { background: var(--orange-2); color: #fff; }
+    .btn-ghost { background: var(--blue); box-shadow: 0 8px 18px rgba(29, 78, 216, 0.32); }
+    .btn-ghost:hover { background: #163db8; color: #fff; }
+    .nav-links a.btn, .nav-links a.btn:hover, .nav-links a.btn.active { color: #fff; font-size: 0.88rem; padding: 10px 18px; white-space: nowrap; }
+    .menu-btn { display: none; background: none; border: 0; color: var(--black); font-size: 1.6rem; }
+    h1, h2, h3 { font-family: "Syne", sans-serif; line-height: 1.15; color: var(--black); }
+    .kicker { color: var(--orange); font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; font-size: 0.78rem; margin-bottom: 14px; }
+    .crumbs { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; color: var(--gray); font-size: 0.88rem; font-weight: 600; padding: 28px 0 0; }
+    .crumbs a { color: var(--blue); }
+    .article-hero { padding: 28px 0 12px; max-width: var(--prose); }
+    .article-hero h1 { font-size: clamp(2.1rem, 5vw, 3.6rem); letter-spacing: -0.04em; }
+    .featured { margin: 22px 0 4px; max-width: var(--prose); }
+    .featured img { width: 100%; height: auto; aspect-ratio: 1200 / 630; object-fit: cover; border-radius: 18px; border: 1px solid var(--line); background: var(--bg-3); }
+    .lead { margin-top: 18px; color: var(--gray); font-size: 1.12rem; }
+    .meta { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 22px; color: var(--gray); font-size: 0.9rem; font-weight: 600; }
+    .meta img { width: 36px; height: 36px; border-radius: 50%; object-fit: cover; }
+    .meta-author { display: flex; align-items: center; gap: 10px; }
+    .toc { background: var(--bg-2); border: 1px solid var(--line); border-radius: var(--radius); padding: 22px 24px; margin: 28px 0 8px; max-width: var(--prose); box-shadow: 0 10px 28px rgba(17, 29, 64, 0.06); }
+    .toc h2 { font-size: 1.05rem; margin-bottom: 12px; }
+    .toc ol { padding-left: 20px; color: var(--gray); }
+    .toc a { color: var(--blue); font-weight: 700; }
+    .toc li { margin: 7px 0; }
+    .prose { max-width: var(--prose); padding: 12px 0 0; }
+    .prose h2 { font-size: 1.7rem; margin: 42px 0 14px; }
+    .prose h3 { font-size: 1.22rem; margin: 28px 0 10px; }
+    .prose p { color: #2c3340; margin: 0 0 16px; }
+    .prose ul, .prose ol { padding-left: 22px; color: #2c3340; margin: 0 0 18px; }
+    .prose li { margin: 7px 0; }
+    .prose a { color: var(--blue); font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
+    .callout { background: var(--bg-2); border-left: 4px solid var(--orange); border-radius: 0 14px 14px 0; padding: 16px 18px; margin: 20px 0 24px; color: #2c3340; }
+    .checklist { list-style: none; padding-left: 0; margin: 0 0 24px; }
+    .checklist li { position: relative; padding-left: 28px; margin: 10px 0; color: #2c3340; }
+    .checklist li::before { content: "✓"; position: absolute; left: 0; color: var(--blue); font-weight: 800; }
+    .compare { width: 100%; border-collapse: collapse; margin: 20px 0 28px; font-size: 0.92rem; }
+    .compare th, .compare td { border: 1px solid var(--line); padding: 12px 14px; text-align: left; vertical-align: top; }
+    .compare th { background: var(--bg-3); font-family: "Syne", sans-serif; }
+    .compare td { color: #2c3340; background: var(--bg-2); }
+    .step-card { background: var(--bg-2); border: 1px solid var(--line); border-radius: 16px; padding: 20px 22px; margin: 16px 0; border-left: 5px solid var(--blue); }
+    .step-card h3 { margin: 0 0 8px; font-size: 1.1rem; }
+    .step-card p { margin: 0; color: var(--gray); font-size: 0.94rem; }
+    .diagram { margin: 8px 0 28px; }
+    .diagram img { width: 100%; height: auto; border-radius: 16px; border: 1px solid var(--line); background: var(--bg-3); }
+    .diagram figcaption { color: var(--gray); font-size: 0.88rem; margin-top: 8px; }
+    .faq { display: grid; gap: 12px; margin-top: 8px; }
+    .faq-item { background: var(--bg-2); border: 1px solid var(--line); border-radius: var(--radius); padding: 20px 24px; }
+    .faq-item h3 { font-size: 1.08rem; margin-bottom: 8px; }
+    .faq-item p { color: var(--gray); margin: 0; }
+    .author-box { display: grid; grid-template-columns: 88px 1fr; gap: 18px; align-items: center; background: var(--bg-2); border: 1px solid var(--line); border-radius: 20px; padding: 22px; margin-top: 36px; }
+    .author-box img { width: 88px; height: 88px; border-radius: 18px; object-fit: cover; }
+    .author-box p { color: var(--gray); margin: 8px 0 0; }
+    .more-posts { max-width: var(--prose); margin: 0 0 80px; padding-top: 40px; border-top: 1px solid var(--line); }
+    .more-posts h2 { font-size: 1.35rem; margin-bottom: 18px; }
+    .more-grid { display: grid; gap: 16px; }
+    .more-card { display: grid; grid-template-columns: 148px 1fr; gap: 16px; align-items: start; background: var(--bg-2); border: 1px solid var(--line); border-radius: 16px; padding: 14px; box-shadow: 0 10px 28px rgba(17, 29, 64, 0.06); transition: border-color 0.2s; }
+    .more-card:hover { border-color: var(--orange); }
+    .more-card img { width: 148px; height: 78px; object-fit: cover; border-radius: 10px; background: var(--bg-3); }
+    .more-card small { color: var(--orange); font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; font-size: 0.72rem; }
+    .more-card h3 { font-size: 1.05rem; margin: 6px 0 8px; line-height: 1.25; }
+    .more-card p { margin: 0; color: var(--gray); font-size: 0.9rem; line-height: 1.5; }
+    .more-cta { display: inline-block; margin-top: 10px; color: var(--blue); font-weight: 800; font-size: 0.88rem; }
+    .more-all { margin-top: 18px; font-weight: 700; }
+    .more-all a { color: var(--blue); text-decoration: underline; text-underline-offset: 3px; }
+    .footer { border-top: 1px solid var(--line); padding: 28px 0 40px; color: var(--gray); display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+    .footer a { color: var(--blue); font-weight: 700; }
+    .key-takeaway {
+      max-width: var(--prose, 760px);
+      margin: 22px 0 12px;
+      scroll-margin-top: 84px;
+      background: var(--bg-2);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 10px 28px rgba(17, 29, 64, 0.06);
+    }
+    .key-takeaway-bar {
+      display: flex; align-items: center; gap: 10px; padding: 12px 20px 0;
+      color: var(--orange); font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; font-size: 0.72rem;
+    }
+    .key-takeaway-bar span { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: linear-gradient(135deg, var(--orange), var(--blue)); }
+    .key-takeaway > p:not(.key-takeaway-bar) { margin: 8px 20px 18px; color: #2c3340; font-size: 1.02rem; line-height: 1.65; }
+    .key-takeaway strong { color: var(--black); }
+    @media (max-width: 900px) {
+      .wrap { width: min(var(--max), calc(100% - 24px)); }
+      .menu-btn { display: grid; place-items: center; min-width: 44px; min-height: 44px; }
+      .nav-inner { min-height: 60px; }
+      .logo img { height: 36px; }
+      .nav-links { display: none; position: absolute; top: 60px; left: 0; right: 0; background: var(--white); border-bottom: 1px solid var(--line); flex-direction: column; padding: 12px 20px 24px; align-items: stretch; z-index: 80; max-height: calc(100dvh - 60px); overflow-y: auto; }
+      .nav-links.open { display: flex; }
+      .nav-links a { min-height: 44px; display: flex; align-items: center; }
+      .nav-links a.btn { justify-content: center; }
+      .article-hero h1 { font-size: clamp(1.8rem, 9vw, 2.6rem); }
+      .author-box, .more-card { grid-template-columns: 1fr; }
+      .more-card img { width: 100%; height: auto; aspect-ratio: 800 / 420; }
+      .compare { display: block; overflow-x: auto; }
+      .footer { padding: 22px 0 calc(28px + env(safe-area-inset-bottom)); }
+    }
+  </style>
+</head>
+<body>
+  <div class="progress"></div>
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <a class="logo" href="/" aria-label="John Lester Tolentino home">
+        <img src="/jlt-logo.webp" alt="JLT logo">
+      </a>
+      <button class="menu-btn" type="button" aria-label="Open menu">☰</button>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/#about">About</a></li>
+        <li><a href="/#projects">Projects</a></li>
+        <li><a class="active" href="/blog/">Blog</a></li>
+        <li><a class="btn btn-ghost" href="/John_Lester_Tolentino_SEO_Resume.pdf" download="John_Lester_Tolentino_SEO_Resume.pdf">Resume</a></li>
+        <li><a class="btn" href="/#contact">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="/">Home</a>
+      <span>/</span>
+      <a href="/blog/">Blog</a>
+      <span>/</span>
+      <span>Google Ads guide</span>
+    </nav>
+
+    <header class="article-hero">
+      <p class="kicker">Paid search · 16 min read</p>
+      <h1>Google Ads: the full guide to setting it up</h1>
+      <p class="lead"><strong>PPC</strong> (pay-per-click) is how a business buys visits from people who are already looking. This guide covers how PPC helps, then how to run it in <strong>Google Ads</strong>: account structure, a Search campaign, keywords, ads, landing pages, conversion tracking, bidding, and the weekly loop that keeps spend tied to leads.</p>
+      <div class="meta">
+        <div class="meta-author">
+          <img src="/jlt-profile.webp" alt="John Lester Tolentino" width="36" height="36">
+          <span>By <a href="/">John Lester Tolentino</a>, Senior SEO Specialist</span>
+        </div>
+        <time datetime="2026-09-24">September 24, 2026</time>
+      </div>
+    </header>
+
+    <figure class="featured">
+      <img src="/blog/google-ads-guide/featured.webp?v=ppc1" width="1200" height="630" alt="Google Ads PPC setup guide for your business" fetchpriority="high" decoding="async">
+    </figure>
+
+    <nav class="toc" aria-label="Table of contents">
+      <h2>In this guide</h2>
+      <ol>
+        <li><a href="#key-takeaway">Key takeaway</a></li>
+        <li><a href="#what-is-ppc">What PPC is</a></li>
+        <li><a href="#how-ppc-helps">How PPC helps your business</a></li>
+        <li><a href="#how-to-do-ppc">How to do PPC</a></li>
+        <li><a href="#what-is-google-ads">What Google Ads is</a></li>
+        <li><a href="#ads-vs-seo">Google Ads and SEO</a></li>
+        <li><a href="#structure">Account structure</a></li>
+        <li><a href="#campaign-types">Campaign types</a></li>
+        <li><a href="#setup">How to set up a Search campaign</a></li>
+        <li><a href="#keywords">Keywords and match types</a></li>
+        <li><a href="#negatives">Negative keywords</a></li>
+        <li><a href="#ads">Responsive search ads and assets</a></li>
+        <li><a href="#quality">Landing pages and Quality Score</a></li>
+        <li><a href="#tracking">Conversion tracking</a></li>
+        <li><a href="#bidding">Budget and bidding</a></li>
+        <li><a href="#checklist">Launch checklist</a></li>
+        <li><a href="#optimize">Weekly optimization</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ol>
+    </nav>
+
+    <aside class="key-takeaway" id="key-takeaway">
+      <p class="key-takeaway-bar"><span aria-hidden="true"></span>Key takeaway</p>
+      <p><strong>PPC</strong> buys the click from someone already searching. Use it to get leads this week, test an offer, and see which keywords make money — then start with <strong>one Search campaign</strong>, one location, and conversion tracking before you raise the budget.</p>
+    </aside>
+
+    <article class="prose" itemscope itemtype="https://schema.org/BlogPosting">
+      <meta itemprop="headline" content="Google Ads: The Full Guide to Setting It Up">
+      <meta itemprop="datePublished" content="2026-09-24">
+      <meta itemprop="dateModified" content="2026-09-24">
+
+      <h2 id="what-is-ppc">What PPC is</h2>
+      <p><strong>PPC</strong> means pay-per-click. You write an ad, choose who should see it, and pay when someone clicks. You do not pay for people who only scroll past. On Google, the usual version is a Search ad: someone types a query, your ad can appear, and a click sends them to your page.</p>
+      <p>The price is an auction. Your bid, the usefulness of the ad, and the landing page decide whether you show and what you pay. A tighter keyword and a clearer page usually cost less per useful click than a vague ad sent to the homepage.</p>
+      <p>Google Ads is the PPC platform most businesses start with. Microsoft Advertising, Meta, and others use the same idea — pay for the click or the result — on different places people spend time. This guide uses Google Search as the working example because that is where intent is easiest to read.</p>
+
+      <h2 id="how-ppc-helps">How PPC helps your business</h2>
+      <p>PPC is useful when you need customers on a schedule you control. Organic rankings can take months. A live Search campaign can send the first visits the day the ads are approved.</p>
+      <ul>
+        <li><strong>Leads while you wait on SEO.</strong> A new site, a new city, or a seasonal offer can get calls and form fills before those pages rank.</li>
+        <li><strong>People who are already looking.</strong> A search for “emergency plumber near me” or “book a dental cleaning” is closer to a purchase than a cold banner. You show up at the moment of intent.</li>
+        <li><strong>A clear cost per customer.</strong> With conversion tracking, you can see what a lead or a sale costs. If that number is lower than the profit on the job, the ads are paying for themselves.</li>
+        <li><strong>A fast test of the offer.</strong> Change the headline, the price, or the landing page and read the result in days. That tells you what to build into the site and into SEO.</li>
+        <li><strong>Control of spend.</strong> A daily budget caps the risk. You can pause a campaign the same day if the calls are the wrong fit.</li>
+        <li><strong>Local coverage.</strong> Target the cities you serve, the hours you answer the phone, and the services that make money. Skip the rest.</li>
+      </ul>
+      <p>PPC helps a business that can answer the lead. If the page is slow, the form is long, or nobody picks up, you pay for clicks that never become customers. Pair the ads with a page that has one next step, as in <a href="/blog/landing-page-that-converts/">landing pages that convert</a>.</p>
+      <div class="callout">
+        <strong>When PPC is the wrong first spend:</strong> you have no offer, no way to take a booking, or no one to handle the enquiry. Fix that, then turn the ads on.
+      </div>
+
+      <h2 id="how-to-do-ppc">How to do PPC</h2>
+      <p>The work is the same on every account. Do it in this order so you are not buying clicks you cannot measure.</p>
+      <div class="step-card">
+        <h3>1. Name the result that pays you</h3>
+        <p>A form lead, a booked call, or a purchase. One primary result. “More traffic” is not a result.</p>
+      </div>
+      <div class="step-card">
+        <h3>2. List the searches a buyer would type</h3>
+        <p>Service plus city, “near me,” and words like book, hire, price, or emergency. Leave out jobs, free, and DIY unless that is the business.</p>
+      </div>
+      <div class="step-card">
+        <h3>3. Build one campaign for one goal</h3>
+        <p>One location, one daily budget, Search only. Split ad groups by service so each ad talks about one thing.</p>
+      </div>
+      <div class="step-card">
+        <h3>4. Send the click to a matching page</h3>
+        <p>The headline should repeat the search. One button: call, form, or book. Track that action before you raise the budget.</p>
+      </div>
+      <div class="step-card">
+        <h3>5. Read search terms and keep what converts</h3>
+        <p>Add queries that become customers. Block queries that waste money. Shift budget toward the themes with a cost per lead you can afford.</p>
+      </div>
+      <p>The rest of this guide is that process inside Google Ads: structure, campaign setup, match types, ad copy, Quality Score, tracking, and bidding.</p>
+
+      <h2 id="what-is-google-ads">What Google Ads is</h2>
+      <p>Google Ads is Google’s advertising platform. You choose keywords or audiences, write ads, set a daily budget, and pay when someone clicks (or for some campaign types, when they see the ad or complete a goal). Search ads appear above and below organic results when the query matches your keywords.</p>
+      <p>You manage campaigns at <a href="https://ads.google.com/" target="_blank" rel="noopener">ads.google.com</a>. The account holds billing, users, and every campaign. A campaign holds the budget, locations, and bidding strategy. Ad groups hold keywords and ads that share one theme.</p>
+      <div class="callout">
+        <strong>Use Expert mode.</strong> The simplified setup hides structure and often turns on extra networks. Switch to Expert mode so you can see campaigns, ad groups, keywords, and search terms.
+      </div>
+
+      <h2 id="ads-vs-seo">Google Ads and SEO</h2>
+      <p>Organic rankings and paid ads solve different jobs. SEO builds pages Google can crawl and rank. Ads buy the click today. A strong site uses both: ads for demand you can measure this week, SEO for queries you want to own without a cost per click. The foundation is in <a href="/blog/what-is-seo/">what SEO is</a> and <a href="/blog/layers-of-seo/">layers of SEO</a>.</p>
+      <table class="compare" aria-label="Google Ads compared with SEO">
+        <thead>
+          <tr><th></th><th>Google Ads</th><th>SEO</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Speed</td><td>Traffic can start the day the campaign is approved</td><td>Weeks to months for competitive queries</td></tr>
+          <tr><td>Cost</td><td>You pay per click or per conversion goal</td><td>Time and content; no cost per click</td></tr>
+          <tr><td>Control</td><td>Budget, keywords, ads, and schedule</td><td>Google decides the ranking</td></tr>
+          <tr><td>When spend stops</td><td>Clicks stop</td><td>Rankings can keep sending visits</td></tr>
+        </tbody>
+      </table>
+
+      <h2 id="structure">Account structure</h2>
+      <p>Keep the structure boring and readable. One business goal per campaign. One keyword theme per ad group. Mixed themes make ads generic and waste the search term report.</p>
+      <figure class="diagram">
+        <img src="/blog/google-ads-guide/diagram-structure.webp" width="1200" height="675" alt="Google Ads structure: account, campaign, ad group, then ads and keywords" loading="lazy" decoding="async">
+        <figcaption>Account → campaign → ad group → keywords and responsive search ads.</figcaption>
+      </figure>
+      <ul>
+        <li><strong>Account</strong> — currency, time zone, billing, and user access. Currency and time zone are painful to change later. Set them on day one.</li>
+        <li><strong>Campaign</strong> — daily budget, locations, languages, networks, and bidding.</li>
+        <li><strong>Ad group</strong> — a tight set of keywords and the ads written for that set.</li>
+        <li><strong>Keywords and ads</strong> — the queries you want, and the headlines people read.</li>
+      </ul>
+      <p>Name things so a stranger can audit them: <em>Search | Leads | Manila | Emergency plumber</em>, then ad groups such as <em>burst pipe</em> and <em>clogged drain</em>.</p>
+
+      <h2 id="campaign-types">Campaign types</h2>
+      <p>Search is the right first campaign for most service businesses. Other types come after you know which offers convert.</p>
+      <ul>
+        <li><strong>Search</strong> — text ads on Google Search for keywords you choose.</li>
+        <li><strong>Performance Max</strong> — one campaign across Search, YouTube, Display, Discover, Gmail, and Maps. It needs conversion data, creative assets, and a clear goal. It is a poor first campaign when you have no tracking.</li>
+        <li><strong>Display</strong> — banner ads on sites in the Google Display Network. Better for remarketing than for cold leads.</li>
+        <li><strong>Demand Gen and Video</strong> — YouTube and visual placements. Useful once you have creative and a known audience.</li>
+        <li><strong>Shopping</strong> — product ads from a Merchant Center feed.</li>
+      </ul>
+
+      <h2 id="setup">How to set up a Search campaign</h2>
+      <div class="step-card">
+        <h3>Step 1 — Create the account</h3>
+        <p>Sign in at ads.google.com with the Google account that should own billing. Set the correct country, time zone, and currency. Add a payment method. Invite a second admin so the account is not locked to one login.</p>
+      </div>
+      <div class="step-card">
+        <h3>Step 2 — Choose Search in Expert mode</h3>
+        <p>Create a campaign. Pick a goal such as Leads or Sales if you will track a form or purchase. Choose Search. Turn off the Display Network. Leave Search partners off until the core search terms look clean.</p>
+      </div>
+      <div class="step-card">
+        <h3>Step 3 — Set location, language, and budget</h3>
+        <p>Target the cities you actually serve. Use “Presence” so you reach people in the location, and skip the setting that also targets people who are merely interested in it. Match the ad language to the landing page. Start with a daily budget you can afford to learn from for two to four weeks.</p>
+      </div>
+      <div class="step-card">
+        <h3>Step 4 — Build one ad group per theme</h3>
+        <p>Add a short keyword list for one service. Write a responsive search ad that repeats the service in the headlines. Point the final URL at a page about that service, as covered in <a href="/blog/landing-page-that-converts/">landing pages that convert</a>.</p>
+      </div>
+      <div class="step-card">
+        <h3>Step 5 — Add assets, then publish</h3>
+        <p>Add sitelinks, callouts, and a call asset if you want phone leads. Confirm conversion tracking fires on a test lead. Publish. Check the Ads status for policy flags before you judge performance.</p>
+      </div>
+
+      <h2 id="keywords">Keywords and match types</h2>
+      <p>A keyword is the query theme you want to enter the auction for. Match type controls how close the search has to be.</p>
+      <table class="compare" aria-label="Google Ads keyword match types">
+        <thead>
+          <tr><th>Match type</th><th>Syntax</th><th>What it does</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Exact</td><td>[emergency plumber]</td><td>The query is the same meaning as the keyword. Tightest control. Best when you already know the money terms.</td></tr>
+          <tr><td>Phrase</td><td>&quot;emergency plumber&quot;</td><td>The meaning of your keyword is included in the query. A practical default for a new ad group.</td></tr>
+          <tr><td>Broad</td><td>emergency plumber</td><td>Related queries, including ones you did not type. Useful after conversion tracking is solid. Risky on day one.</td></tr>
+        </tbody>
+      </table>
+      <p>Start with phrase and exact on high-intent terms: the service plus the city, “near me,” price, and “book” or “hire” modifiers. Skip research-only queries such as “what is” and “jobs” unless that is the offer. Group keywords that can share the same ad and the same landing page.</p>
+
+      <h2 id="negatives">Negative keywords</h2>
+      <p>Negative keywords stop your ad on queries you do not want. Add them at campaign level for junk that applies everywhere, and at ad group level when one theme should stay out of another.</p>
+      <ul>
+        <li>Free, cheap if you do not compete on price, jobs, salary, course, DIY, login</li>
+        <li>Competitor brand names, unless you have a page that compares them fairly and follows Google’s trademark rules</li>
+        <li>Cities you do not serve</li>
+      </ul>
+      <p>After launch, open Search terms every few days. Add converting queries as keywords. Add wasted queries as negatives. This report is the fastest way to see what you are actually buying.</p>
+
+      <h2 id="ads">Responsive search ads and assets</h2>
+      <p>Search campaigns use responsive search ads. You provide up to 15 headlines and 4 descriptions. Google mixes them. Pin a headline only when a line must always show, such as the brand or a required disclaimer. Over-pinning removes the combinations Google can test.</p>
+      <p>Write headlines a searcher can scan:</p>
+      <ul>
+        <li>The service and city: “Emergency Plumber in Sta. Rosa”</li>
+        <li>The offer: “Same-Day Call Out”</li>
+        <li>Proof: “Licensed · 4.9 Star Reviews”</li>
+        <li>The next step: “Book a Visit Online”</li>
+      </ul>
+      <p>Descriptions should say who it is for, what happens after the click, and any real constraint (service area, hours). Stay inside Google’s advertising policies: accurate claims, no misleading urgency, and the landing page must match the ad.</p>
+      <p>Assets (the old “extensions”) add lines under the ad:</p>
+      <ul>
+        <li><strong>Sitelinks</strong> — extra pages such as pricing, service area, reviews</li>
+        <li><strong>Callouts</strong> — short phrases with no link</li>
+        <li><strong>Structured snippets</strong> — a list under a header such as Services</li>
+        <li><strong>Call</strong> — a phone number on mobile</li>
+        <li><strong>Location</strong> — tied to a verified <a href="/blog/google-business-profile-optimization/">Google Business Profile</a> when you have a real location</li>
+      </ul>
+
+      <h2 id="quality">Landing pages and Quality Score</h2>
+      <p>Ad Rank decides whether you show and where. Google combines your bid, the quality of the ad and page, and the expected impact of assets. Quality Score is the 1–10 diagnostic you see in the keyword report. It has three parts: expected click-through rate, ad relevance, and landing page experience.</p>
+      <p>Raise those parts with the page, not with tricks:</p>
+      <ul>
+        <li>The headline repeats the keyword theme from the ad</li>
+        <li>One primary action: call, form, or booking</li>
+        <li>The page loads quickly on mobile — see <a href="/blog/fast-website-load-speed/">how to make a website load fast</a></li>
+        <li>The offer, price signals, and business name match the ad</li>
+      </ul>
+      <p>A homepage with ten links leaks the click. A dedicated landing page keeps the message matched. That is the same rule as organic: the page has one job.</p>
+
+      <h2 id="tracking">Conversion tracking</h2>
+      <p>Without a conversion, you are optimizing for clicks. Define the action that pays the business: a submitted form, a booked call, a purchase, or a qualified phone call.</p>
+      <ol>
+        <li>In Google Ads, create a conversion action for that goal.</li>
+        <li>Install the Google tag on the site, or import the same event from GA4 once the event is marked as a key event.</li>
+        <li>Fire the conversion on the thank-you page or on the form success event. Do not fire it on the button click if the form can fail.</li>
+        <li>Submit a test lead and confirm it appears in conversions (it can take a few hours).</li>
+        <li>Turn on enhanced conversions if you can send hashed first-party data within your privacy policy and consent setup.</li>
+      </ol>
+      <p>Count one lead once. If the thank-you page and the GA4 import both fire, you will double-count and the bidding system will chase the wrong number.</p>
+
+      <h2 id="bidding">Budget and bidding</h2>
+      <p>The daily budget is an average. Google may spend more on a busy day and less on a quiet one, and it aims to stay near your daily budget across the month. Set a number you can leave running while you collect data.</p>
+      <p>Bidding options, in the order I use them on a new Search campaign:</p>
+      <ul>
+        <li><strong>Maximize clicks with a bid cap</strong> — when you have no conversion history and need controlled traffic to test ads and the page.</li>
+        <li><strong>Maximize conversions</strong> — once the conversion tag is verified. This is the clean handoff from “get clicks” to “get leads.”</li>
+        <li><strong>Target CPA or target ROAS</strong> — after the campaign has a steady stream of conversions. Google’s smart bidding is more stable when a campaign produces on the order of dozens of conversions in a month. A target with almost no data just throttles delivery.</li>
+      </ul>
+      <p>Manual CPC still works for a tiny, exact-match account you want to steer by hand. It is extra work once conversion volume is real.</p>
+
+      <h2 id="checklist">Launch checklist</h2>
+      <ul class="checklist">
+        <li>Expert mode, Search only, Display Network off</li>
+        <li>Presence targeting for the real service area</li>
+        <li>One campaign goal, one daily budget you can sustain</li>
+        <li>Ad groups split by service theme</li>
+        <li>Phrase and exact keywords; obvious negatives in place</li>
+        <li>Responsive search ad with the offer in the headlines</li>
+        <li>Sitelinks, callouts, and a call or location asset where they apply</li>
+        <li>Final URL opens a matching landing page on mobile</li>
+        <li>Conversion recorded on a test lead</li>
+        <li>Billing active and policy status clean</li>
+      </ul>
+
+      <h2 id="optimize">Weekly optimization</h2>
+      <p>Give a new campaign several days before you judge it. Then use a short loop:</p>
+      <ol>
+        <li><strong>Search terms</strong> — add winners as keywords, add waste as negatives.</li>
+        <li><strong>Ads</strong> — replace headlines stuck on “Poor” strength with clearer offers. Keep the winner running.</li>
+        <li><strong>Landing page</strong> — if click-through is fine and conversions are weak, fix the page before you raise bids.</li>
+        <li><strong>Budget</strong> — raise budget on the campaign that produces leads at a cost you can pay. Pause themes that spend with no conversions after a fair test.</li>
+        <li><strong>Locations and schedule</strong> — cut regions and hours that spend and never convert, once the sample is large enough to trust.</li>
+      </ol>
+      <p>Change one lever at a time. A new bid strategy, a new landing page, and a doubled budget on the same day make the result impossible to read.</p>
+
+      <h2 id="faq">FAQ</h2>
+      <div class="faq">
+        <div class="faq-item">
+          <h3>What is PPC?</h3>
+          <p>PPC is pay-per-click advertising. You pay when someone clicks your ad. On Google, that is usually a Search ad matched to a keyword. You set the budget, the keywords, and the page the click opens.</p>
+        </div>
+        <div class="faq-item">
+          <h3>How can PPC help my business?</h3>
+          <p>It brings people who are already searching for what you sell, on a budget you control. You can get leads before SEO rankings land, see the cost of a lead, and test which offer and which city are worth more spend.</p>
+        </div>
+        <div class="faq-item">
+          <h3>How much does Google Ads cost?</h3>
+          <p>You set the daily budget. Cost per click depends on the keyword, location, and competition. A local service term can be a few dollars a click; legal and finance terms cost much more. Judge the account on cost per lead, not on the click price alone.</p>
+        </div>
+        <div class="faq-item">
+          <h3>How fast will I get traffic?</h3>
+          <p>Approved Search ads can show the same day. Useful data takes longer: enough clicks to read search terms, and enough conversions to trust a bid strategy. Plan on two to four weeks of learning before you scale.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Should I start with Performance Max?</h3>
+          <p>Start with Search if you know the keywords that make money. Performance Max is a later campaign, after conversion tracking is correct and you have images, video, and a feed or a clear lead goal.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Do I need a landing page?</h3>
+          <p>Yes. Send the click to a page about that keyword, with one next step. A general homepage makes Quality Score and conversion rate harder to improve.</p>
+        </div>
+        <div class="faq-item">
+          <h3>What is a good Quality Score?</h3>
+          <p>7 to 10 means the ad and page match the keyword well. A low score is a prompt to tighten the ad group, rewrite the ad, or fix the page. It is a diagnostic, not a goal you buy directly.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Can Google Ads replace SEO?</h3>
+          <p>They run side by side. Ads buy visits while you control the budget. SEO keeps earning visits after you publish. Most businesses want the paid test and the organic asset.</p>
+        </div>
+      </div>
+
+      <aside class="author-box">
+        <img src="/jlt-profile.webp" alt="Portrait of John Lester Tolentino" width="88" height="88">
+        <div>
+          <h3>About the author</h3>
+          <p>John Lester Tolentino is a Senior SEO Specialist in Sta. Rosa, Laguna. He handles technical SEO, content, and search visibility across 67 websites. <a href="/#contact">Get in touch</a> or browse the <a href="/blog/">SEO blog</a>.</p>
+        </div>
+      </aside>
+    </article>
+
+    <section class="more-posts" aria-label="More from the blog">
+      <h2>More from the blog</h2>
+      <div class="more-grid">
+        <a class="more-card" href="/blog/landing-page-that-converts/">
+          <img src="/blog/landing-page-that-converts/featured-card-jlt.webp?v=sxo2" width="148" height="78" alt="Landing pages that convert" loading="lazy" decoding="async">
+          <div>
+            <small>SXO · 12 min read</small>
+            <h3>Landing pages that actually convert</h3>
+            <p>The page every Google Ads click should land on.</p>
+            <span class="more-cta">Read the guide →</span>
+          </div>
+        </a>
+        <a class="more-card" href="/blog/what-is-seo/">
+          <img src="/blog/what-is-seo/featured-card.webp" width="148" height="78" alt="What is SEO" loading="lazy" decoding="async">
+          <div>
+            <small>SEO basics · 11 min read</small>
+            <h3>What is SEO?</h3>
+            <p>How organic search works beside paid ads.</p>
+            <span class="more-cta">Read the guide →</span>
+          </div>
+        </a>
+        <a class="more-card" href="/blog/google-business-profile-optimization/">
+          <img src="/blog/google-business-profile-optimization/featured-card.webp" width="148" height="78" alt="Google Business Profile optimization" loading="lazy" decoding="async">
+          <div>
+            <small>Local SEO · 12 min read</small>
+            <h3>Google Business Profile optimization</h3>
+            <p>The listing location assets and local ads can use.</p>
+            <span class="more-cta">Read the guide →</span>
+          </div>
+        </a>
+      </div>
+      <p class="more-all"><a href="/blog/">View all posts →</a></p>
+    </section>
+  </main>
+
+  <footer class="wrap footer">
+    <span>© 2026 John Lester Tolentino</span>
+    <a href="https://www.linkedin.com/in/john-lester-tolentino-8b376726b/" target="_blank" rel="noopener">LinkedIn profile</a>
+  </footer>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BlogPosting",
+        "@id": "https://tolentinojohnlester3-cyber.github.io/blog/google-ads-guide/#article",
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://tolentinojohnlester3-cyber.github.io/blog/google-ads-guide/"
+        },
+        "headline": "Google Ads: The Full Guide to Setting It Up",
+        "alternativeHeadline": "How to set up and run Google Ads Search campaigns",
+        "description": "Full Google Ads guide covering account structure, Search campaign setup, keywords, match types, responsive search ads, bidding, conversion tracking, and Quality Score.",
+        "image": {
+          "@type": "ImageObject",
+          "url": "https://tolentinojohnlester3-cyber.github.io/blog/google-ads-guide/featured.webp",
+          "width": 1200,
+          "height": 630
+        },
+        "datePublished": "2026-09-24",
+        "dateModified": "2026-09-24",
+        "author": { "@id": "https://tolentinojohnlester3-cyber.github.io/#person" },
+        "publisher": { "@id": "https://tolentinojohnlester3-cyber.github.io/#person" },
+        "inLanguage": "en",
+        "articleSection": "Paid search",
+        "keywords": ["Google Ads", "PPC", "Search campaigns", "Quality Score", "conversion tracking"],
+        "wordCount": 2200,
+        "timeRequired": "PT16M",
+        "isPartOf": {
+          "@type": "Blog",
+          "@id": "https://tolentinojohnlester3-cyber.github.io/blog/#blog",
+          "name": "John Lester Tolentino SEO Blog"
+        }
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://tolentinojohnlester3-cyber.github.io/blog/google-ads-guide/",
+        "url": "https://tolentinojohnlester3-cyber.github.io/blog/google-ads-guide/",
+        "name": "Google Ads Guide: How to Set Up and Run Campaigns",
+        "isPartOf": { "@id": "https://tolentinojohnlester3-cyber.github.io/#website" },
+        "breadcrumb": { "@id": "https://tolentinojohnlester3-cyber.github.io/blog/google-ads-guide/#breadcrumb" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://tolentinojohnlester3-cyber.github.io/blog/google-ads-guide/#breadcrumb",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://tolentinojohnlester3-cyber.github.io/" },
+          { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://tolentinojohnlester3-cyber.github.io/blog/" },
+          { "@type": "ListItem", "position": 3, "name": "Google Ads guide", "item": "https://tolentinojohnlester3-cyber.github.io/blog/google-ads-guide/" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://tolentinojohnlester3-cyber.github.io/blog/google-ads-guide/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is PPC?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "PPC is pay-per-click advertising. You pay when someone clicks your ad. On Google that is usually a Search ad matched to a keyword."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How can PPC help my business?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "PPC brings people who are already searching, on a budget you control. You can get leads before SEO rankings land and see what a lead costs."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How much does Google Ads cost?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "You set the daily budget. Cost per click depends on the keyword and competition. Judge the account on cost per lead."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Should I start with Performance Max?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Start with Search when you know the keywords that make money. Performance Max works better after conversion tracking is correct."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do I need a landing page for Google Ads?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Send the click to a page about that keyword with one next step."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "HowTo",
+        "name": "How to set up a Google Ads Search campaign",
+        "description": "Create a Google Ads account and launch a Search campaign with keywords, ads, and conversion tracking.",
+        "step": [
+          { "@type": "HowToStep", "name": "Create the account", "text": "Set currency, time zone, billing, and a second admin at ads.google.com." },
+          { "@type": "HowToStep", "name": "Choose Search", "text": "In Expert mode, create a Search campaign and turn off the Display Network." },
+          { "@type": "HowToStep", "name": "Set location and budget", "text": "Target people present in your service area and set a daily budget you can sustain." },
+          { "@type": "HowToStep", "name": "Build ad groups", "text": "One theme per ad group, with phrase and exact keywords and a responsive search ad." },
+          { "@type": "HowToStep", "name": "Track conversions", "text": "Record the lead on the thank-you page before you scale budget." }
+        ]
+      },
+      {
+        "@type": "Person",
+        "@id": "https://tolentinojohnlester3-cyber.github.io/#person",
+        "name": "John Lester Tolentino",
+        "jobTitle": "Senior SEO Specialist",
+        "url": "https://tolentinojohnlester3-cyber.github.io/"
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://tolentinojohnlester3-cyber.github.io/#website",
+        "url": "https://tolentinojohnlester3-cyber.github.io/",
+        "name": "John Lester Tolentino | JLT"
+      }
+    ]
+  }
+  </script>
+  <script>
+    (function () {
+      const progress = document.querySelector(".progress");
+      const menuBtn = document.querySelector(".menu-btn");
+      const links = document.querySelector(".nav-links");
+      window.addEventListener("scroll", function () {
+        const h = document.documentElement;
+        const scrolled = h.scrollTop / (h.scrollHeight - h.clientHeight || 1);
+        if (progress) progress.style.width = (scrolled * 100).toFixed(2) + "%";
+      });
+      if (menuBtn && links) {
+        menuBtn.addEventListener("click", function () { links.classList.toggle("open"); });
+        links.querySelectorAll("a").forEach(function (a) {
+          a.addEventListener("click", function () { links.classList.remove("open"); });
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
