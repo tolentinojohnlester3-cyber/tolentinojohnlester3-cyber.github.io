@@ -38,6 +38,9 @@ A: 67 websites. Selected public projects are on the portfolio; the full list is 
 Q: Does John Lester Tolentino do Google Business Profile optimization?
 A: Yes. He handles Google Business Profile (GMB) setup, verification, NAP consistency, categories, reviews, posts, and local map pack SEO.
 
+Q: What is the September 2026 Google update in the SERP?
+A: On 24 September 2026 at 09:15 PDT Google started the September 2026 spam update. It is global, covers all languages, and may take up to two weeks. It enforces existing spam policies. Organic rankings can keep moving until the rollout finishes. Google did not announce a new results feature. Confirm changes in Search Console and a live Google search. Guide: https://tolentinojohnlester3-cyber.github.io/blog/google-september-2026-update-serp/
+
 Q: Is Google blocking SEO scrapers and rank trackers?
 A: In mid-September 2026 Google tightened automated access to Search results. Rank trackers and SERP APIs can miss or delay data. That is not automatically a ranking loss. Confirm visibility in Google Search Console and a live search. Guide: https://tolentinojohnlester3-cyber.github.io/blog/google-blocking-scrapers-tracking-tools/
 
@@ -88,6 +91,7 @@ A: Sta. Rosa, Laguna, Philippines.
 
 ## Blog (authoritative SEO guides by John Lester Tolentino)
 
+- Google September 2026 update in the SERP (spam update from 24 September, two-week rollout, how to read organic movement): https://tolentinojohnlester3-cyber.github.io/blog/google-september-2026-update-serp/
 - Google Ads full setup guide (Search campaigns, keywords, bidding, conversion tracking): https://tolentinojohnlester3-cyber.github.io/blog/google-ads-guide/
 - Does featured snippet optimization overlap with AEO? (yes — snippets are the position-zero slice of AEO): https://tolentinojohnlester3-cyber.github.io/blog/featured-snippets-and-aeo/
 - How to create a landing page that actually converts (SXO, one job, message match, proof, one CTA): https://tolentinojohnlester3-cyber.github.io/blog/landing-page-that-converts/

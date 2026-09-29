@@ -14,6 +14,7 @@ SKIP_FILES = {
     "what-is-seo.html",
     "layers-of-seo.html",
     "google-august-2026-spam-update.html",
+    "google-september-2026-update-serp.html",
     "install-wordpress-cpanel.html",
     "fast-website-load-speed.html",
     "types-of-structured-data.html",
