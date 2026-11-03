@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Free SEO Site &amp; Backlink Analyzer | John Lester Tolentino (JLT)</title>
+  <meta name="description" content="Free SEO site analyzer by John Lester Tolentino: run a URL for on-page SEO checks, internal/external link audit, and optional backlink CSV review.">
+  <link rel="icon" href="../favicon.ico" type="image/x-icon">
+  <link rel="canonical" href="https://tolentinojohnlester3-cyber.github.io/seo-analyzer/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/analyzer.css">
+</head>
+<body>
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <a class="logo" href="../index.html">
+        <img src="../jlt-logo.webp" alt="JLT logo">
+        <strong>SEO Analyzer</strong>
+      </a>
+      <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../seo-automation/">SEO Automation</a></li>
+        <li><a class="active" href="index.html">Site Analyzer</a></li>
+        <li><a class="btn btn-blue" href="../#contact">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <p class="kicker">Free SEO tool · JLT portfolio</p>
+      <h1>Analyze a site for SEO, links &amp; backlink data</h1>
+      <p>Paste a public page URL and run analysis. You get on-page SEO checks plus an internal/external link audit from that page. For inbound backlinks from other websites, upload an Ahrefs, Semrush, or Moz CSV export.</p>
+
+      <form id="analyze-form" class="analyze-box">
+        <label class="sr-only" for="site-url" style="position:absolute;left:-9999px">Website URL</label>
+        <div class="analyze-row">
+          <input id="site-url" name="url" type="url" placeholder="https://example.com" required>
+          <button class="btn" type="submit">Run SEO analysis</button>
+        </div>
+        <p class="hint">Analyzes the page you enter (title, meta, H1, canonical, images, internal links, outbound/dofollow links). True inbound backlinks need a CSV upload below — no paid API required for this free tool.</p>
+      </form>
+      <div id="status" hidden></div>
+    </section>
+
+    <section id="results" class="results" hidden>
+      <div class="panel">
+        <div class="panel-head">
+          <h2>Overall grade: <span id="grade-letter">—</span></h2>
+          <button class="btn btn-line" type="button" onclick="window.print()">Print / Save PDF</button>
+        </div>
+        <p class="hint" id="grade-meta"></p>
+        <div class="grid-3">
+          <div class="stat"><b id="stat-internal">0</b><span>Internal links</span></div>
+          <div class="stat"><b id="stat-external">0</b><span>External links</span></div>
+          <div class="stat ok"><b id="stat-dofollow">0</b><span>Dofollow outbound</span></div>
+          <div class="stat warn"><b id="stat-nofollow">0</b><span>Nofollow / UGC</span></div>
+          <div class="stat"><b id="stat-domains">0</b><span>Outbound domains</span></div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h2>On-page SEO checks</h2>
+        <div id="seo-checks" class="checks"></div>
+      </div>
+
+      <div class="panel">
+        <h2>Link &amp; backlink-style signals on this page</h2>
+        <div class="callout">
+          <strong>What this free scan can see</strong>
+          Links found <em>on the page you analyzed</em> (internal structure + outbound/dofollow profile). It cannot invent a full inbound backlink index like Ahrefs without their database — use the CSV import for that.
+        </div>
+        <h3 style="margin:16px 0 8px;font-size:1rem">Outbound domains</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Domain</th><th>Links</th></tr></thead>
+            <tbody id="external-domains"></tbody>
+          </table>
+        </div>
+        <h3 style="margin:18px 0 8px;font-size:1rem">External links detail</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Anchor</th><th>URL</th><th>Rel</th></tr></thead>
+            <tbody id="external-links"></tbody>
+          </table>
+        </div>
+        <h3 style="margin:18px 0 8px;font-size:1rem">Flagged patterns</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Reason</th><th>Anchor</th><th>URL</th></tr></thead>
+            <tbody id="suspicious-links"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel" style="margin-top:8px">
+      <h2>Inbound backlinks (CSV import)</h2>
+      <p class="hint">Export referring domains/backlinks from Ahrefs, Semrush, or Moz, then upload the CSV here. Parsed only in your browser.</p>
+      <div class="upload">
+        <input id="backlink-file" type="file" accept=".csv,.txt,.tsv">
+        <div style="margin-top:12px">
+          <button class="btn btn-blue" type="button" id="import-backlinks">Analyze backlink CSV</button>
+        </div>
+      </div>
+      <div id="backlink-import-results" hidden style="margin-top:16px">
+        <p><strong id="backlink-count">0</strong> rows imported</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Source / URL</th><th>Col 2</th><th>Col 3</th><th>Col 4</th></tr></thead>
+            <tbody id="backlink-rows"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <div class="footer">
+      <span>© 2026 John Lester Tolentino · Free SEO Analyzer</span>
+      <span>
+        <a href="../index.html">Portfolio</a> ·
+        <a href="../seo-automation/">SEO Automation</a>
+      </span>
+    </div>
+  </main>
+  <script src="js/analyzer.js"></script>
+</body>
+</html>
