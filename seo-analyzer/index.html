@@ -32,7 +32,12 @@
     <section class="hero">
       <p class="kicker">Free SEO tool · JLT portfolio</p>
       <h1>Analyze a site for SEO, links &amp; backlink data</h1>
-      <p>Paste a public page URL and run analysis. You get on-page SEO checks plus an internal/external link audit from that page. For inbound backlinks from other websites, upload an Ahrefs, Semrush, or Moz CSV export.</p>
+      <p>Paste a public page URL for a quick scan, or use the free Chrome extension to analyze any open tab the same way SEO extensions do (no CORS block).</p>
+
+      <div class="callout" style="margin-bottom:16px">
+        <strong>Why Chrome SEO extensions work when a website tool fails</strong>
+        Extensions can read the page you already opened. A webpage on GitHub Pages cannot freely download protected sites (CORS / bot walls). For blocked URLs, install the extension below or paste page source.
+      </div>
 
       <form id="analyze-form" class="analyze-box">
         <label class="sr-only" for="site-url" style="position:absolute;left:-9999px">Website URL</label>
@@ -40,11 +45,21 @@
           <input id="site-url" name="url" type="url" placeholder="https://example.com">
           <button class="btn" type="submit">Run SEO analysis</button>
         </div>
-        <p class="hint">Analyzes the page you enter (title, meta, H1, canonical, images, internal links, outbound/dofollow links). True inbound backlinks need a CSV upload below — no paid API required for this free tool.</p>
-        <details id="paste-details" style="margin-top:4px">
+        <p class="hint">Analyzes title, meta, H1, canonical, images, internal &amp; outbound links. True inbound backlinks need a CSV upload below.</p>
+        <details id="extension-details" open style="margin-top:8px">
+          <summary style="cursor:pointer;font-weight:700;color:#1d4ed8">Best option: Chrome extension (works like other SEO extensions)</summary>
+          <ol class="hint" style="margin:10px 0 0;padding-left:18px">
+            <li>Download the portfolio repo and open the <code>chrome-seo-analyzer</code> folder</li>
+            <li>Chrome → <code>chrome://extensions</code> → enable <strong>Developer mode</strong></li>
+            <li>Click <strong>Load unpacked</strong> → select <code>chrome-seo-analyzer</code></li>
+            <li>Open the site in a tab → click the extension → <strong>Analyze this page</strong></li>
+          </ol>
+          <p class="hint" style="margin-top:8px">Full steps: see <code>chrome-seo-analyzer/README.md</code> in the project.</p>
+        </details>
+        <details id="paste-details" style="margin-top:8px">
           <summary style="cursor:pointer;font-weight:700;color:#1d4ed8">Site blocked? Paste page HTML instead</summary>
-          <p class="hint" style="margin-top:8px">On the website: right-click → View Page Source → Ctrl+A → Ctrl+C, then paste below and click Run SEO analysis.</p>
-          <textarea id="paste-html" rows="8" placeholder="Paste full page HTML here…" style="width:100%;border:1px solid rgba(17,17,17,.1);border-radius:12px;padding:12px;margin-top:8px;resize:vertical"></textarea>
+          <p class="hint" style="margin-top:8px">On the website: right-click → View Page Source → Ctrl+A → Ctrl+C, then paste below and click Run SEO analysis. Do not paste only the URL.</p>
+          <textarea id="paste-html" rows="8" placeholder="Paste full page HTML here (not the URL)…" style="width:100%;border:1px solid rgba(17,17,17,.1);border-radius:12px;padding:12px;margin-top:8px;resize:vertical"></textarea>
         </details>
       </form>
       <div id="status" hidden></div>
@@ -149,6 +164,7 @@
       </span>
     </div>
   </main>
+  <script src="js/analyze-core.js"></script>
   <script src="js/analyzer.js"></script>
 </body>
 </html>
