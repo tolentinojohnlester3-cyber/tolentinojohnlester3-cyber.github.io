@@ -37,10 +37,15 @@
       <form id="analyze-form" class="analyze-box">
         <label class="sr-only" for="site-url" style="position:absolute;left:-9999px">Website URL</label>
         <div class="analyze-row">
-          <input id="site-url" name="url" type="url" placeholder="https://example.com" required>
+          <input id="site-url" name="url" type="url" placeholder="https://example.com">
           <button class="btn" type="submit">Run SEO analysis</button>
         </div>
         <p class="hint">Analyzes the page you enter (title, meta, H1, canonical, images, internal links, outbound/dofollow links). True inbound backlinks need a CSV upload below — no paid API required for this free tool.</p>
+        <details id="paste-details" style="margin-top:4px">
+          <summary style="cursor:pointer;font-weight:700;color:#1d4ed8">Site blocked? Paste page HTML instead</summary>
+          <p class="hint" style="margin-top:8px">On the website: right-click → View Page Source → Ctrl+A → Ctrl+C, then paste below and click Run SEO analysis.</p>
+          <textarea id="paste-html" rows="8" placeholder="Paste full page HTML here…" style="width:100%;border:1px solid rgba(17,17,17,.1);border-radius:12px;padding:12px;margin-top:8px;resize:vertical"></textarea>
+        </details>
       </form>
       <div id="status" hidden></div>
     </section>
@@ -94,6 +99,16 @@
           </table>
         </div>
       </div>
+
+      <aside class="hire-band" id="hire-after-scan" aria-label="Hire an SEO expert">
+        <h2>Want to know more about your site and <span class="hl">increase its value</span>?</h2>
+        <p>This free scan is a starting point. Hire me as your SEO expert to dig deeper into rankings, content, technical issues, backlinks, and a clear plan to grow organic traffic and the value of your website.</p>
+        <div class="hire-actions">
+          <a class="btn" href="mailto:tolentinojohnlester3@gmail.com?subject=SEO%20expert%20inquiry%20-%20site%20analysis&body=Hi%20John%2C%0A%0AI%20ran%20your%20free%20SEO%20analyzer%20and%20want%20help%20improving%20my%20site.%0A%0AWebsite%3A%20">Hire me as SEO expert</a>
+          <a class="btn btn-line" href="../index.html#contact">View contact &amp; portfolio</a>
+        </div>
+        <p class="hire-meta">John Lester Tolentino (JLT) · Sta. Rosa, Laguna · <a href="mailto:tolentinojohnlester3@gmail.com">tolentinojohnlester3@gmail.com</a> · <a href="tel:09619684118">09619684118</a></p>
+      </aside>
     </section>
 
     <section class="panel" style="margin-top:8px">
@@ -115,6 +130,16 @@
         </div>
       </div>
     </section>
+
+    <aside class="hire-band" aria-label="Hire John Lester Tolentino">
+      <h2>Ready to grow your site with an SEO expert?</h2>
+      <p>If you want a full audit, content strategy, technical fixes, or ongoing SEO to increase the value of your website, you can hire me directly.</p>
+      <div class="hire-actions">
+        <a class="btn" href="mailto:tolentinojohnlester3@gmail.com?subject=Hire%20SEO%20expert%20-%20John%20Lester%20Tolentino">Email me to get started</a>
+        <a class="btn btn-line" href="https://www.linkedin.com/in/john-lester-tolentino-8b376726b/" target="_blank" rel="noopener">Message on LinkedIn</a>
+      </div>
+      <p class="hire-meta"><a href="mailto:tolentinojohnlester3@gmail.com">tolentinojohnlester3@gmail.com</a> · <a href="tel:09619684118">09619684118</a></p>
+    </aside>
 
     <div class="footer">
       <span>© 2026 John Lester Tolentino · Free SEO Analyzer</span>

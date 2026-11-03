@@ -32,19 +32,58 @@
       .replace(/"/g, "&quot;");
   }
 
+  function looksLikeHtml(text) {
+    if (!text || text.length < 40) return false;
+    var sample = text.slice(0, 2000).toLowerCase();
+    return sample.indexOf("<html") !== -1 ||
+      sample.indexOf("<!doctype html") !== -1 ||
+      sample.indexOf("<title") !== -1 ||
+      sample.indexOf("<head") !== -1 ||
+      sample.indexOf("<meta") !== -1 ||
+      sample.indexOf("<body") !== -1;
+  }
+
   async function fetchHtml(targetUrl) {
     var enc = encodeURIComponent(targetUrl);
-    var proxies = [
-      "https://api.allorigins.win/raw?url=" + enc,
-      "https://corsproxy.io/?" + enc
-    ];
     var lastError = null;
+
+    // 1) Jina Reader — works for many sites that block generic CORS proxies
+    try {
+      var jinaRes = await fetch("https://r.jina.ai/" + targetUrl, {
+        method: "GET",
+        headers: {
+          "Accept": "text/html",
+          "X-Return-Format": "html"
+        }
+      });
+      if (!jinaRes.ok) throw new Error("Jina HTTP " + jinaRes.status);
+      var jinaText = await jinaRes.text();
+      if (looksLikeHtml(jinaText)) return jinaText;
+      throw new Error("Jina returned non-HTML");
+    } catch (err) {
+      lastError = err;
+    }
+
+    // 2) Fallback proxies
+    var proxies = [
+      { url: "https://api.allorigins.win/get?url=" + enc, json: true },
+      { url: "https://api.allorigins.win/raw?url=" + enc, json: false },
+      { url: "https://corsproxy.io/?" + enc, json: false },
+      { url: "https://api.codetabs.com/v1/proxy?quest=" + enc, json: false }
+    ];
+
     for (var i = 0; i < proxies.length; i++) {
       try {
-        var res = await fetch(proxies[i], { method: "GET" });
+        var res = await fetch(proxies[i].url, { method: "GET" });
         if (!res.ok) throw new Error("HTTP " + res.status);
-        var text = await res.text();
-        if (!text || text.length < 40) throw new Error("Empty response");
+        var text = "";
+        if (proxies[i].json) {
+          var data = await res.json();
+          text = data && (data.contents || data.content || "") || "";
+        } else {
+          text = await res.text();
+        }
+        if (!looksLikeHtml(text)) throw new Error("Empty or non-HTML response");
         return text;
       } catch (err) {
         lastError = err;
@@ -229,6 +268,23 @@
         }).join("")
       : "<tr><td colspan='3'>None flagged.</td></tr>";
 
+    var hireLink = document.querySelector("#hire-after-scan a.btn");
+    if (hireLink) {
+      hireLink.href =
+        "mailto:tolentinojohnlester3@gmail.com?subject=" +
+        encodeURIComponent("SEO expert inquiry - " + data.pageUrl) +
+        "&body=" +
+        encodeURIComponent(
+          "Hi John,\n\nI ran your free SEO analyzer and want help improving my site and increasing its value.\n\nWebsite: " +
+            data.pageUrl +
+            "\nAnalyzer grade: " +
+            data.grade +
+            " (" +
+            data.gradePct +
+            "%)\n\nPlease tell me about your SEO services.\n"
+        );
+    }
+
     results.scrollIntoView({ behavior: "smooth", block: "start" });
   }
 
@@ -250,32 +306,68 @@
     }).filter(Boolean).slice(0, 200);
   }
 
+  function runAnalysis(html, target, sourceLabel) {
+    var report = analyze(html, target);
+    hideStatus();
+    showStatus("loading", "Analyzed via " + sourceLabel + ". Scroll down for the full report.");
+    setTimeout(hideStatus, 2200);
+    renderReport(report);
+  }
+
   form.addEventListener("submit", async function (event) {
     event.preventDefault();
     var target = normalizeUrl(urlInput.value);
-    if (!target) {
-      showStatus("error", "Enter a website URL first.");
+    var pasted = (document.querySelector("#paste-html") || {}).value || "";
+    pasted = pasted.trim();
+
+    if (!target && !pasted) {
+      showStatus("error", "Enter a website URL, or paste page HTML below.");
       return;
     }
-    try {
-      new URL(target);
-    } catch (e) {
-      showStatus("error", "That URL looks invalid.");
-      return;
+    if (target) {
+      try {
+        new URL(target);
+      } catch (e) {
+        showStatus("error", "That URL looks invalid.");
+        return;
+      }
+    } else {
+      target = "https://pasted-html.local/";
     }
 
     results.hidden = true;
     var btn = form.querySelector("button[type='submit']");
     btn.disabled = true;
+
+    // Prefer pasted HTML when provided (bypasses site blocks)
+    if (pasted && looksLikeHtml(pasted)) {
+      try {
+        showStatus("loading", "Analyzing pasted HTML …");
+        runAnalysis(pasted, target, "pasted HTML");
+      } catch (err) {
+        showStatus("error", "Could not parse the pasted HTML.");
+      } finally {
+        btn.disabled = false;
+      }
+      return;
+    }
+
     showStatus("loading", "Fetching and analyzing " + target + " …");
 
     try {
       var html = await fetchHtml(target);
-      var report = analyze(html, target);
-      hideStatus();
-      renderReport(report);
+      runAnalysis(html, target, "live fetch");
     } catch (err) {
-      showStatus("error", "Could not analyze that URL (blocked by CORS or site protection). Try another public page, or upload a backlink CSV below for inbound link review.");
+      var pasteBox = document.querySelector("#paste-html");
+      if (pasteBox) {
+        pasteBox.focus();
+        var details = document.querySelector("#paste-details");
+        if (details) details.open = true;
+      }
+      showStatus(
+        "error",
+        "Live fetch failed for that site. Open the page → right-click → View Page Source → copy all → paste in “Paste HTML” below, then click Run again."
+      );
     } finally {
       btn.disabled = false;
     }
